@@ -4,6 +4,8 @@ Fetch disbursement transactions within a chosen date range.
 
 <figure><img src="/files/dqX8B1NaDQYnjaFW4idm" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Pakistan
+
 ---
 
 ## Endpoint

@@ -4,6 +4,15 @@ Initiate a disbursement request to an individual beneficiary through the Simpais
 
 <figure><img src="/files/9U2unEq2qIKmjd7PFqpT" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Both
+>
+> **Region endpoint summary**
+>
+> | Region | Method | Path |
+> |--------|--------|------|
+> | Pakistan | `POST` | `/merchants/{merchantId}/disbursements/initiate` |
+> | Bangladesh | `POST` | `/remittance/{merchantId}/initiateDisbursement` |
+
 ---
 
 ## Pakistan

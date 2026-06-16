@@ -2,6 +2,8 @@
 
 The FX Rate API allows merchants to retrieve the foreign exchange (FX) rate between two currencies for remittance purposes. The rate is used to convert the remittance amount from one currency to another, ensuring the correct value is transferred.
 
+> **Applies to:** Both
+
 ---
 
 ## Endpoint

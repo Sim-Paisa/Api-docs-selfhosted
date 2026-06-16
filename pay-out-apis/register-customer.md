@@ -4,6 +4,8 @@ Register customer/beneficiary details on Simpaisa. Once a customer is registered
 
 <figure><img src="/files/HHk7tlx8te0ZPUXPcuMZ" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Pakistan
+
 ---
 
 ## Endpoint

@@ -2,6 +2,8 @@
 
 Once you initiate a disbursement request, it moves through the following states depending on the scenario before it is either rejected or disbursed.
 
+> **Applies to:** Both
+
 ---
 
 ## Pakistan

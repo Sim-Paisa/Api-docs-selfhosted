@@ -22,6 +22,8 @@ To begin the integration, refer to the following sections in this documentation:
 
 If you have any questions or require assistance during integration, our support team is ready to help.
 
+> **Applies to:** Both
+
 ---
 
 ## Pakistan

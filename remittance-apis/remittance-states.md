@@ -2,6 +2,8 @@
 
 Once you initiate a remittance, it moves through the following states depending on the scenario before it is either rejected or disbursed.
 
+> **Applies to:** Both
+
 | State | Enum | Postback | Description |
 |-------|------|----------|-------------|
 | In Process | `in_process` | No | The remittance request has been successfully received |

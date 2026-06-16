@@ -4,6 +4,8 @@ Update the details of a registered customer on Simpaisa. The core fields — `re
 
 <figure><img src="/files/3JDfEjcliDrKUXpXWdRP" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Pakistan
+
 ---
 
 ## Endpoint

@@ -6,6 +6,8 @@ Monitor the status and details of a disbursement transaction after it has been i
 
 > **Applies to:** Bangladesh
 
+> This Bangladesh payout flow uses the `/remittance/...` endpoint path in the original source material.
+
 ---
 
 ## Endpoint

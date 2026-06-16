@@ -4,6 +4,8 @@ Re-initiate a disbursement request against an individual through the Simpaisa pl
 
 <figure><img src="/files/0DtalhnURvSaU9B4WbnW" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Pakistan
+
 ---
 
 ## Endpoint

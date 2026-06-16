@@ -4,6 +4,8 @@ Fetch real-time balance information. Checking your balance before making a disbu
 
 <figure><img src="/files/q6UKvHYhaFpg5IfgiZ0e" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Pakistan
+
 ---
 
 ## Endpoint

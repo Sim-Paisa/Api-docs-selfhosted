@@ -4,6 +4,8 @@ Check your available balance, total balance, and any amount on hold before initi
 
 <figure><img src="/files/54d8W8t4AZY9ug1DfP6Z" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Both
+
 ---
 
 ## Endpoint

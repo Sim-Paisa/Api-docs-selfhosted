@@ -4,6 +4,8 @@ Fetch the list of available banks and mobile wallets on which a disbursement can
 
 <figure><img src="/files/PrDXVaI5Y77n7UCkWd8E" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Pakistan
+
 ---
 
 ## Endpoint

@@ -4,6 +4,8 @@ Update a disbursement request against an individual through the Simpaisa platfor
 
 <figure><img src="/files/2dDfubb7gUQTDb3WLIi3" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Pakistan
+
 ---
 
 ## Endpoint

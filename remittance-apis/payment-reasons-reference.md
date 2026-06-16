@@ -2,6 +2,8 @@
 
 When initiating a remittance, map the purpose of the transaction to one of the following reason codes.
 
+> **Applies to:** Both
+
 | Code | Category |
 |------|----------|
 | 1001 | Computer service |

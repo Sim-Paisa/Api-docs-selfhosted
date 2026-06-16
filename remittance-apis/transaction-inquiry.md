@@ -4,6 +4,8 @@ Monitor the status and details of a remittance transaction after it has been ini
 
 <figure><img src="/files/mLFRckTIgiDsbhDeAZAi" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Both
+
 ---
 
 ## Endpoint

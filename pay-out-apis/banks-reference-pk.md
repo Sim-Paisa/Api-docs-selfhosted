@@ -2,6 +2,8 @@
 
 The `code` column is the value to pass in the `destinationBank` parameter when registering a customer or using the [Fetch Account Title](./fetch-account-title.md) API.
 
+> **Applies to:** Pakistan
+
 ---
 
 ## Banks

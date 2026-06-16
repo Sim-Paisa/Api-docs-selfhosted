@@ -4,6 +4,8 @@ Fetch the details of a disbursement transaction. You can look it up either by th
 
 <figure><img src="/files/b7Fegv6hDhrnFGbANxDP" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Pakistan
+
 ---
 
 ## Endpoint

@@ -4,6 +4,8 @@ The bank code (and optionally a routing number) serves as an identifier to retri
 
 <figure><img src="/files/3HFfOLbOh6AZuPRHB52E" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Bangladesh
+
 ---
 
 ## Endpoint

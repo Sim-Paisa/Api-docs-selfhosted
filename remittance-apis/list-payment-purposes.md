@@ -7,6 +7,8 @@ Retrieve the list of predefined payment purposes (reasons) that must be provided
 
 <figure><img src="/files/RMCpW4S07WFUhc22QVdh" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Both
+
 ---
 
 ## Endpoint

@@ -4,6 +4,8 @@ Fetch the details of a registered customer by their customer reference.
 
 <figure><img src="/files/73pbcFJnn5FIhZM8ucPC" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Pakistan
+
 ---
 
 ## Endpoint

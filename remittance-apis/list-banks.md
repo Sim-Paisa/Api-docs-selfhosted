@@ -2,6 +2,15 @@
 
 Retrieve the list of banks and wallets available for initiating remittance requests. Use this to confirm that the beneficiary's bank is supported and to obtain the identifiers required by later calls.
 
+> **Applies to:** Both
+>
+> **Region endpoint summary**
+>
+> | Region | Method | Path |
+> |--------|--------|------|
+> | Pakistan | `GET` | `/remittance/{merchantId}/banks/listByAccountType` |
+> | Bangladesh | `GET` | `/remittance/{merchantId}/banks/list` |
+
 ---
 
 ## Pakistan

@@ -4,6 +4,8 @@ Fetch the list of transfer reason codes to pass when making an [Initiate Disburs
 
 <figure><img src="/files/rnxUvLJ8w8zNL19Y0cXA" alt=""><figcaption></figcaption></figure>
 
+> **Applies to:** Pakistan
+
 ---
 
 ## Endpoint
