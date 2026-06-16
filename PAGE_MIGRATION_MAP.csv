@@ -1,0 +1,140 @@
+old_path,new_path,action,notes
+simpaisa-api-hub,getting-started/overview,rewrite,Link to APIs not countries
+reference/pakistan,DELETE_STUB,redirect,Replace with regional config tables under each API
+reference/pakistan/pay-ins,3-pay-in-apis/pakistan/wallets/overview,merge,Strip duplicate intro; link to platform reference
+reference/pakistan/pay-ins/mobile-wallets,3-pay-in-apis/pakistan/wallets/overview,merge,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow,DELETE,remove_nav,Flow-based parent retired
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-one-time-payment,DELETE,remove_nav,Content moves to Initiate/Verify use cases
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-one-time-payment/initiating-a-payment-on-easypaisa-and-jazzcash,3-pay-in-apis/pakistan/wallets/initiate/use-case-easypaisa-jazzcash-otp,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-one-time-payment/verifying-payment-on-easypaisa-and-jazzcash,3-pay-in-apis/pakistan/wallets/verify/use-case-easypaisa-jazzcash-otp,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-one-time-payment/initiating-a-payment-on-hbl-konnect,3-pay-in-apis/pakistan/wallets/initiate/use-case-hbl-konnect-otp,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-one-time-payment/verifying-payment-on-hbl-konnect,3-pay-in-apis/pakistan/wallets/verify/use-case-hbl-konnect-otp,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-one-time-payment/initiating-payment-on-alfa,3-pay-in-apis/pakistan/wallets/initiate/use-case-alfa-otp,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-one-time-payment/verifying-payment-on-alfa,3-pay-in-apis/pakistan/wallets/verify/use-case-alfa-otp,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/async-flow,DELETE,remove_nav,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/async-flow/easypaisa-and-jazzcash-initiate,3-pay-in-apis/pakistan/wallets/initiate/use-case-easypaisa-jazzcash-async,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/async-flow/easypaisa-jazzcash-veirfy,3-pay-in-apis/pakistan/wallets/verify/use-case-easypaisa-jazzcash-async,move,Fix typo Veirfy→Verify in title
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/async-flow/payment-status-inquiry,3-pay-in-apis/pakistan/wallets/inquire/use-case-async-status,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/async-flow/alfa-initiate,3-pay-in-apis/pakistan/wallets/initiate/use-case-alfa-async,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/async-flow/alfa-verify,3-pay-in-apis/pakistan/wallets/verify/use-case-alfa-async,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/async-flow/hbl-konnect-initiate,3-pay-in-apis/pakistan/wallets/initiate/use-case-hbl-konnect-async,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/async-flow/hbl-konnect-verify,3-pay-in-apis/pakistan/wallets/verify/use-case-hbl-konnect-async,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/async-flow/simpaisa-payment-status-inquiry,3-pay-in-apis/pakistan/wallets/inquire,merge,Merge into main Inquire API page
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-tokenisation,3-pay-in-apis/pakistan/wallets/tokenization/overview,rename,Tokenization use-case family
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-tokenisation/initiating-tokenization-payment-on-easypaisa,3-pay-in-apis/pakistan/wallets/tokenization/initiate/use-case-easypaisa,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-tokenisation/verifying-tokenization-payment-on-easypaisa,3-pay-in-apis/pakistan/wallets/tokenization/verify/use-case-easypaisa,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-tokenisation/initiating-tokenisation-payment-on-jazzcash,3-pay-in-apis/pakistan/wallets/tokenization/initiate/use-case-jazzcash,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-tokenisation/finalizing-or-verifying-tokenization-payment-on-jazzcash,3-pay-in-apis/pakistan/wallets/tokenization/finalize/use-case-jazzcash,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-tokenisation/direct-charge-api-for-easypaisa-and-jazzcash,3-pay-in-apis/pakistan/wallets/tokenization/direct-charge,move,
+reference/pakistan/pay-ins/mobile-wallets/otp-flow/wallet-apis-tokenisation/delink-account-api-for-easypaisa-and-jazzcash,3-pay-in-apis/pakistan/wallets/tokenization/delink,move,
+reference/pakistan/pay-ins/mobile-wallets/refund,3-pay-in-apis/pakistan/wallets/refund/overview,move,
+reference/pakistan/pay-ins/mobile-wallets/refund/simpaisa-refund-api-for-wallets,3-pay-in-apis/pakistan/wallets/refund,merge,
+reference/pakistan/pay-ins/mobile-wallets/refund/partial-refund,3-pay-in-apis/pakistan/wallets/refund/use-case-partial,move,
+reference/pakistan/pay-ins/mobile-wallets/non-otp-flow,DELETE,remove_nav,
+reference/pakistan/pay-ins/mobile-wallets/non-otp-flow/verify-api,3-pay-in-apis/pakistan/wallets/verify/use-case-non-otp,move,
+reference/pakistan/pay-ins/mobile-wallets/non-otp-flow/inquiry-api,3-pay-in-apis/pakistan/wallets/inquire/use-case-non-otp,move,
+reference/pakistan/pay-ins/mobile-wallets/non-otp-flow/webhooks,platform-reference/webhooks,merge,Deduplicate
+reference/pakistan/pay-ins/mobile-wallets/non-otp-flow/error-handling,platform-reference/error-handling,merge,Deduplicate
+reference/pakistan/pay-ins/idempotency,platform-reference/idempotency,move,
+reference/pakistan/pay-ins/1-bill-service,3-pay-in-apis/pakistan/ibft/overview,rename,
+reference/pakistan/pay-ins/1-bill-service/initiating-pull-request-on-bank-account,3-pay-in-apis/pakistan/ibft/initiate,move,
+reference/pakistan/pay-ins/1-bill-service/verifying-pull-request-on-bank-account,3-pay-in-apis/pakistan/ibft/verify,move,
+reference/pakistan/pay-ins/1-bill-service/e-billing-or-payment-via-voucher,3-pay-in-apis/pakistan/e-billing/initiate,move,
+reference/pakistan/pay-ins/1-bill-service/inquire-the-e-bill-payment,3-pay-in-apis/pakistan/e-billing/inquire,move,
+reference/pakistan/pay-ins/hosted-page,3-pay-in-apis/pakistan/hosted-page/overview,move,
+reference/pakistan/pay-ins/hosted-page/inquiring-the-payment-status,3-pay-in-apis/pakistan/hosted-page/inquire,move,
+reference/pakistan/pay-ins/hosted-page/e-invoice-or-link-to-pay,3-pay-in-apis/pakistan/hosted-page/e-invoice,move,
+reference/pakistan/pay-ins/creating-webhook-s,platform-reference/webhooks,merge,
+reference/pakistan/pay-ins/status-codes-mapping,platform-reference/status-codes/pay-in-pk-wallet,move,
+reference/pakistan/pay-ins/cards,3-pay-in-apis/pakistan/cards/overview,move,
+reference/pakistan/pay-ins/cards/payments,3-pay-in-apis/pakistan/cards/payment,rename,
+reference/pakistan/pay-ins/cards/capture-api,3-pay-in-apis/pakistan/cards/capture,rename,
+reference/pakistan/pay-ins/cards/void-api,3-pay-in-apis/pakistan/cards/void,rename,
+reference/pakistan/pay-ins/cards/inquiry-api,3-pay-in-apis/pakistan/cards/inquiry,rename,
+reference/pakistan/pay-ins/cards/finalize-api,3-pay-in-apis/pakistan/cards/finalize,rename,
+reference/pakistan/pay-ins/cards/refunds,3-pay-in-apis/pakistan/cards/refunds,move,
+reference/pakistan/pay-ins/cards/postbacks,3-pay-in-apis/pakistan/cards/postbacks,move,
+reference/pakistan/pay-ins/cards/response-codes,platform-reference/status-codes/cards,move,
+reference/pakistan/pay-outs,4-pay-out-apis/overview,rewrite,API-first intro
+reference/pakistan/pay-outs/encryption-and-authentication,platform-reference/authentication/payout-remittance,merge,
+reference/pakistan/pay-outs/states-of-disbursment,4-pay-out-apis/disbursement-states,move,
+reference/pakistan/pay-outs/registering-the-beneficiary-or-customer,4-pay-out-apis/register-customer,rename,
+reference/pakistan/pay-outs/updating-the-customer-details,4-pay-out-apis/update-customer,rename,
+reference/pakistan/pay-outs/fetching-the-customer-details,4-pay-out-apis/get-customer,rename,
+reference/pakistan/pay-outs/fetching-bank-list,4-pay-out-apis/list-banks,rename,Add PK tab
+reference/pakistan/pay-outs/initiating-the-disbursement-request,4-pay-out-apis/initiate-disbursement,rename,Add PK tab
+reference/pakistan/pay-outs/re-initiating-the-disbursement-request,4-pay-out-apis/re-initiate-disbursement,rename,
+reference/pakistan/pay-outs/updating-the-disbursement-request,4-pay-out-apis/update-disbursement,rename,
+reference/pakistan/pay-outs/fetching-the-balance-data,4-pay-out-apis/balance-inquiry,rename,
+reference/pakistan/pay-outs/fetching-the-customer-account-title,4-pay-out-apis/fetch-account-title,rename,
+reference/pakistan/pay-outs/fetching-payment-or-transfer-reasons-code,4-pay-out-apis/list-transfer-reasons,rename,
+reference/pakistan/pay-outs/getting-the-list-of-available-disbursements,4-pay-out-apis/list-disbursements,rename,
+reference/pakistan/pay-outs/getting-the-disbursement-details-through-reference,4-pay-out-apis/get-disbursement,merge,Combine with UUID variant
+reference/pakistan/pay-outs/getting-disbursement-details-via-uuid,4-pay-out-apis/get-disbursement,merge,
+reference/pakistan/pay-outs/creating-webhook-s,platform-reference/webhooks,merge,
+reference/pakistan/pay-outs/status-codes-mapping,platform-reference/status-codes/pay-out,move,
+reference/pakistan/pay-outs/list-of-banks-and-mobile-wallets,4-pay-out-apis/banks-reference-pk,move,
+reference/pakistan/pay-outs/sample-code-s-for-generating-a-signature,platform-reference/signature-samples,merge,
+reference/pakistan/remittances,5-remittance-apis/overview,rewrite,
+reference/pakistan/remittances/remittance-steps-or-flow,5-remittance-apis/overview,merge,
+reference/pakistan/remittances/list-of-payment-reasons,5-remittance-apis/payment-reasons-reference,move,
+reference/pakistan/remittances/encryption-and-authentication,platform-reference/authentication/payout-remittance,merge,
+reference/pakistan/remittances/remittance-states,5-remittance-apis/remittance-states,move,
+reference/pakistan/remittances/fetching-the-banks-list-pakistan,5-remittance-apis/list-banks,merge,PK tab
+reference/pakistan/remittances/fetching-the-bank-list-by-code,5-remittance-apis/list-banks-by-code,merge,PK tab
+reference/pakistan/remittances/fx-rate-api,5-remittance-apis/get-fx-rate,merge,PK tab
+reference/pakistan/remittances/fetching-the-list-of-payment-purposes-or-reasons,5-remittance-apis/list-payment-purposes,merge,PK tab
+reference/pakistan/remittances/beneficiarys-account-title-verification-api-pakistan,5-remittance-apis/verify-account-title,merge,PK only
+reference/pakistan/remittances/direct-remit-call-single-api-flow,5-remittance-apis/remit-initiate/use-case-single-flow,move,PK tab
+reference/pakistan/remittances/register-remit-double-api-flow,5-remittance-apis/register-remit,merge,PK tab
+reference/pakistan/remittances/remit-initiate-double-api-flow,5-remittance-apis/remit-initiate/use-case-double-flow,move,PK tab
+reference/pakistan/remittances/transaction-inquiry-api,5-remittance-apis/transaction-inquiry,merge,PK tab
+reference/pakistan/remittances/merchant-balance-inquiry-api,5-remittance-apis/merchant-balance-inquiry,merge,PK tab
+reference/pakistan/remittances/creating-webhook-s,platform-reference/webhooks,merge,
+reference/pakistan/remittances/status-codes-mapping,platform-reference/status-codes/remittance,move,
+reference/pakistan/remittances/sample-code-s-for-generating-a-signature,platform-reference/signature-samples,merge,
+reference/bangladesh,DELETE_STUB,redirect,
+reference/bangladesh/pay-ins,3-pay-in-apis/unified-pay-in/overview,merge,
+reference/bangladesh/pay-ins/get-started,3-pay-in-apis/unified-pay-in/overview,merge,
+reference/bangladesh/pay-ins/initiating-a-payment,3-pay-in-apis/unified-pay-in/initiate/use-case-bkash-nagad,merge,Split into bKash/Nagad use case tabs
+reference/bangladesh/pay-ins/finalize-the-payment-status,3-pay-in-apis/unified-pay-in/inquire,merge,
+reference/bangladesh/pay-ins/status-codes-mapping,platform-reference/status-codes/pay-in-unified,merge,
+reference/bangladesh/pay-outs,4-pay-out-apis/overview,merge,BD-specific notes only
+reference/bangladesh/pay-outs/encryption-and-authentication,platform-reference/authentication/payout-remittance,merge,
+reference/bangladesh/pay-outs/initiate-disbursement,4-pay-out-apis/initiate-disbursement,merge,BD tab
+reference/bangladesh/pay-outs/transaction-inquiry-api,4-pay-out-apis/inquire-disbursement,merge,BD tab
+reference/bangladesh/pay-outs/creating-webhook-s,platform-reference/webhooks,merge,
+reference/bangladesh/pay-outs/disbursement-states,4-pay-out-apis/disbursement-states,merge,
+reference/bangladesh/pay-outs/status-codes-mapping,platform-reference/status-codes/pay-out,merge,
+reference/bangladesh/remittances,5-remittance-apis/overview,merge,
+reference/bangladesh/remittances/remittance-steps-or-flow,5-remittance-apis/overview,merge,
+reference/bangladesh/remittances/list-of-payment-reasons,5-remittance-apis/payment-reasons-reference,merge,
+reference/bangladesh/remittances/encryption-and-authentication,platform-reference/authentication/payout-remittance,merge,
+reference/bangladesh/remittances/remittance-states,5-remittance-apis/remittance-states,merge,
+reference/bangladesh/remittances/fetching-the-banks-list-bangladesh,5-remittance-apis/list-banks,merge,BD tab
+reference/bangladesh/remittances/fetching-the-bank-list-by-code,5-remittance-apis/list-banks-by-code,merge,BD tab
+reference/bangladesh/remittances/fx-rate-api,5-remittance-apis/get-fx-rate,merge,BD tab
+reference/bangladesh/remittances/fetching-the-list-of-payment-purposes-or-reasons,5-remittance-apis/list-payment-purposes,merge,BD tab
+reference/bangladesh/remittances/direct-remit-call-single-api-flow,5-remittance-apis/remit-initiate/use-case-single-flow,merge,BD tab
+reference/bangladesh/remittances/register-remit-double-api-flow,5-remittance-apis/register-remit,merge,BD tab
+reference/bangladesh/remittances/remit-initiate-double-api-flow,5-remittance-apis/remit-initiate/use-case-double-flow,merge,BD tab
+reference/bangladesh/remittances/transaction-inquiry-api,5-remittance-apis/transaction-inquiry,merge,BD tab
+reference/bangladesh/remittances/merchant-balance-inquiry-api,5-remittance-apis/merchant-balance-inquiry,merge,BD tab
+reference/bangladesh/remittances/creating-webhook-s,platform-reference/webhooks,merge,
+reference/bangladesh/remittances/status-codes-mapping,platform-reference/status-codes/remittance,merge,
+reference/bangladesh/remittances/sample-code-s-for-generating-a-signature,platform-reference/signature-samples,merge,
+reference/nepal,DELETE_STUB,redirect,
+reference/nepal/pay-ins,3-pay-in-apis/unified-pay-in/overview,merge,
+reference/nepal/pay-ins/initiating-a-payment,3-pay-in-apis/unified-pay-in/initiate/use-case-khalti,merge,
+reference/nepal/pay-ins/finalize-the-payment-status,3-pay-in-apis/unified-pay-in/inquire,merge,
+reference/nepal/pay-ins/status-codes-mapping,platform-reference/status-codes/pay-in-unified,merge,
+reference/egypt,DELETE_STUB,redirect,
+reference/egypt/pay-ins,3-pay-in-apis/unified-pay-in/overview,merge,
+reference/egypt/pay-ins/initiating-a-payment,3-pay-in-apis/unified-pay-in/initiate/use-case-paymob,merge,
+reference/egypt/pay-ins/finalize-the-payment-status,3-pay-in-apis/unified-pay-in/inquire,merge,
+reference/egypt/pay-ins/status-codes-mapping,platform-reference/status-codes/pay-in-unified,merge,
+reference/iraq,DELETE_STUB,redirect,
+reference/iraq/pay-ins,3-pay-in-apis/unified-pay-in/overview,merge,
+reference/iraq/pay-ins/initiating-a-payment,3-pay-in-apis/unified-pay-in/initiate/use-case-wayl,merge,
+reference/iraq/pay-ins/finalize-the-payment-status,3-pay-in-apis/unified-pay-in/inquire,merge,
+reference/iraq/pay-ins/status-codes-mapping,platform-reference/status-codes/pay-in-unified,merge,

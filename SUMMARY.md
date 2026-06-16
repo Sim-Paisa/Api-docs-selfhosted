@@ -1,0 +1,133 @@
+# Table of contents
+
+## Getting Started
+
+* [overview](getting-started/overview.md)
+* [environments](getting-started/environments.md)
+* [regional-coverage](getting-started/regional-coverage.md)
+* [integration-checklist](getting-started/integration-checklist.md)
+
+## Platform Reference
+
+* [api-token](platform-reference/authentication/api-token.md)
+* [rsa-mutual-ssl](platform-reference/authentication/rsa-mutual-ssl.md)
+* [card-encryption](platform-reference/authentication/card-encryption.md)
+* [webhooks](platform-reference/webhooks.md)
+* [idempotency](platform-reference/idempotency.md)
+* [error-handling](platform-reference/error-handling.md)
+* [signature-samples](platform-reference/signature-samples.md)
+* [pay-in-unified status codes](platform-reference/status-codes/pay-in-unified.md)
+* [pay-in-pk-wallet status codes](platform-reference/status-codes/pay-in-pk-wallet.md)
+* [cards status codes](platform-reference/status-codes/cards.md)
+* [pay-out status codes](platform-reference/status-codes/pay-out.md)
+* [remittance status codes](platform-reference/status-codes/remittance.md)
+
+## Pay-In APIs — Unified (BD · NP · EG · IQ)
+
+* [overview](pay-in-apis/unified-pay-in/overview.md)
+* [initiate](pay-in-apis/unified-pay-in/initiate.md)
+* [inquire](pay-in-apis/unified-pay-in/inquire.md)
+* [bkash](pay-in-apis/unified-pay-in/use-cases/bkash.md)
+* [nagad](pay-in-apis/unified-pay-in/use-cases/nagad.md)
+* [khalti](pay-in-apis/unified-pay-in/use-cases/khalti.md)
+* [paymob](pay-in-apis/unified-pay-in/use-cases/paymob.md)
+* [wayl](pay-in-apis/unified-pay-in/use-cases/wayl.md)
+
+## Pay-In APIs — Pakistan
+
+* [overview](pay-in-apis/pakistan/overview.md)
+
+### Wallets
+
+* [overview](pay-in-apis/pakistan/wallets/overview.md)
+* [initiate](pay-in-apis/pakistan/wallets/initiate.md)
+* [initiate easypaisa jazzcash otp](pay-in-apis/pakistan/wallets/initiate/use-case-easypaisa-jazzcash-otp.md)
+* [initiate hbl konnect otp](pay-in-apis/pakistan/wallets/initiate/use-case-hbl-konnect-otp.md)
+* [initiate alfa otp](pay-in-apis/pakistan/wallets/initiate/use-case-alfa-otp.md)
+* [initiate easypaisa jazzcash async](pay-in-apis/pakistan/wallets/initiate/use-case-easypaisa-jazzcash-async.md)
+* [initiate alfa async](pay-in-apis/pakistan/wallets/initiate/use-case-alfa-async.md)
+* [initiate hbl konnect async](pay-in-apis/pakistan/wallets/initiate/use-case-hbl-konnect-async.md)
+* [verify](pay-in-apis/pakistan/wallets/verify.md)
+* [verify easypaisa jazzcash otp](pay-in-apis/pakistan/wallets/verify/use-case-easypaisa-jazzcash-otp.md)
+* [verify hbl konnect otp](pay-in-apis/pakistan/wallets/verify/use-case-hbl-konnect-otp.md)
+* [verify alfa otp](pay-in-apis/pakistan/wallets/verify/use-case-alfa-otp.md)
+* [verify easypaisa jazzcash async](pay-in-apis/pakistan/wallets/verify/use-case-easypaisa-jazzcash-async.md)
+* [verify alfa async](pay-in-apis/pakistan/wallets/verify/use-case-alfa-async.md)
+* [verify hbl konnect async](pay-in-apis/pakistan/wallets/verify/use-case-hbl-konnect-async.md)
+* [verify non-otp](pay-in-apis/pakistan/wallets/verify/use-case-non-otp.md)
+* [inquire](pay-in-apis/pakistan/wallets/inquire.md)
+* [tokenization overview](pay-in-apis/pakistan/wallets/tokenization/overview.md)
+* [tokenization initiate](pay-in-apis/pakistan/wallets/tokenization/initiate.md)
+* [tokenization initiate easypaisa](pay-in-apis/pakistan/wallets/tokenization/initiate/use-case-easypaisa.md)
+* [tokenization initiate jazzcash](pay-in-apis/pakistan/wallets/tokenization/initiate/use-case-jazzcash.md)
+* [tokenization verify](pay-in-apis/pakistan/wallets/tokenization/verify.md)
+* [tokenization verify easypaisa](pay-in-apis/pakistan/wallets/tokenization/verify/use-case-easypaisa.md)
+* [tokenization finalize](pay-in-apis/pakistan/wallets/tokenization/finalize.md)
+* [tokenization finalize jazzcash](pay-in-apis/pakistan/wallets/tokenization/finalize/use-case-jazzcash.md)
+* [direct charge](pay-in-apis/pakistan/wallets/tokenization/direct-charge.md)
+* [delink](pay-in-apis/pakistan/wallets/tokenization/delink.md)
+* [refund](pay-in-apis/pakistan/wallets/refund.md)
+* [partial refund](pay-in-apis/pakistan/wallets/refund/use-case-partial.md)
+
+### IBFT
+
+* [overview](pay-in-apis/pakistan/ibft/overview.md)
+* [initiate](pay-in-apis/pakistan/ibft/initiate.md)
+* [verify](pay-in-apis/pakistan/ibft/verify.md)
+
+### E-Billing
+
+* [initiate](pay-in-apis/pakistan/e-billing/initiate.md)
+* [inquire](pay-in-apis/pakistan/e-billing/inquire.md)
+
+### Hosted Page
+
+* [overview](pay-in-apis/pakistan/hosted-page/overview.md)
+* [inquire](pay-in-apis/pakistan/hosted-page/inquire.md)
+* [e-invoice](pay-in-apis/pakistan/hosted-page/e-invoice.md)
+
+### Cards
+
+* [overview](pay-in-apis/pakistan/cards/overview.md)
+* [payment](pay-in-apis/pakistan/cards/payment.md)
+* [capture](pay-in-apis/pakistan/cards/capture.md)
+* [void](pay-in-apis/pakistan/cards/void.md)
+* [inquiry](pay-in-apis/pakistan/cards/inquiry.md)
+* [finalize](pay-in-apis/pakistan/cards/finalize.md)
+* [refunds](pay-in-apis/pakistan/cards/refunds.md)
+* [postbacks](pay-in-apis/pakistan/cards/postbacks.md)
+
+## Pay-Out APIs
+
+* [overview](pay-out-apis/overview.md)
+* [disbursement-states](pay-out-apis/disbursement-states.md)
+* [register-customer](pay-out-apis/register-customer.md)
+* [update-customer](pay-out-apis/update-customer.md)
+* [get-customer](pay-out-apis/get-customer.md)
+* [list-banks](pay-out-apis/list-banks.md)
+* [initiate-disbursement](pay-out-apis/initiate-disbursement.md)
+* [re-initiate-disbursement](pay-out-apis/re-initiate-disbursement.md)
+* [update-disbursement](pay-out-apis/update-disbursement.md)
+* [balance-inquiry](pay-out-apis/balance-inquiry.md)
+* [fetch-account-title](pay-out-apis/fetch-account-title.md)
+* [list-transfer-reasons](pay-out-apis/list-transfer-reasons.md)
+* [list-disbursements](pay-out-apis/list-disbursements.md)
+* [get-disbursement](pay-out-apis/get-disbursement.md)
+* [inquire-disbursement](pay-out-apis/inquire-disbursement.md)
+* [banks-reference-pk](pay-out-apis/banks-reference-pk.md)
+
+## Remittance APIs
+
+* [overview](remittance-apis/overview.md)
+* [remittance-states](remittance-apis/remittance-states.md)
+* [payment-reasons-reference](remittance-apis/payment-reasons-reference.md)
+* [list-banks](remittance-apis/list-banks.md)
+* [list-banks-by-code](remittance-apis/list-banks-by-code.md)
+* [get-fx-rate](remittance-apis/get-fx-rate.md)
+* [list-payment-purposes](remittance-apis/list-payment-purposes.md)
+* [verify-account-title](remittance-apis/verify-account-title.md)
+* [remit-initiate-single](remittance-apis/remit-initiate-single.md)
+* [register-remit](remittance-apis/register-remit.md)
+* [remit-initiate-double](remittance-apis/remit-initiate-double.md)
+* [transaction-inquiry](remittance-apis/transaction-inquiry.md)
+* [merchant-balance-inquiry](remittance-apis/merchant-balance-inquiry.md)
