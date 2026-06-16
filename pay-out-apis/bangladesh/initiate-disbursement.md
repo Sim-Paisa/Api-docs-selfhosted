@@ -1,5 +1,32 @@
 # Initiate Disbursement (Bangladesh)
 
-Bangladesh initiate disbursement is documented in the shared initiate disbursement page.
+Create a payout request for a Bangladesh beneficiary account or wallet.
 
-- Canonical doc: [Initiate Disbursement (Bangladesh section)](../initiate-disbursement.md#bangladesh)
+> **Applies to:** Bangladesh
+
+## Endpoint
+
+| | |
+|---|---|
+| **Method** | `POST` |
+| **Path** | `/remittance/{merchantId}/initiateDisbursement` |
+| **Sandbox** | `https://sandbox.simpaisa.com` |
+
+## Required request fields
+
+- `customerName`
+- `customerContact`
+- `customerAccount`
+- `destinationBank`
+- `reference`
+- `amount`
+- `reason`
+
+## Response highlights
+
+- `status`, `message`
+- `reference`
+- `customerReference`
+- `state` (typically starts at `in_process`)
+
+Canonical reference: [Initiate Disbursement (Bangladesh section)](../initiate-disbursement.md#bangladesh)
