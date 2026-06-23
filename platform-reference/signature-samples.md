@@ -1,6 +1,6 @@
 # Signature-Generation
 
-Pay-out, remittance, and card APIs require an RSA-SHA256 signature on the `request` (and verification of `response`) object. Replace `API request data goes here` with your serialized `request` JSON.
+**Pay-Ins**, **Pay-out**, **Remittance**, and **card APIs** require an RSA-SHA256 signature on the `request` (and verification of `response`) object. Replace `API request data goes here` with your serialized `request` JSON.
 
 ***
 
@@ -144,5 +144,3 @@ print("Signature:", sig.hex())
 ```
 
 ***
-
-See [RSA Signatures & Mutual SSL](authentication/rsa-mutual-ssl.md) for key exchange and mutual SSL setup.
