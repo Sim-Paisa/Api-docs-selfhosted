@@ -4,8 +4,6 @@ Retrieve the final status of a pay-in transaction after the customer returns fro
 
 **Applies to:** Bangladesh · Nepal · Egypt · Iraq
 
-Also referred to as **Finalize Payment Status** in legacy documentation.
-
 ***
 
 ## Endpoint
