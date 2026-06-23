@@ -80,4 +80,4 @@ See [API Token Authentication](../platform-reference/authentication/api-token.md
 * [ ] Webhook endpoint returns HTTP `200` with `{ "status": "success" }` (or plain `200` where documented)
 * [ ] Verify RSA response signatures on signed APIs
 * [ ] Error handling and retry logic for pending/async states
-* [ ] Sign-off with Simpaisa integration team before production credentials
+* [ ] Sign-off with Simpaisa integration team before production credentials and fill in the pre-production checklist here: [https://simpaisa.atlassian.net/servicedesk/customer/portal/114/create/304](https://simpaisa.atlassian.net/servicedesk/customer/portal/114/create/304)
