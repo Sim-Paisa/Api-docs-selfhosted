@@ -107,7 +107,7 @@ JazzCash tokenization opens a **hosted page** handled by the payment channel. Pa
 | `SubscriptionPeriod` | No       | —      | —      | Recurrence interval for auto-billing                                 |
 | `OrderId`            | Yes      | String | —      | Your order reference                                                 |
 | `MobileNo`           | Yes      | String | 10     | Customer MSISDN without country code                                 |
-| `transactionType`    | Yes      | String | 01     | `8` or `09` for tokenization flow                                    |
+| `transactionType`    | Yes      | String | 01     | `8`  for tokenization flow                                           |
 | `ReturnUrl`          | Yes      | —      | —      | URL where JazzCash redirects after authentication                    |
 | `platform`           | No       | String | —      | Set to `3` to route charge/refund IPNs to separate webhook endpoints |
 
