@@ -61,14 +61,14 @@
 
 ## Pay-Out APIs
 
-* [Pakistan](pay-out-apis/overview.md#pakistan)
-  * [disbursement-states](pay-out-apis/disbursement-states.md#pakistan)
-  * customer
+* [Pakistan](pay-out-apis/pakistan/README.md)
+  * [disbursement-states](pay-out-apis/pakistan/disbursement-states.md)
+  * [customer](pay-out-apis/pakistan/customer/README.md)
     * [POST](pay-out-apis/register-customer.md)
     * [PUT](pay-out-apis/update-customer.md)
   * [get-customer](pay-out-apis/get-customer.md)
   * [list-banks](pay-out-apis/list-banks.md)
-  * disbursements
+  * [disbursements](pay-out-apis/pakistan/disbursements/README.md)
     * [initiate-disbursement](pay-out-apis/pakistan/initiate-disbursement.md)
     * [re-initiate-disbursement](pay-out-apis/re-initiate-disbursement.md)
     * [update-disbursement](pay-out-apis/update-disbursement.md)
