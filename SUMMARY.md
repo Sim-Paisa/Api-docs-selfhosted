@@ -19,7 +19,7 @@
 * [pay-in-unified status codes](platform-reference/status-codes/pay-in-unified.md)
 * [pay-in-pk-wallet status codes](platform-reference/status-codes/pay-in-pk-wallet.md)
 * [cards status codes](platform-reference/status-codes/cards.md)
-* [pay-out status codes](platform-reference/status-codes/pay-out.md)
+* [Disbursement status codes](platform-reference/status-codes/pay-out.md)
 * [remittance status codes](platform-reference/status-codes/remittance.md)
 
 ## Pay-In APIs — Unified (BD · NP · EG · IQ)
