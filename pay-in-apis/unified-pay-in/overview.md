@@ -10,8 +10,6 @@ Accept customer payments through mobile wallets in **Bangladesh**, **Nepal**, **
 
 All unified regions follow a **redirect-based** flow.
 
-> **Images:** The legacy BD, NP, EG, and IQ pay-in pages did not include flow diagrams. The sequence below replaces them. When you publish in GitBook, you can upload a region-neutral diagram to this page. All other diagrams from the existing docs are catalogued in [`IMAGE_CATALOG.md`](../../IMAGE_CATALOG.md) with original `/files/` IDs preserved for copy-paste into GitBook.
-
 ```mermaid
 sequenceDiagram
     participant M as Merchant
