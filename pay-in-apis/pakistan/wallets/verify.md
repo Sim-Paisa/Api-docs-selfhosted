@@ -1,14 +1,30 @@
-# Async flow
+# One Time Payment
 
 In async flow, the Verify response is **always** `Transaction-Pending` (`0037`). Final success or failure arrives via postback. If `Transaction-Pending` is not returned, no postback will be sent.
 
-All four wallets support async Verify. Parameter sets match the synchronous OTP Verify calls for each wallet.
+All four wallets support async Verify. Parameter sets match the synchronous OTP Verify calls for each wallet.\
+<br>
+
+### User journey
+
+### Request body (non-OTP)
+
+No `otp` field. All other fields match the standard Verify call.
+
+| Parameter          | Type   | Required | Description                    |
+| ------------------ | ------ | -------- | ------------------------------ |
+| `merchantId`       | String | Yes      | Your merchant ID               |
+| `operatorId`       | String | Yes      | Wallet operator ID             |
+| `userKey`          | String | Yes      | Your order reference           |
+| `msisdn`           | String | Yes      | Customer mobile number         |
+| `transactionType`  | String | Yes      | `0` for one-time payment       |
+| `amount`           | String | Yes      | Transaction amount             |
+| `productReference` | String | Yes      | Product or service description |
 
 ### Async: Easypaisa and JazzCash
 
 {% tabs %}
 {% tab title="Request" %}
-
 ```json
 {
   "merchantId": "xxxxxxx",
@@ -21,11 +37,9 @@ All four wallets support async Verify. Parameter sets match the synchronous OTP 
   "otp": "xxxx"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response (pending)" %}
-
 ```json
 {
   "status": "0037",
@@ -36,7 +50,6 @@ All four wallets support async Verify. Parameter sets match the synchronous OTP 
   "transactionId": "xxxxxxx"
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -44,7 +57,6 @@ All four wallets support async Verify. Parameter sets match the synchronous OTP 
 
 {% tabs %}
 {% tab title="Request" %}
-
 ```json
 {
   "merchantId": "xxxxxxx",
@@ -58,11 +70,9 @@ All four wallets support async Verify. Parameter sets match the synchronous OTP 
   "otp": "xxxx"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response (pending)" %}
-
 ```json
 {
   "status": "0037",
@@ -73,7 +83,6 @@ All four wallets support async Verify. Parameter sets match the synchronous OTP 
   "transactionId": "xxxxxxx"
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -81,7 +90,6 @@ All four wallets support async Verify. Parameter sets match the synchronous OTP 
 
 {% tabs %}
 {% tab title="Request" %}
-
 ```json
 {
   "merchantId": "xxxxxxx",
@@ -95,11 +103,9 @@ All four wallets support async Verify. Parameter sets match the synchronous OTP 
   "otp": "xxxx"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response (pending)" %}
-
 ```json
 {
   "status": "0037",
@@ -110,15 +116,14 @@ All four wallets support async Verify. Parameter sets match the synchronous OTP 
   "transactionId": "xxxxxxx"
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
----
+***
 
 ## Non-OTP flow
 
-Process a wallet payment **without an OTP**. The customer approves the payment in the wallet app (or via USSD). You make the final decision from the **postback/webhook** or [Inquire](./inquire.md).
+Process a wallet payment **without an OTP**. The customer approves the payment in the wallet app (or via USSD). You make the final decision from the **postback/webhook** or [Inquire](inquire.md).
 
 {% hint style="info" %}
 This is an **asynchronous** flow. Verify returns `Transaction-Pending` (`0037`) first; Simpaisa notifies you later with the final status.
@@ -126,10 +131,10 @@ This is an **asynchronous** flow. Verify returns `Transaction-Pending` (`0037`) 
 
 ### Approval window
 
-| Wallet | Max approval time |
-|--------|-------------------|
-| Easypaisa | 60 seconds |
-| JazzCash | 360 seconds |
+| Wallet    | Max approval time |
+| --------- | ----------------- |
+| Easypaisa | 60 seconds        |
+| JazzCash  | 360 seconds       |
 
 ### Sequence
 
@@ -137,31 +142,11 @@ This is an **asynchronous** flow. Verify returns `Transaction-Pending` (`0037`) 
 2. You call **Verify** (without `otp`).
 3. Simpaisa validates the request, stores data, and forwards it to the wallet channel.
 4. Simpaisa returns `Transaction-Pending` (`0037`).
-5. The wallet requests customer authentication/approval (~60–360 seconds).
+5. The wallet requests customer authentication/approval (\~60–360 seconds).
 6. The wallet updates payment status to Simpaisa.
 7. Simpaisa sends a **postback** to your callback URL with the final status.
 
-If you do not receive a postback, call [Inquire](./inquire.md).
-
-### User journey
-
-<figure><img src="/files/OFElV98cpxX1jW1IkFVD" alt="Non-OTP wallet payment flow — step 1"><figcaption>Non-OTP flow: merchant calls Verify without OTP; customer approves in wallet app.</figcaption></figure>
-
-<figure><img src="/files/YOgEDS65VEgq8jwzRUxk" alt="Non-OTP wallet payment flow — step 2"><figcaption>Non-OTP flow: Simpaisa sends postback with final transaction status.</figcaption></figure>
-
-### Request body (non-OTP)
-
-No `otp` field. All other fields match the standard Verify call.
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `merchantId` | String | Yes | Your merchant ID |
-| `operatorId` | String | Yes | Wallet operator ID |
-| `userKey` | String | Yes | Your order reference |
-| `msisdn` | String | Yes | Customer mobile number |
-| `transactionType` | String | Yes | `0` for one-time payment |
-| `amount` | String | Yes | Transaction amount |
-| `productReference` | String | Yes | Product or service description |
+If you do not receive a postback, call [Inquire](inquire.md).
 
 ### cURL (non-OTP)
 
@@ -186,7 +171,6 @@ curl -X POST "https://sandbox.simpaisa.com/v2/wallets/transaction/verify" \
 
 {% tabs %}
 {% tab title="Request" %}
-
 ```json
 {
   "merchantId": "2000888",
@@ -198,11 +182,9 @@ curl -X POST "https://sandbox.simpaisa.com/v2/wallets/transaction/verify" \
   "productReference": "thunes"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response (pending)" %}
-
 ```json
 {
   "status": "0037",
@@ -213,7 +195,6 @@ curl -X POST "https://sandbox.simpaisa.com/v2/wallets/transaction/verify" \
   "transactionId": "xxxxxxx"
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
