@@ -231,5 +231,5 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/inquire' \
 ## Related
 
 * [Initiate Payment](initiate.md)
-* [Overview & postbacks](overview.md)
+* [Overview](overview.md) · [Webhooks](webhooks.md)
 * [Status codes](../../platform-reference/status-codes/pay-in-unified.md)

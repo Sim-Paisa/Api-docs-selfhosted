@@ -32,6 +32,7 @@
   * [paymob](pay-in-apis/unified-pay-in/use-cases/paymob.md)
   * [wayl](pay-in-apis/unified-pay-in/use-cases/wayl.md)
 * [inquire](pay-in-apis/unified-pay-in/inquire.md)
+* [webhooks](pay-in-apis/unified-pay-in/webhooks.md)
 
 ## Pay-In APIs — Pakistan
 

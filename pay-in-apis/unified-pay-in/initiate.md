@@ -74,7 +74,7 @@ Create a pay-in session and receive a `payment_url` to redirect the customer to 
 1. Call Initiate with the correct `region`, `operatorId`, and body fields.
 2. If `status` is `0037` (Transaction-Pending), redirect the customer to `payment_url`.
 3. When the customer returns to `successUrl` or `failureUrl`, call [Inquire](./inquire.md) with `transactionId`.
-4. Optionally handle the async [postback](./overview.md#postbacks).
+4. Optionally handle the async [postback](./webhooks.md).
 
 {% hint style="info" %}
 `payment_url` is returned for sandbox and production. Redirect the customer's browser (or open in WebView) immediately after a successful Initiate call.

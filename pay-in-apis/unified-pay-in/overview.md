@@ -34,7 +34,7 @@ sequenceDiagram
 | 3    | Customer pays on the wallet operator's page                   | —                                                |
 | 4    | Customer lands on your `successUrl` or `failureUrl`           | —                                                |
 | 5    | Confirm final status server-side                              | [Inquire](inquire.md)                            |
-| 6    | Receive async notification (if configured)                    | [Webhooks](../../platform-reference/webhooks.md) |
+| 6    | Receive async notification (if configured)                    | [Webhooks](webhooks.md)                          |
 
 {% hint style="warning" %}
 Always call **Inquire** on your success/failure landing page. Do not treat the redirect alone as proof of payment. Status `0037` (Transaction-Pending) means the customer has not finished paying yet.
@@ -94,7 +94,7 @@ Pass the operator in **both** the `operatorId` header and the request body (`ope
 
 Unified pay-in regions authenticate with an **`api-token`** header or **Signature**. Simpaisa provides this token with your merchant credentials during onboarding.
 
-For webhook setup and postback handling, see [Webhooks](../../platform-reference/webhooks.md).
+For webhook setup and postback handling, see [Webhooks](./webhooks.md) and [Platform webhooks reference](../../platform-reference/webhooks.md).
 
 ***
 
@@ -112,56 +112,6 @@ Each operator uses the same Initiate and Inquire APIs. Examples with region-spec
 
 ***
 
-## Postbacks
-
-When a transaction reaches a final state, Simpaisa sends an HTTP `POST` to your configured callback URL.
-
-Postbacks are sent when:
-
-* A transaction completes (success or failure)
-* An async payment cycle completes
-
-### Sample success postback
-
-```json
-{
-  "status": "0000",
-  "message": "Success",
-  "transactionId": "1423487",
-  "merchantId": "4000006",
-  "amount": "365.0",
-  "msisdn": "1632332883",
-  "userKey": "BDTb95a870f04403992d5034a2d201d2",
-  "operator": "10001",
-  "transactionType": "0",
-  "createdTimestamp": "2025-09-19 16:15:53.0",
-  "updatedTimestamp": "2025-09-19 16:17:07.187",
-  "currencyCode": "BDT"
-}
-```
-
-### Sample failure postback
-
-```json
-{
-  "status": "0021",
-  "message": "Channel-Failed-Transaction",
-  "transactionId": "1423024",
-  "merchantId": "4000006",
-  "amount": "150.00",
-  "msisdn": "1632332883",
-  "operator": "10001",
-  "userKey": "BDT8a4d2e2e248558adf9c5da0e7ceaa",
-  "transactionType": "0",
-  "createdTimestamp": "2025-09-19 15:59:59.0",
-  "updatedTimestamp": "2025-09-19 16:00:00.0",
-  "currencyCode": "BDT"
-}
-```
-
-Use postbacks together with **Inquire**—treat Inquire as the source of truth when reconciling orders.
-
-***
 
 ## Status codes
 
@@ -181,7 +131,7 @@ Key codes:
 ## Getting started
 
 1. Request sandbox credentials and `api-token` from the Simpaisa integration team.
-2. Configure your postback URL.
+2. Configure your [postback URL](webhooks.md).
 3. Implement [Initiate](initiate.md) → redirect → [Inquire](inquire.md).
 4. Test each operator you plan to go live with using the use-case guides above.
 5. Move to production (`payin.simpaisa.com`) after sign-off.
