@@ -69,7 +69,7 @@ curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/initiate' \
 {
   "merchantId": "2000XXX",
   "operatorId": "100007",
-  "productId": "100X",
+  "amount": "100",
   "userKey": "XXXX",
   "transactionType": "8",
   "msisdn": "3XXXXXX",
