@@ -21,14 +21,11 @@ Start a tokenization consent flow. **Easypaisa** uses a REST Initiate call. **Ja
 | ------------------ | ------ | -------- | ------ | ------------------------------ |
 | `merchantId`       | String | Yes      | 07     | Simpaisa-assigned merchant ID  |
 | `operatorId`       | String | Yes      | 06     | `100007` for Easypaisa         |
-| `productId`        | String | Yes\*    | —      | Simpaisa-assigned plan code    |
 | `amount`           | String | Yes\*    | —      | Alternative to `productId`     |
 | `userKey`          | String | Yes      | —      | Your order reference           |
 | `transactionType`  | String | Yes      | 01     | `8` = tokenization             |
 | `msisdn`           | String | Yes      | 10     | Customer mobile number         |
 | `productReference` | String | Yes      | —      | Product or service description |
-
-\* Pass **`productId`** or **`amount`**.
 
 ### Response body
 
@@ -55,7 +52,7 @@ curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/initiate' \
   --data '{
     "merchantId": "2000XXX",
     "operatorId": "100007",
-    "productId": "100X",
+    "amount": "100",
     "userKey": "XXXX",
     "transactionType": "8",
     "msisdn": "3XXXXXX",
@@ -84,6 +81,7 @@ curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/initiate' \
   "status": "0000",
   "message": "Success",
   "msisdn": "3xxxxxxxxxx",
+  "amount": "100",
   "operatorId": "100007",
   "merchantId": "200000x",
   "transactionId": "xxxxxxx"
