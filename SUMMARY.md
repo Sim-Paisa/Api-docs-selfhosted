@@ -15,7 +15,7 @@
 * [webhooks](platform-reference/webhooks.md)
 * [idempotency](platform-reference/idempotency.md)
 * [error-handling](platform-reference/error-handling.md)
-* [signature-samples](platform-reference/signature-samples.md)
+* [Signature-Generation](platform-reference/signature-samples.md)
 * [pay-in-unified status codes](platform-reference/status-codes/pay-in-unified.md)
 * [pay-in-pk-wallet status codes](platform-reference/status-codes/pay-in-pk-wallet.md)
 * [cards status codes](platform-reference/status-codes/cards.md)
