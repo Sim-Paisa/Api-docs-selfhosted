@@ -77,7 +77,7 @@ See [API Token Authentication](../platform-reference/authentication/api-token.md
 ## 8. Pre-production validation
 
 * [ ] End-to-end sandbox test for each enabled operator/channel
-* [ ] Webhook endpoint returns HTTP `200` with `{ "status": "success" }` (or plain `200` where documented)
+* [ ] Webhook endpoint returns HTTP `200`
 * [ ] Verify RSA response signatures on signed APIs
 * [ ] Error handling and retry logic for pending/async states
 * [ ] Sign-off with Simpaisa integration team before production credentials and fill in the pre-production checklist here: [https://simpaisa.atlassian.net/servicedesk/customer/portal/114/create/304](https://simpaisa.atlassian.net/servicedesk/customer/portal/114/create/304)
