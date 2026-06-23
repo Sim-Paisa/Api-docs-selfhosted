@@ -10,7 +10,7 @@
 ## Platform Reference
 
 * [api-token](platform-reference/authentication/api-token.md)
-* [rsa-mutual-ssl](platform-reference/authentication/rsa-mutual-ssl.md)
+* [Mutual-ssl](platform-reference/authentication/rsa-mutual-ssl.md)
 * [card-encryption](platform-reference/authentication/card-encryption.md)
 * [webhooks](platform-reference/webhooks.md)
 * [idempotency](platform-reference/idempotency.md)
