@@ -4,7 +4,7 @@ Simpaisa allows pay-out calls from external systems only when authentication is 
 
 ## SSL handshake
 
-All API connections between Simpaisa and partner systems must be secured using 2-way (mutual) SSL. Unlike 1-way SSL — where the client only verifies the server — in a 2-way setup the server also verifies the client.
+All API connections for **Disbursements** and **Remittance** between Simpaisa and partner systems must be secured using 2-way (mutual) SSL. Unlike 1-way SSL — where the client only verifies the server — in a 2-way setup the server also verifies the client.
 
 * **Outbound (Simpaisa → Partner):** the partner acts as the server and presents its SSL server certificate for Simpaisa to verify. If successful, Simpaisa presents its client certificate for the partner to verify.
 * **Inbound (Partner → Simpaisa):** Simpaisa acts as the server and presents its SSL server certificate for the partner to verify. If successful, the partner presents its client certificate for Simpaisa to verify.
