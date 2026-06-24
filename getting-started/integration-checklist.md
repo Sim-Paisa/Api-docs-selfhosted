@@ -67,7 +67,6 @@ See [API Token Authentication](../platform-reference/authentication/api-token.md
 * [ ] Confirm single-API vs double-API flow with your integration POC
 * [ ] Refresh [bank list](/broken/pages/xFB6tZWe5WjoXOpanYpZ) periodically (weekly/monthly)
 * [ ] (PK) Optionally [verify account title](../remittance-apis/pakistan/verify-account-title.md) before remitting
-* [ ] (BD) Resolve `beneficiaryBankId` via list → list-by-code flow
 * [ ] Map [payment purpose codes](../remittance-apis/payment-reasons-reference.md)
 * [ ] Handle remittance postbacks; use [Transaction Inquiry](../remittance-apis/transaction-inquiry.md) as backup
 * [ ] Check [merchant balance](../remittance-apis/merchant-balance-inquiry.md) before large batches
