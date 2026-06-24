@@ -10,6 +10,20 @@ Once the payment cycle is complete on the hosted page, the customer is redirecte
 |---|---|
 | **Method** | `POST` |
 | **Path** | `/v2/wallets/transaction/finalize` |
+| **Sandbox** | `https://sandbox.simpaisa.com/v2/wallets/transaction/finalize` |
+| **Production** | `https://wallets.simpaisa.com/v2/wallets/transaction/finalize` |
+
+---
+
+## Headers
+
+| Header | Required | Description |
+|--------|----------|-------------|
+| `Content-Type` | Yes | `application/json` |
+| `mode` | Yes | `payin` |
+| `region` | Yes | `PK` |
+| `operatorId` | Yes | `100008` |
+| `version` | Yes | `3.0` |
 
 ---
 
@@ -38,6 +52,20 @@ Once the payment cycle is complete on the hosted page, the customer is redirecte
 ---
 
 ## Sample
+
+```bash
+curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/finalize' \
+  --header 'Content-Type: application/json' \
+  --header 'mode: payin' \
+  --header 'region: PK' \
+  --header 'operatorId: 100008' \
+  --header 'version: 3.0' \
+  --data '{
+    "merchantId": "xxxx",
+    "operatorId": "100008",
+    "orderId": "xxxx"
+  }'
+```
 
 {% tabs %}
 {% tab title="Request" %}

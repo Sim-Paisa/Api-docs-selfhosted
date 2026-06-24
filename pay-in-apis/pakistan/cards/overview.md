@@ -88,39 +88,7 @@ Conduct **User Acceptance Testing (UAT)** with the integration team. After UAT, 
 
 ### AES card encryption
 
-The `card` field in the Payments API is **not plain card data**. It must be an **AES-encrypted** value of:
-
-```
-<CardNumber>.<Month>.<Year>.<CVV>
-```
-
-Then Base64-encode the encrypted bytes. Simpaisa decrypts using the same `secretKey` configured for your merchant.
-
-{% hint style="info" %}
-AES keys must be **16 / 24 / 32 bytes** long (AES-128 / AES-192 / AES-256).
-
-In Java, `Cipher.getInstance("AES")` usually resolves to `AES/ECB/PKCS5Padding`.
-{% endhint %}
-
-#### Sample AES encryption code (Java)
-
-```java
-public static String encrypt(final String secret, final String data) {
-    // byte[] decodedKey = Base64.getDecoder().decode(secret);
-
-    try {
-        setKey(secret);
-        Cipher cipher = Cipher.getInstance("AES");
-        // rebuild key using SecretKeySpec
-
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-        byte[] cipherText = cipher.doFinal(data.getBytes("UTF-8"));
-        return Base64.getEncoder().encodeToString(cipherText);
-    } catch (Exception e) {
-        throw new RuntimeException("Error occured while encrypting data", e);
-    }
-}
-```
+The `card` field in the Payments API is **not plain card data** — it must be AES-encrypted and Base64-encoded before being sent. See [Card Encryption](../../../platform-reference/authentication/card-encryption.md) for the exact format and a sample encryption helper.
 
 ### RSA (digital signature) and SHA-256
 

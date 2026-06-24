@@ -19,7 +19,7 @@ Portal refunds require feature enablement. Contact Simpaisa support to activate 
 ### Refund features
 
 - **Full refund** — refund the entire original transaction amount
-- **Partial refund** — refund a portion of the original amount (Easypaisa and HBL Konnect only for partial)
+- **Partial refund** — refund a portion of the original amount (Easypaisa, JazzCash, and HBL Konnect)
 
 Partial and full API refunds are currently available for **wallets only**. Support for other operators is in development.
 
@@ -161,70 +161,9 @@ curl --location 'https://sandbox.simpaisa.com/v3/transaction/refund' \
 
 ## Partial refund
 
-Refund a portion of the original transaction. Currently supported on **Easypaisa** and **HBL Konnect** only.
+Refund a portion of the original transaction. Currently supported on **Easypaisa**, **JazzCash**, and **HBL Konnect**.
 
-{% hint style="warning" %}
-The partial refund `amount` must be **less than** the original transaction amount. For example, if the original transaction was 1000 PKR, the partial refund must be under 1000 PKR.
-{% endhint %}
-
-### Request body
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `transactionId` | String | Yes | Original transaction ID to refund |
-| `merchantId` | String | Yes | Your merchant ID (7 digits) |
-| `amount` | String | Yes | Amount to refund (must not exceed original) |
-| `transactionDate` | String | Yes | Original transaction date (`YYYY-MM-DD`) |
-| `type` | String | Yes | Must be `WALLETS` |
-
-### Response body
-
-Same structure as full refund.
-
-### cURL
-
-```bash
-curl --location 'https://sandbox.simpaisa.com/v3/transaction/refund' \
-  --header 'Accept: text/plain, application/json, application/*+json' \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "transactionId": "95188981",
-    "merchantId": "100000X",
-    "amount": "1",
-    "transactionDate": "2023-08-24",
-    "type": "WALLETS"
-  }'
-```
-
-{% tabs %}
-{% tab title="Request" %}
-
-```json
-{
-  "transactionId": "95188981",
-  "merchantId": "100000X",
-  "amount": "1",
-  "transactionDate": "2023-08-24",
-  "type": "WALLETS"
-}
-```
-
-{% endtab %}
-
-{% tab title="Successful response" %}
-
-```json
-{
-  "status": "0135",
-  "message": "Refund-Submitted",
-  "merchantId": "2000347",
-  "transactionId": "95188981",
-  "referenceNumber": "20230831164719"
-}
-```
-
-{% endtab %}
-{% endtabs %}
+Full parameters, headers, and a sample request/response: [Partial Refund](./refund/use-case-partial.md).
 
 ---
 

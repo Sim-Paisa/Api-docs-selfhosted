@@ -40,3 +40,10 @@ The URL above opens a hosted page that must be handled properly so the user can 
 Once the payment details are entered, the user receives an OTP that must be entered on a second screen to approve the transaction.
 
 <figure><img src="/files/Gy8GWpcsdOTip7Pgx97s" alt=""><figcaption></figcaption></figure>
+
+### Example (sandbox)
+
+```bash
+# Open in browser — replace placeholders
+https://sandbox.simpaisa.com/jc/registration?fullAmount=100&MobileNo=3219200750&ReturnUrl=https://merchant.com/callback&OrderId=order-123&MerchantId=2000XXX&transactionType=8&platform=3
+```

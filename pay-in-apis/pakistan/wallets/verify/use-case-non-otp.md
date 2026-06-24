@@ -33,6 +33,89 @@ If you don't receive a postback, call the [Inquire API](../inquire.md) to fetch 
 
 ---
 
+## Headers
+
+| Header | Required | Description |
+|--------|----------|-------------|
+| `Content-Type` | Yes | `application/json` |
+| `operatorID` | Yes | Wallet operator code, e.g. `100008` |
+| `Request-Id` | Yes | Unique request identifier for idempotency |
+| `mode` | Yes | `payin` |
+| `region` | Yes | `PK` |
+| `version` | Yes | `3.0` |
+
+---
+
+## Sample
+
+```bash
+curl -X POST "https://sandbox.simpaisa.com/v2/wallets/transaction/verify" \
+  -H "Content-Type: application/json" \
+  -H "operatorID: 100008" \
+  -H "Request-Id: 341324134" \
+  -H "mode: payin" \
+  -H "region: PK" \
+  -H "version: 3.0" \
+  -d '{
+    "merchantId": "2000888",
+    "operatorId": "100008",
+    "userKey": "1612138803922",
+    "msisdn": "3219200750",
+    "transactionType": "0",
+    "amount": "2016.00",
+    "productReference": "thunes"
+  }'
+```
+
+{% tabs %}
+{% tab title="Request" %}
+```json
+{
+  "merchantId": "2000888",
+  "operatorId": "100008",
+  "userKey": "1612138803922",
+  "msisdn": "3219200750",
+  "transactionType": "0",
+  "amount": "2016.00",
+  "productReference": "thunes"
+}
+```
+{% endtab %}
+
+{% tab title="Response (pending)" %}
+```json
+{
+  "status": "0037",
+  "message": "Transaction-Pending",
+  "msisdn": "xxxxxxxxxxx",
+  "operatorId": "100008",
+  "merchantId": "xxxxxxx",
+  "transactionId": "xxxxxxx"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Sample webhook (final status)
+
+```json
+{
+  "status": "0000",
+  "message": "Success",
+  "msisdn": "3097524704",
+  "operatorId": "100007",
+  "merchantId": "20000XX",
+  "transactionId": "49068982",
+  "amount": "1",
+  "createdTimestamp": "2023-06-08 16:09:56.0",
+  "updatedTimestamp": "2023-06-08 11:10:38.779",
+  "userKey": "36937443",
+  "transactionType": "0"
+}
+```
+
+---
+
 ## User journey
 
 <figure><img src="/files/OFElV98cpxX1jW1IkFVD" alt=""><figcaption></figcaption></figure>
