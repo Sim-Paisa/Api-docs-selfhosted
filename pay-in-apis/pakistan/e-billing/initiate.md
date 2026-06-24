@@ -1,18 +1,6 @@
 # Initiate E-Bill (Payment via Voucher)
 
-E-billing supports both **P2B** and **B2B** payments. You generate a bill and receive a **payment token**. The customer pays using their bank portal or mobile banking app.
-
-**Operator ID (E-Billing):** `100011`
-
----
-
-## How it works
-
-- Tokens expire after **15–30 days** by default; you can set a custom expiry per bill.
-- E-billing uses an **async flow** — Simpaisa sends an **IPN** once payment completes.
-- To initiate, provide the customer mobile number (`msisdn`). You can also use a pre-defined `msisdn` format where Simpaisa provides the `msisdn`.
-- Display the returned token/voucher in your UI; the customer pays against that token.
-- Set `expiryDuration` using `d` (days) or `h` (hours), e.g. `2d`, `6h`.
+Generate a payment voucher (token) for the customer to pay via their bank portal or mobile banking app. See the [E-Billing overview](./overview.md) for the P2B/B2B concept, operator ID, and how tokens work.
 
 ---
 
