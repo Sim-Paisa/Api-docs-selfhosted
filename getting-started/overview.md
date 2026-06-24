@@ -2,10 +2,6 @@
 
 Welcome to the Simpaisa API Hub, your gateway to innovative payment solutions that power secure, seamless, and scalable digital transactions across emerging markets.
 
----
-
-## Overview
-
 Simpaisa offers a suite of RESTful APIs that enable Pay-Ins, Pay-Outs, and Cross-Border Remittances. Our APIs are designed to make payment integrations simple, scalable, and compliant across Pakistan, Bangladesh, and Nepal.
 
 <figure><img src="/files/lMtz0oKSwoEiv1A1wcVC" alt=""><figcaption></figcaption></figure>
@@ -22,15 +18,9 @@ Choose from our core product APIs to build seamless financial flows.
 
 ---
 
-## Regional Coverage
+## Where Simpaisa Operates
 
-Simpaisa's APIs are live across multiple emerging markets. Each region has its own supported products.
-
-| Country | Supported Products |
-|---------|-------------------|
-| <img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/pk.svg" alt="Pakistan" data-size="line"> **Pakistan** | Pay-Ins · Pay-Outs · Remittances |
-| <img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/bd.svg" alt="Bangladesh" data-size="line"> **Bangladesh** | Pay-Ins · Pay-Outs · Remittances |
-| <img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/np.svg" alt="Nepal" data-size="line"> **Nepal** | Pay-Ins · Remittances |
+Simpaisa's APIs are live across multiple emerging markets, each with its own supported products. See [Regional Coverage](./regional-coverage.md) for the full breakdown by country and product.
 
 ---
 
