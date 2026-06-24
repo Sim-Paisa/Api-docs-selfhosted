@@ -75,7 +75,7 @@ Refunds use a separate host — see [Refund](./refund.md).
 | `region` | `PK` | Yes |
 | `operatorId` | Operator code from table above (e.g. `100007`) | Yes |
 | `version` | `3.0` | Yes |
-| `Request-Id` | Unique request identifier for idempotency | Non-OTP flows |
+| `Request-Id` | Unique request identifier for idempotency | No (recommended) |
 
 {% hint style="info" %}
 Set `operatorId` in the header **and** in the request body. They must match the wallet the customer is paying with.

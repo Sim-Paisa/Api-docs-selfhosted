@@ -13,16 +13,16 @@ Idempotency applies to **all pay-in APIs** in:
 | **Pay-In — Pakistan** | Pakistan | Wallet Initiate, Verify, Inquire, Refund, Tokenization, Direct Charge, Delink, and related wallet endpoints |
 | **Pay-In — Bangladesh** | Bangladesh (unified pay-in) | Initiate, Inquire, and other `/payins/payments/*` calls |
 
-Pass the idempotency header on **every** request in these flows—not only on Verify. Use the same UUID when retrying the **same** operation; generate a new UUID for each distinct payment attempt.
+The idempotency header is **optional** on requests in these flows—not only on Verify. When you include it, use the same UUID when retrying the **same** operation; generate a new UUID for each distinct payment attempt.
 
 ---
 
 ## Headers by region
 
-| Region | Header name | Value format |
-|--------|-------------|--------------|
-| Pakistan (`PK`) | `Request-Id` | 36-character UUID (standard format) |
-| Bangladesh (`BD`) | `RequestID` | 36-character UUID (standard format) |
+| Region | Header name | Required | Value format |
+|--------|-------------|----------|--------------|
+| Pakistan (`PK`) | `Request-Id` | No (recommended) | 36-character UUID (standard format) |
+| Bangladesh (`BD`) | `RequestID` | No (recommended) | 36-character UUID (standard format) |
 
 {% hint style="info" %}
 The header names differ by region: **`Request-Id`** for Pakistan and **`RequestID`** for Bangladesh. Other unified pay-in regions (NP, EG, IQ) are outside this idempotency scope unless documented separately.

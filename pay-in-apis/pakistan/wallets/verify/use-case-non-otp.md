@@ -39,7 +39,7 @@ If you don't receive a postback, call the [Inquire API](../inquire.md) to fetch 
 |--------|----------|-------------|
 | `Content-Type` | Yes | `application/json` |
 | `operatorID` | Yes | Wallet operator code, e.g. `100008` |
-| `Request-Id` | Yes | Unique request identifier for idempotency |
+| `Request-Id` | No (recommended) | Unique request identifier for idempotency |
 | `mode` | Yes | `payin` |
 | `region` | Yes | `PK` |
 | `version` | Yes | `3.0` |

@@ -27,7 +27,7 @@ Fetch the status of a wallet transaction when postback notifications are not rec
 | `region` | Yes | `PK` |
 | `operatorId` | Yes | Wallet operator code |
 | `version` | Yes | `3.0` |
-| `Request-Id` | Recommended | Unique request identifier for idempotency |
+| `Request-Id` | No (recommended) | Unique request identifier for idempotency |
 
 {% hint style="warning" %}
 Avoid frequent polling. Use [postbacks](./overview.md#transaction-callbacks-ipn--postback) for final decisioning when possible.
