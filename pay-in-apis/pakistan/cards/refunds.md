@@ -4,10 +4,6 @@ Process refunds for previously captured card transactions.
 
 ***
 
-## Refund Process
-
-***
-
 ## Endpoint
 
 |             |                                                     |
@@ -114,4 +110,4 @@ curl --location 'https://sandbox.simpaisa.com/cards-refund/reverse' \
 }
 ```
 
-See [Postbacks](postbacks.md) for the refund postback payload.
+See [Postbacks](postbacks.md#refund-postback) for the asynchronous notification sent after a refund.

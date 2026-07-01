@@ -4,103 +4,100 @@ Fetch the latest status of a card payment by `reference`.
 
 Useful for:
 
-- Checking a pending 3DS payment
-- Confirming the final state of a tokenization request
-- Retrieving the generated `c_token` after successful tokenization
-- Checking a direct charge made with `source.type=c_token`
+* Checking on a transaction after a 3DS redirect if no postback has arrived
+* Retrieving `c_token` and `customer.id` (`cref_`) after a tokenization flow completes
+* Confirming a direct charge's final outcome
+* Reconciling authorized-but-not-yet-captured transactions
 
-If a payment was initiated with `capture=false`, the transaction is authorized and capture-pending until you call [Capture](./capture.md).
+If a payment was initiated with `capture=false`, the initial status stays `Authorized` until [Capture](capture.md) is called.
 
 ---
 
 ## Endpoint
 
-| | |
-|---|---|
-| **Method** | `POST` |
-| **Path** | `/cards/inquiry` |
+|             |                                              |
+| ----------- | -------------------------------------------- |
+| **Method**  | `POST`                                       |
+| **Path**    | `/cards/inquiry`                             |
 | **Sandbox** | `https://sandbox.simpaisa.com/cards/inquiry` |
 
 ---
 
 ## Headers
 
-| Header | Value |
-|--------|-------|
-| `client-id` | Your Client ID |
-| `Content-Type` | `application/json` |
-| `merchantId` | Your merchant ID |
-| `mode` | `cards` |
-| `region` | `PK` |
-| `version` | `V5` |
+| Header         | Value                                    |
+| -------------- | ---------------------------------------- |
+| `client-id`    | Your Client ID (e.g. `f8QK3aZ9M2LxR7P4YB5H`) |
+| `Content-Type` | `application/json`                       |
+| `merchantId`   | Your unique merchant ID (e.g. `700001`)  |
+| `mode`         | `cards`                                  |
+| `region`       | `PK`                                     |
+| `version`      | `V5`                                     |
 
 ---
 
 ## Request Body
 
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `request.reference` | Yes | Reference from the payment request |
-| `signature` | Yes | RSA signature of the request body |
+| Parameter          | Required | Description                          |
+| -------------------- | -------- | --------------------------------------- |
+| `request.reference`  | Yes      | Reference of the transaction to inquire about |
+| `signature`           | Yes      | RSA signature of the `request` object   |
 
 ---
 
 ## Response Body
 
-| Parameter | Description |
-|-----------|-------------|
-| `response.id` | Unique payment ID |
-| `response.action_id` | Unique action ID |
-| `response.amount` | Transaction amount |
-| `response.currency` | Currency code |
-| `response.approved` | Whether the transaction was approved |
-| `response.status` | Latest transaction status |
-| `response.response_code` | API response code |
-| `response.response_summary` | Human-readable message |
-| `response.transaction_state` | Authorization and capture states |
-| `response.source` | Source details when returned |
-| `response.source.billing_address` | Billing address (token flows) |
-| `response.shipping.address` | Shipping address (token flows) |
-| `response.processed_on` | ISO processing timestamp |
-| `response.reference` | Transaction reference |
-| `response.transaction_id` | Provider transaction ID |
-| `response.c_token` | Saved card token (tokenization / direct charge) |
-| `response.payment_type` | Payment type |
-| `signature` | RSA signature of the response body |
+| Parameter                                         | Description                                                         |
+| --------------------------------------------------- | ---------------------------------------------------------------------- |
+| `response.id`                                       | Unique payment ID                                                    |
+| `response.action_id`                                | Unique action ID                                                     |
+| `response.amount`                                   | Transaction amount                                                   |
+| `response.currency`                                 | Currency code                                                        |
+| `response.approved`                                 | Whether the payment is approved                                      |
+| `response.status`                                   | `Pending`, `Authorized`, `Captured`, `Tokenized`, or `Declined`      |
+| `response.response_code`                            | Transaction outcome code                                             |
+| `response.response_summary`                         | Human-readable outcome                                               |
+| `response.transaction_state.AUTHORIZATION_STATUS`   | `PENDING`, `SUCCESS`, or `FAILED`                                     |
+| `response.transaction_state.CAPTURE_STATUS`         | `PENDING`, `SUCCESS`, or `FAILED` — absent for zero-amount tokenization |
+| `response.reference`                                | Reference from the request                                            |
+| `response.transaction_id`                           | Simpaisa transaction ID                                               |
+| `response.c_token`                                  | Present once a tokenization or direct-charge transaction reaches a terminal state |
+| `response.payment_type`                             | `onetime`, `tokenization`, or `directcharge` — absent for plain `onetime` transactions in some responses |
+| `response.customer.id`                              | Simpaisa-generated `cref_`                                             |
+| `signature`                                         | RSA signature of the response body                                    |
 
 ---
 
-## Sample Request
+## Samples
+
+{% tabs %}
+{% tab title="Authorization Successful, Capture Pending" %}
+
+Onetime payment, `capture: "false"`, after 3DS but before [Capture](capture.md) is called:
+
+#### Request
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
 --header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'Content-Type: application/json' \
---header 'merchantId: 2000012' \
+--header 'merchantId: 700001' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
---data '{
-  "request": {
-    "reference": "testTrans01"
-  },
-  "signature": "xxx"
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "request": { "reference": "h388-1782917244521" },
+  "signature": "xxxx"
 }'
 ```
 
----
-
-## Sample Responses
-
-### Authorization Successful, Capture Pending
-
-Typical when the payment was initiated with `capture=false`.
+#### Response
 
 ```json
 {
   "response": {
-    "id": "pay_ae5953f0d88c4ca2a8d2b56373",
-    "action_id": "act_745e1ff37744468088ed7b9024",
+    "id": "pay_357168b8f7134d28b009ec73a0",
+    "action_id": "act_24d8aa4516a8486b9ea3fada05",
     "amount": "20.0",
     "currency": "PKR",
     "approved": "true",
@@ -111,23 +108,90 @@ Typical when the payment was initiated with `capture=false`.
       "AUTHORIZATION_STATUS": "SUCCESS",
       "CAPTURE_STATUS": "PENDING"
     },
-    "processed_on": "2026-02-03T11:39:11Z",
-    "reference": "testTrans01",
-    "transaction_id": "1288"
+    "processed_on": "2026-07-01T14:48:02Z",
+    "reference": "h388-1782917244521",
+    "transaction_id": "3282"
   },
-  "signature": "xxx"
+  "signature": "jdHUvH0pE2iE23CKH6UrJH5l4mgTDryB/1hmDI24TqXyECHfnmMm+ej5chY67Co5VYHltgXb6kRlbh23rIvGisnlutC9liAOkB4VReoEbjIsGZti1nmqv0x+5W+ZCcC3ylbikxIXrUZ17ktWtjRx58/Vl+8Q9iU7GmwxRipPnLbcXZHLFNeoCK8DSED+FhBgCH1bZQ+btk6FUXk5+9131Tl/zuzlrLVgf0fbI9J0tNOKd9GlRAgvoONJNLICaKWpfo9D4MY7uXUJ8FgZMfd3P6ylSzZXv5sCNUDPwtuMvbQk92brkOltb6wSJHXZypJWQo31guGo5kBPQ05c7ztGYg=="
 }
 ```
 
-### Capture Successful
+{% endtab %}
 
-After [Capture](./capture.md), or when payment was initiated with `capture=true`.
+{% tab title="Capture Successful" %}
+
+Same transaction, after [Capture](capture.md) has been called:
+
+#### Request
+
+```bash
+curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
+--header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
+--header 'merchantId: 700001' \
+--header 'mode: cards' \
+--header 'region: PK' \
+--header 'version: V5' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "request": { "reference": "h388-1782917244521" },
+  "signature": "xxxx"
+}'
+```
+
+#### Response
 
 ```json
 {
   "response": {
-    "id": "pay_ae5953f0d88c4ca2a8d2b56373",
-    "action_id": "act_745e1ff37744468088ed7b9024",
+    "id": "pay_357168b8f7134d28b009ec73a0",
+    "action_id": "act_24d8aa4516a8486b9ea3fada05",
+    "amount": "20.0",
+    "currency": "PKR",
+    "approved": "true",
+    "status": "Captured",
+    "response_code": "10000",
+    "response_summary": "Approved",
+    "transaction_state": {
+      "AUTHORIZATION_STATUS": "SUCCESS",
+      "CAPTURE_STATUS": "SUCCESS"
+    },
+    "processed_on": "2026-07-01T14:48:02Z",
+    "reference": "h388-1782917244521",
+    "transaction_id": "3282"
+  },
+  "signature": "ZYetkUpbhwy8OwezZ2J1SxQzIvsLfzXBr9LIEyMy24CxCSfFxaCgLCyZiE4W8KyhRtzR79UOa7Vkm/45V9+LNNVEFLq8aFm+j1BCA/lMQZaK/V1+gZm+RaqWpisNKR3McToIwyhbM8azOYGYU0PClLAsneDpst8/L4YpZTwYeUX4kp0/9Ci4KV1BI9OpdT96AYGTv/1BpVHwtV+XOICbNMcTuCUoYQVziU/g/ZY5lyRTGv5mcagRYD+Hce06dkMwxODy9Cizm6SGayRlQSNGXyaaMZxMbuRHET9lxL2KIjNkc0uVTtT2IQkuMZ4JcFdijcMWGLSWnpX+2UD2VToMwQ=="
+}
+```
+
+{% endtab %}
+
+{% tab title="Successful Tokenization Inquiry" %}
+
+`payment_type: "tokenization"` transaction, after 3DS completion (before capture — `capture: "false"` was sent). Note `c_token` and `customer.id` (`cref_`) are now present, which they are not on the initial `Pending` response from [Payment](payment.md):
+
+#### Request
+
+```bash
+curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
+--header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
+--header 'merchantId: 700001' \
+--header 'mode: cards' \
+--header 'region: PK' \
+--header 'version: V5' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "request": { "reference": "tok-c1-1782917393692" },
+  "signature": "xxxx"
+}'
+```
+
+#### Response
+
+```json
+{
+  "response": {
+    "id": "pay_c2f65e33ec0b46559c4647acdf",
+    "action_id": "act_9917fcea36f844bd883a848884",
     "amount": "20.0",
     "currency": "PKR",
     "approved": "true",
@@ -136,84 +200,139 @@ After [Capture](./capture.md), or when payment was initiated with `capture=true`
     "response_summary": "Approved",
     "transaction_state": {
       "AUTHORIZATION_STATUS": "SUCCESS",
+      "CAPTURE_STATUS": "PENDING"
+    },
+    "processed_on": "2026-07-01T14:50:52Z",
+    "reference": "tok-c1-1782917393692",
+    "transaction_id": "3283",
+    "c_token": "ct_v1_c0091c45-a7ff-4728-88ee-834b284848fc",
+    "payment_type": "tokenization",
+    "customer": {
+      "id": "cref_1f330571755c11f18b1702eb53",
+      "email": "johnsmith@example.com",
+      "name": "John Smith",
+      "country": "PK",
+      "phone": { "number": "3336775364", "country_code": "+92" }
+    }
+  },
+  "signature": "WWfktzazmB/auJSOdb5TQOZF4KX/v8gy1oHa4Nc5FrxyltS6mRN3QvjZfhg83QyEKIIZq3C06u6QGMNgAEldu15PSaAv/95YlVVmxgJ0rCA5yovaqxHK3fRDHu6xXuT/PTGPgRDGJsAVRRQALHtHGMm1IOmec0II9mgn0/yywfXMZCj5ZGoCfGWrn2YMRljfWnGBnjuLDSRoxXmQ3uIa4/Z6IGyZy80O4dkOQkmYegbWUd87NDuGe1IAlxbHacGSRo/2todXusqDtSJ6QfGPkI/oLB5R65NcFOW8e0Q3GZVqWljZaHrfzQSd6AtCLxFN2y8TuOWVPoCj6LS1zDe2Dw=="
+}
+```
+
+After [Capture](capture.md) is called on this same reference, Inquiry returns `status: "Captured"` with `c_token` still present — the token is not lost on capture.
+
+{% endtab %}
+
+{% tab title="Zero-Amount Tokenization Inquiry" %}
+
+`payment_type: "tokenization"` with `amount: "0.00"`, after 3DS. Note there is no `CAPTURE_STATUS` field at all, and `status` is `"Tokenized"` rather than `"Authorized"`:
+
+#### Request
+
+```bash
+curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
+--header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
+--header 'merchantId: 700001' \
+--header 'mode: cards' \
+--header 'region: PK' \
+--header 'version: V5' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "request": { "reference": "tok-c2-1782917563029" },
+  "signature": "xxxx"
+}'
+```
+
+#### Response
+
+```json
+{
+  "response": {
+    "id": "pay_f809893ff46f4266a906ac8f07",
+    "action_id": "act_c321697f067a4c3393daae3062",
+    "amount": "0.0",
+    "currency": "PKR",
+    "approved": "true",
+    "status": "Tokenized",
+    "response_code": "10000",
+    "response_summary": "Card Saved Successfully",
+    "transaction_state": {
+      "AUTHORIZATION_STATUS": "SUCCESS"
+    },
+    "processed_on": "2026-07-01T14:53:12Z",
+    "reference": "tok-c2-1782917563029",
+    "transaction_id": "3284",
+    "c_token": "ct_v1_3513dad9-9cd5-4606-8bc6-eb5c5ef93a68",
+    "payment_type": "tokenization",
+    "customer": {
+      "id": "cref_840bb3e4755c11f18b1702eb53",
+      "email": "johnsmith@example.com",
+      "name": "John Smith",
+      "country": "PK",
+      "phone": { "number": "3336775364", "country_code": "+92" }
+    }
+  },
+  "signature": "HUvhiChD7pLhEvzcQLXdTBDXroYsUZexUPCG6F8PuvzyJKQ9QlR+xfSnq24XvG1aIQK+G75RAwdjC4IT04zQQG8os84m/pGRa8o9oqHFPOLuF6HiUWasfBz91oXg+rk+bOEH6l/AddJvWpHGWn/T3DpxBiDgXexgqUjHmd4T8NrQIy1SQv3JnxxZc0DdLPsnL6zYEkZ3yqsYy0mTK7JZ6K0ZJNp18hgq11KK1J2YXI1wb/HHP8m6uLJ+CVTexa0k9GKwbtMPlChCx9ZUMHrIHKeZ+OAadtA+aYUpfZNLKYMtywYJC0yN8BZVCiX7wd11xRYeZIY02tMy2CGd1XwN9Q=="
+}
+```
+
+Note: `customer.id` differs from the `cref_` returned by the non-zero-amount tokenization sample above, even though the request used the identical `customer.email`/`customer.phone` combination. Simpaisa's `cref_` deduplication behavior (documented elsewhere as matching on `merchantId` + email + phone) could not be confirmed in this sandbox — treat each tokenization call as potentially issuing a new `cref_` until this is verified.
+
+{% endtab %}
+
+{% tab title="Direct Charge Inquiry" %}
+
+`payment_type: "directcharge"`, `3ds.enabled: "true"`, `capture: "true"`, after 3DS completion. `c_token` is echoed back unchanged — no new tokenization occurs:
+
+#### Request
+
+```bash
+curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
+--header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
+--header 'merchantId: 700001' \
+--header 'mode: cards' \
+--header 'region: PK' \
+--header 'version: V5' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "request": { "reference": "dc3c-1782917742282" },
+  "signature": "xxxx"
+}'
+```
+
+#### Response
+
+```json
+{
+  "response": {
+    "id": "pay_8498f605f5574227bf956773e3",
+    "action_id": "act_4ea1117430c241969690e5ff8e",
+    "amount": "20.0",
+    "currency": "PKR",
+    "approved": "true",
+    "status": "Captured",
+    "response_code": "10000",
+    "response_summary": "Approved",
+    "transaction_state": {
+      "AUTHORIZATION_STATUS": "SUCCESS",
       "CAPTURE_STATUS": "SUCCESS"
     },
-    "processed_on": "2026-02-03T11:39:11Z",
-    "reference": "testTrans01",
-    "transaction_id": "1288"
+    "processed_on": "2026-07-01T14:56:40Z",
+    "reference": "dc3c-1782917742282",
+    "transaction_id": "3285",
+    "c_token": "ct_v1_c0091c45-a7ff-4728-88ee-834b284848fc",
+    "payment_type": "directcharge",
+    "customer": {
+      "id": "cref_1f330571755c11f18b1702eb53",
+      "email": "johnsmith@example.com",
+      "name": "John Smith",
+      "country": "PK",
+      "phone": { "number": "3336775364", "country_code": "+92" }
+    }
   },
-  "signature": "xxxx"
+  "signature": "j2ma8xZPPNlB7RS/tiBWztQs4qSs2bvtcxrNwL/0ltXcKnyptxYbsFzmBBMN3eh3gxlmVy4x0vzOiviTR2cUlK7+7HtSu2pbgw3Lg0GDcTyXcHx/mbmPFzMxqInkM3L2UeSOAeKwD4lgpb6kyn6GPjuypHh5HaZedS2E34yW9AWLxGRiSeDVwSjPjadppB9jX6z+R0Y/iMWGJ5iL5kdpE4n0D8N/XFLY4AEZs5fer7U1qUj4zzhR6ZgWcscG3lCbX3EaGV0MmyFOU4qSSVaTZpqwuKg5L58IVGG0CvgCaG6PAWW+IQoqF1Zqku8iS4mBhRex1t6/0lAs4VIbo2ypNw=="
 }
 ```
 
-### Successful Tokenization Inquiry
-
-Retrieve the saved `c_token` after tokenization completes.
-
-```json
-{
-    "response": {
-        "id": "pay_26e80d0c55fe4fa18b49ba8c35",
-        "action_id": "act_ca17faa957ac40e8af1496dee0",
-        "amount": "100.0",
-        "currency": "PKR",
-        "approved": "true",
-        "status": "Captured",
-        "response_code": "10000",
-        "response_summary": "Approved",
-        "transaction_state": {
-            "AUTHORIZATION_STATUS": "SUCCESS",
-            "CAPTURE_STATUS": "SUCCESS"
-        },
-        "processed_on": "2026-03-16T15:44:54Z",
-        "reference": "tokenizationtest",
-        "transaction_id": "1393",
-        "c_token": "ct_88941865-9831-50e8-9679-052069733f3c",
-        "payment_type": "tokenization"
-    },
-    "signature": "xxxx"
-}
-```
-
-### Direct Charge Inquiry (c_token)
-
-```json
-{
-    "response": {
-        "id": "pay_19b2ff968f17435187fcbf8664",
-        "action_id": "act_b95e328a4afd4acf85f9989713",
-        "amount": "100",
-        "currency": "PKR",
-        "approved": "true",
-        "status": "Captured",
-        "response_code": "10000",
-        "response_summary": "Approved",
-        "source": {
-            "id": "src_7db1817957e34496ae1749922d",
-            "type": "c_token",
-            "billing_address": {
-                "address_line1": "123 Main Street",
-                "city": "Karachi",
-                "state": "SD",
-                "zip": "75500",
-                "country": "PK"
-            }
-        },
-        "shipping": {
-            "address": {
-                "address_line1": "123 Main Street",
-                "city": "Karachi",
-                "state": "SD",
-                "zip": "75500",
-                "country": "PK"
-            }
-        },
-        "processed_on": "2026-03-16T15:47:13Z",
-        "reference": "tokenizationtest1",
-        "transaction_id": "1394",
-        "c_token": "ct_88941865-9831-50e8-9679-052069733f3c",
-        "payment_type": "directcharge"
-    },
-    "signature": "xxxx"
-}
-```
+{% endtab %}
+{% endtabs %}

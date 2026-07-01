@@ -4,6 +4,7 @@ Use `response_code` in card API responses and postbacks to identify transaction 
 
 | Simpaisa Code | Message |
 | ------------- | ------- |
+| 0 | Transaction Refunded Successfully. |
 | 0000 | Success |
 | 3001 | Transaction failed — required fields are not being validated against the operator. |
 | 3002 | Payment processor experienced a system failure. Wait a few minutes and retry the transaction. |
@@ -41,5 +42,14 @@ Use `response_code` in card API responses and postbacks to identify transaction 
 | 3037 | An unexpected error occurred while retrieving the saved card from the vault. Retry the request. |
 | 3039 | Card number is too short — 15 digits entered but 16 expected. Customer must check and re-enter their full card number. |
 | 3040 | Card number is invalid — no matching account found at the issuing bank. Customer must verify their card number or use a different card. |
+| 3501 | Transaction link expired |
+| 10000 | Approved |
+| 20118 | Transaction Pending |
+| 20151 | Cardholder failed 3DS authentication |
+| 40010 | Card tokenization is not enabled for this merchant. |
+| 40012 | Token does not belong to this merchant. |
+| 40015 | Non-3DS direct charge is not enabled for this merchant. |
+| 40016 | customer_id not found. |
+| 40025 | Capture is not applicable for zero-amount tokenization. |
 
 Card postbacks also use processor `response_code` values (e.g. `10000` = Approved). See [Webhooks — Card postbacks](../webhooks.md#card-payment-postbacks).

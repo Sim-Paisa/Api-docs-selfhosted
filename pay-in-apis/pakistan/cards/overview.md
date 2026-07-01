@@ -1,36 +1,36 @@
 # Pakistan — Cards
 
-Collect payments from customers via debit and credit cards. Cards support one-time payments, tokenization (saved card tokens), and direct charges against saved tokens.
+Collect payments from customers via debit and credit cards. Cards support one-time payments, card tokenization (saved `c_token` cards), zero-amount card verification, and direct charges against saved tokens — with or without a 3DS challenge.
 
 ---
 
 ## Supported Card Flows
 
-| `payment_type` | Description |
-|----------------|-------------|
-| `onetime` | Regular card payment |
-| `tokenization` | Save a reusable `c_token` |
-| `directcharge` | Charge a previously saved `c_token` |
+| `payment_type` | `amount` | `source.type` | `3ds.enabled` | Description |
+|-----------------|----------|----------------|----------------|-------------|
+| `onetime` | > 0 | `card` | `true` | Regular one-time card payment |
+| `tokenization` | > 0 | `card` | `true` | Pay once and save the card as a reusable `c_token` |
+| `tokenization` | `0.00` | `card` | `true` | Save a card without charging the customer (zero-amount verification) |
+| `directcharge` | > 0 | `c_token` | `true` | Charge a previously saved `c_token` with a 3DS redirect |
+| `directcharge` | > 0 | `c_token` | `false` | Charge a previously saved `c_token` synchronously, no redirect |
 
-| `source.type` | When to use |
-|---------------|-------------|
-| `card` | Encrypted card value in `source.card` |
-| `c_token` | Saved token in `source.card` for direct charge |
-
-- Tokenization must be initiated with `3ds.enabled=true`.
-- For tokenization, `capture` can be `true` or `false`.
-- When tokenization completes, use the [Inquiry API](./inquiry.md) to fetch the final status and generated `c_token`, or receive the data via [Postbacks](./postbacks.md).
+- Tokenization must be initiated with `3ds.enabled=true` — the sandbox has no non-3DS tokenization path.
+- For zero-amount tokenization, the transaction settles as `status: "Tokenized"` rather than `Authorized`/`Captured`, and has no `CAPTURE_STATUS` field. Calling [Capture](./capture.md) on it returns error `40025`.
+- For direct charge, the saved card's billing/shipping address is retrieved automatically by Simpaisa — it does not need to be resubmitted.
+- Direct charge identifies the customer by setting `customer.id` to the `cref_` value returned from the original tokenization — **not** a top-level `customer_id` field. A top-level or request-level `customer_id` field is rejected with `customer_required`.
+- `success_url` and `failure_url` are required on every flow, including non-3DS direct charge — they are not silently ignored.
+- When tokenization or direct charge completes, use the [Inquiry API](./inquiry.md) to fetch the final status and `c_token`.
 
 ---
 
 ## Introduction
 
-The integration process outlined in this guide provides a seamless connection between your system and Simpaisa card APIs. This documentation covers authentication, data formats, error handling, and security measures.
+The integration process outlined in this guide provides a seamless connection between your system and Simpaisa's card APIs. This documentation covers authentication, data formats, error handling, and security measures.
 
 To begin integration, review these areas:
 
 - **Security** — SSL handshake, IP whitelisting, and RSA encryption
-- **Endpoints and methods** — APIs for initiating and managing card transactions
+- **Endpoints and methods** — APIs for initiating and managing card transactions and saved tokens
 - **Request and response formats** — Expected payloads and response structures
 - **Error handling** — Robust handling of failures and exceptions
 
@@ -66,17 +66,15 @@ Card detail orientation:
 
 ### Step 05 — Payment Processing
 
-Process transactions based on `payment_type`:
+Process transactions based on `payment_type`, `amount`, and `source.type` — see [Supported Card Flows](#supported-card-flows) above.
 
-| Flow | Input |
-|------|-------|
-| `onetime` | Encrypted card in `source.card` |
-| `tokenization` | Encrypted card in `source.card`, `3ds.enabled=true` |
-| `directcharge` | Saved token in `source.card`, `source.type=c_token` |
+Once 3DS verification and capture complete, the full amount is deducted. If `capture=false`, the transaction stays authorized until you call the [Capture API](./capture.md).
 
-Once 3DS verification and capture complete, the full amount is deducted and a postback is generated. If `capture=false`, the transaction stays authorized until you call the [Capture API](./capture.md).
+Call the [Inquiry API](./inquiry.md) to verify status and close the transaction on your platform if you need to confirm an outcome outside of your own webhook handling.
 
-If no postback arrives within **40 minutes**, call the [Inquiry API](./inquiry.md) to verify status and close the transaction on your platform.
+{% hint style="warning" %}
+In sandbox testing, the 3DS redirect link returned in `response.redirect` expires quickly (observed: 2-3 minutes). Complete the 3DS challenge immediately after receiving the redirect URL, or the transaction will decline with `response_code: 3501` ("Transaction link expired").
+{% endhint %}
 
 ### Step 06 — UAT And Production
 
@@ -90,22 +88,14 @@ Conduct **User Acceptance Testing (UAT)** with the integration team. After UAT, 
 
 The `card` field in the Payments API is **not plain card data** — it must be AES-encrypted and Base64-encoded before being sent. See [Card Encryption](../../../platform-reference/authentication/card-encryption.md) for the exact format and a sample encryption helper.
 
-### RSA (digital Signature) And SHA-256
+### RSA (Digital Signature) And SHA-256
 
 RSA and SHA-256 secure card API traffic.
 
 - **RSA** uses asymmetric encryption — a private key (merchant) and public key (shared with Simpaisa).
 - **SHA-256** produces a 256-bit hash from input of any size.
 
-Together, RSA encrypts/signs data and SHA-256 hashes protect integrity in transit.
-
-### Encryption For Simpaisa APIs
-
-The merchant sends a **digital signature** with each API request. Simpaisa authenticates the client before processing.
-
-- Exchange **RSA keys** before API calls (2048-bit, PKCS8 padding).
-- Sign each request with your **RSA private key**; Simpaisa verifies with your **RSA public key**.
-- Verify API **response signatures** using Simpaisa's RSA public key.
+Together, RSA signs data and SHA-256 hashes protect integrity in transit. The signature is `SHA256withRSA` (PKCS#1 v1.5), Base64-encoded, computed over the JSON-serialized `request` object only (not the outer `{request, signature}` wrapper).
 
 ### Generating RSA Keys
 
@@ -127,11 +117,11 @@ The above is one example. Follow your technology stack or internal key-generatio
 
 ### Signing The API Request
 
-1. **Prepare the data** — the full request body or required fields per your integration spec.
-2. **Hash the data** — SHA-256.
-3. **Sign the hash** — encrypt with your RSA private key to create the digital signature.
-4. **Attach the signature** — include it in the request body as `signature`.
-5. **Verification** — Simpaisa decrypts with your public key and compares hashes.
+1. **Prepare the data** — the `request` object of the JSON body (excluding the top-level `signature` field).
+2. **Serialize** — `JSON.stringify` the `request` object.
+3. **Hash and sign** — SHA-256 hash, then sign with your RSA private key (PKCS#1 v1.5) to produce the digital signature.
+4. **Base64-encode** the signature and attach it as the top-level `signature` field in the request body.
+5. **Verification** — Simpaisa verifies with your public key; verify Simpaisa's response signatures with Simpaisa's RSA public key.
 
 ---
 
@@ -140,12 +130,14 @@ The above is one example. Follow your technology stack or internal key-generatio
 | API | Method | Path | Guide |
 |-----|--------|------|-------|
 | Payments | `POST` | `/cards/payments` | [Payment](./payment.md) |
+| Tokens (List/Delete) | `POST` | `/cards/tokens` | [Tokens](./tokens.md) |
 | Inquiry | `POST` | `/cards/inquiry` | [Inquiry](./inquiry.md) |
 | Capture | `POST` | `/cards/capture` | [Capture](./capture.md) |
 | Void | `POST` | `/cards-refund/reverse` | [Void](./void.md) |
-| Finalize | `POST` | `/mastercard/finalize` | [Finalize](./finalize.md) |
 | Refund | `POST` | `/cards-refund/reverse` | [Refunds](./refunds.md) |
-| Postbacks | — | Webhook to your URL | [Postbacks](./postbacks.md) |
+| Postbacks | — | — | [Postbacks](./postbacks.md) |
+
+See [Errors](./errors.md) for the full set of validation and decline error codes.
 
 ---
 

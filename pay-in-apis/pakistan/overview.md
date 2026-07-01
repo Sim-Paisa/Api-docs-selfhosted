@@ -7,4 +7,4 @@ Pakistan pay-in integrations use dedicated endpoints separate from the [Unified 
 | [Wallets](./wallets/overview.md) | Mobile wallet payments — Easypaisa, JazzCash, HBL Konnect, Alfa; OTP, async, tokenization, and refunds |
 | [E-Billing](./e-billing/overview.md) | Voucher-based billing — generate a payment voucher and inquire status |
 | [Hosted Page](./hosted-page/overview.md) | Widget checkout — redirect customers to a Simpaisa-hosted payment page |
-| [Cards](./cards/overview.md) | Card payments — authorize, capture, void, inquiry, finalize, and refunds |
+| [Cards](./cards/overview.md) | Card payments — authorize, capture, void, inquiry, tokenization, and refunds |

@@ -60,12 +60,13 @@
   * [E-Invoice](pay-in-apis/pakistan/hosted-page/e-invoice.md)
 * [Cards](pay-in-apis/pakistan/cards/overview.md)
   * [Payment](pay-in-apis/pakistan/cards/payment.md)
+  * [Tokens](pay-in-apis/pakistan/cards/tokens.md)
   * [Capture](pay-in-apis/pakistan/cards/capture.md)
   * [Void](pay-in-apis/pakistan/cards/void.md)
   * [Inquiry](pay-in-apis/pakistan/cards/inquiry.md)
-  * [Finalize](pay-in-apis/pakistan/cards/finalize.md)
   * [Refunds](pay-in-apis/pakistan/cards/refunds.md)
   * [Postbacks](pay-in-apis/pakistan/cards/postbacks.md)
+  * [Errors](pay-in-apis/pakistan/cards/errors.md)
 
 ## Pay-Out APIs
 

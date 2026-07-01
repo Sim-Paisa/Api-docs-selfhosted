@@ -3,3 +3,6 @@ root: ./
 structure:
   readme: getting-started/overview.md
   summary: SUMMARY.md
+
+redirects:
+  pay-in-apis/pakistan/cards/finalize: pay-in-apis/pakistan/cards/overview
