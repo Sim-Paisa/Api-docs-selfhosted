@@ -2,48 +2,45 @@
 
 Fetch the account title information of a customer. This is useful for checking whether a provided account is valid before initiating a disbursement.
 
-<figure><img src="/files/qRSofHLDvt7BaqVqkNa9" alt=""><figcaption></figcaption></figure>
-
 > **Applies to:** Pakistan
 
----
+***
 
 ## Endpoint
 
-| | |
-|---|---|
-| **Method** | `POST` |
-| **Path** | `/merchants/{merchantId}/disbursements/fetch-account` |
-| **Sandbox** | `https://sandbox.simpaisa.com` |
+|             |                                                       |
+| ----------- | ----------------------------------------------------- |
+| **Method**  | `POST`                                                |
+| **Path**    | `/merchants/{merchantId}/disbursements/fetch-account` |
+| **Sandbox** | `https://sandbox.simpaisa.com`                        |
 
----
+***
 
 ## Request parameters
 
-| Parameter | Required | Type | Description |
-|-----------|----------|------|-------------|
-| `destinationBank` | Yes | String | The bank name as provided by the customer |
-| `customerAccount` | Yes | String | The account number as provided by the customer |
+| Parameter         | Required | Type   | Description                                    |
+| ----------------- | -------- | ------ | ---------------------------------------------- |
+| `destinationBank` | Yes      | String | The bank name as provided by the customer      |
+| `customerAccount` | Yes      | String | The account number as provided by the customer |
 
----
+***
 
 ## Response parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `customerAccount` | String | The account number that was provided |
-| `accountTitle` | String | Title of the provided account (e.g. John Doe) |
-| `bankTitle` | String | The bank name where the account exists |
-| `destinationBank` | String | The bank name as provided by the customer |
-| `iban` | String | The IBAN of the provided account |
+| Parameter         | Type   | Description                                   |
+| ----------------- | ------ | --------------------------------------------- |
+| `customerAccount` | String | The account number that was provided          |
+| `accountTitle`    | String | Title of the provided account (e.g. John Doe) |
+| `bankTitle`       | String | The bank name where the account exists        |
+| `destinationBank` | String | The bank name as provided by the customer     |
+| `iban`            | String | The IBAN of the provided account              |
 
----
+***
 
 ## Sample
 
 {% tabs %}
 {% tab title="Request" %}
-
 ```bash
 curl --location --request POST 'https://sandbox.simpaisa.com/merchants/{merchantId}/disbursements/fetch-account' \
   --header 'Content-Type: application/json' \
@@ -56,10 +53,9 @@ curl --location --request POST 'https://sandbox.simpaisa.com/merchants/{merchant
     "signature": "g9TYRxajdaeriaicaclksaJJKKOPAPOA989734kaljnancmasnkarjopASHFIAEHN=="
   }'
 ```
-
 {% endtab %}
-{% tab title="Response" %}
 
+{% tab title="Response" %}
 ```json
 {
   "response": {
@@ -74,7 +70,6 @@ curl --location --request POST 'https://sandbox.simpaisa.com/merchants/{merchant
   "signature": "JHFYeioofhsjdsjnjdfhsouhsdpoioaajhdjsdhfojpCMABDFIAEHYAKSJFAO"
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 

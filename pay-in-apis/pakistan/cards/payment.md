@@ -1,120 +1,118 @@
-# Card Payment
+# Payment
 
 Initiate one-time card payments, tokenization, and direct charges.
 
----
+***
 
 ## Payment process
 
-![Card payment flow](/files/na78esNmL08yJ6ZjQ6Ey)
-
 Request behavior depends on `payment_type`, `source.type`, `3ds.enabled`, and `capture`:
 
-| `payment_type` | Description |
-|----------------|-------------|
-| `onetime` | Regular card payment |
-| `tokenization` | Save a reusable `c_token` |
+| `payment_type` | Description                         |
+| -------------- | ----------------------------------- |
+| `onetime`      | Regular card payment                |
+| `tokenization` | Save a reusable `c_token`           |
 | `directcharge` | Charge a previously saved `c_token` |
 
 **Rules:**
 
-- For `onetime` and `tokenization`, set `source.type=card`.
-- For `directcharge`, set `source.type=c_token`.
-- Tokenization must use `3ds.enabled=true`.
-- For tokenization, `capture` can be `true` or `false`.
-- Direct charge with `c_token` supports `3ds.enabled=false`.
-- `capture=true` captures immediately after approval.
-- `capture=false` authorizes first — capture later with [Capture](./capture.md).
+* For `onetime` and `tokenization`, set `source.type=card`.
+* For `directcharge`, set `source.type=c_token`.
+* Tokenization must use `3ds.enabled=true`.
+* For tokenization, `capture` can be `true` or `false`.
+* Direct charge with `c_token` supports `3ds.enabled=false`.
+* `capture=true` captures immediately after approval.
+* `capture=false` authorizes first — capture later with [Capture](capture.md).
 
----
+***
 
 ## Endpoint
 
-| | |
-|---|---|
-| **Method** | `POST` |
-| **Path** | `/cards/payments` |
+|             |                                               |
+| ----------- | --------------------------------------------- |
+| **Method**  | `POST`                                        |
+| **Path**    | `/cards/payments`                             |
 | **Sandbox** | `https://sandbox.simpaisa.com/cards/payments` |
 
----
+***
 
 ## Headers
 
-| Header | Value |
-|--------|-------|
-| `client-id` | Your Client ID (e.g. `55f840e6afoc9853`) |
-| `Content-Type` | `application/json` |
-| `merchantId` | Your unique merchant ID (e.g. `2000123`) |
-| `mode` | `cards` |
-| `region` | `PK` |
-| `version` | `V5` |
+| Header         | Value                                    |
+| -------------- | ---------------------------------------- |
+| `client-id`    | Your Client ID (e.g. `55f840e6afoc9853`) |
+| `Content-Type` | `application/json`                       |
+| `merchantId`   | Your unique merchant ID (e.g. `2000123`) |
+| `mode`         | `cards`                                  |
+| `region`       | `PK`                                     |
+| `version`      | `V5`                                     |
 
----
+***
 
 ## Request body
 
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `request.source` | Yes | Payment source details |
-| `request.source.type` | Yes | `card` (encrypted card) or `c_token` (saved token) |
-| `request.source.card` | Yes | AES-encrypted card value or saved `c_token` |
-| `request.amount` | Yes | Transaction amount |
-| `request.currency` | Yes | Currency code, e.g. `PKR` |
-| `request.payment_type` | Yes | `onetime`, `tokenization`, or `directcharge` |
-| `request.reference` | Yes | Unique transaction reference |
-| `request.capture` | Yes | `true` to capture immediately; `false` to authorize only |
-| `request.description` | Yes | Payment description |
-| `request.3ds.enabled` | Yes | `true` or `false` — must be `true` for tokenization |
-| `request.success_url` | Yes | Redirect URL after successful 3DS |
-| `request.failure_url` | Yes | Redirect URL after failed 3DS |
-| `request.customer.email` | Yes | Customer email |
-| `request.customer.name` | Yes | Customer full name |
-| `request.customer.country` | Yes | ISO 2-letter country, e.g. `PK` |
-| `request.customer.phone.number` | Yes | Phone number without country code |
-| `request.customer.phone.country_code` | Yes | Country calling code, e.g. `+92` |
-| `request.shipping.address` | For tokenization and directcharge | Shipping address object |
-| `request.shipping.address.address_line1` | For tokenization and directcharge | First address line |
-| `request.shipping.address.city` | For tokenization and directcharge | City |
-| `request.shipping.address.state` | For tokenization and directcharge | State or province |
-| `request.shipping.address.zip` | For tokenization and directcharge | Postal code |
-| `request.shipping.address.country` | For tokenization and directcharge | ISO 2-letter country |
-| `request.payment_ip` | Yes | IP address of the user initiating payment |
-| `signature` | Yes | RSA signature of the request body |
+| Parameter                                | Required                          | Description                                              |
+| ---------------------------------------- | --------------------------------- | -------------------------------------------------------- |
+| `request.source`                         | Yes                               | Payment source details                                   |
+| `request.source.type`                    | Yes                               | `card` (encrypted card) or `c_token` (saved token)       |
+| `request.source.card`                    | Yes                               | AES-encrypted card value or saved `c_token`              |
+| `request.amount`                         | Yes                               | Transaction amount                                       |
+| `request.currency`                       | Yes                               | Currency code, e.g. `PKR`                                |
+| `request.payment_type`                   | Yes                               | `onetime`, `tokenization`, or `directcharge`             |
+| `request.reference`                      | Yes                               | Unique transaction reference                             |
+| `request.capture`                        | Yes                               | `true` to capture immediately; `false` to authorize only |
+| `request.description`                    | Yes                               | Payment description                                      |
+| `request.3ds.enabled`                    | Yes                               | `true` or `false` — must be `true` for tokenization      |
+| `request.success_url`                    | Yes                               | Redirect URL after successful 3DS                        |
+| `request.failure_url`                    | Yes                               | Redirect URL after failed 3DS                            |
+| `request.customer.email`                 | Yes                               | Customer email                                           |
+| `request.customer.name`                  | Yes                               | Customer full name                                       |
+| `request.customer.country`               | Yes                               | ISO 2-letter country, e.g. `PK`                          |
+| `request.customer.phone.number`          | Yes                               | Phone number without country code                        |
+| `request.customer.phone.country_code`    | Yes                               | Country calling code, e.g. `+92`                         |
+| `request.shipping.address`               | For tokenization and directcharge | Shipping address object                                  |
+| `request.shipping.address.address_line1` | For tokenization and directcharge | First address line                                       |
+| `request.shipping.address.city`          | For tokenization and directcharge | City                                                     |
+| `request.shipping.address.state`         | For tokenization and directcharge | State or province                                        |
+| `request.shipping.address.zip`           | For tokenization and directcharge | Postal code                                              |
+| `request.shipping.address.country`       | For tokenization and directcharge | ISO 2-letter country                                     |
+| `request.payment_ip`                     | Yes                               | IP address of the user initiating payment                |
+| `signature`                              | Yes                               | RSA signature of the request body                        |
 
-See [Overview — AES encryption](./overview.md#aes-card-encryption) for card encryption format.
+See [Overview — AES encryption](overview.md#aes-card-encryption) for card encryption format.
 
----
+***
 
 ## Response body
 
-| Parameter | Description |
-|-----------|-------------|
-| `response.id` | Unique payment ID |
-| `response.action_id` | Unique action ID |
-| `response.amount` | Transaction amount |
-| `response.currency` | Currency code |
-| `response.approved` | Whether the payment is approved |
-| `response.status` | e.g. `Pending`, `Authorized`, `Captured`, `Declined` |
-| `response.response_code` | Transaction outcome code |
-| `response.response_summary` | Human-readable outcome |
-| `response.transaction_state` | Authorization and capture status container |
-| `response.transaction_state.AUTHORIZATION_STATUS` | `PENDING`, `SUCCESS`, or `FAILED` |
-| `response.transaction_state.CAPTURE_STATUS` | `PENDING`, `SUCCESS`, or `FAILED` |
-| `response.source.id` | Source ID assigned by Simpaisa |
-| `response.source.type` | Source type |
-| `response.source.card` | Masked or token-linked card value |
-| `response.source.billing_address` | Billing address (tokenization / direct charge) |
-| `response.customer` | Customer details object |
-| `response.shipping.address` | Shipping address (tokenization / direct charge) |
-| `response.processed_on` | ISO processing timestamp |
-| `response.reference` | Reference from request |
-| `response.redirect` | 3DS redirect URL when applicable |
-| `response.transaction_id` | Provider transaction ID |
-| `response.c_token` | Saved card token after successful tokenization |
-| `response.payment_type` | Payment type processed |
-| `signature` | RSA signature of the response body |
+| Parameter                                         | Description                                          |
+| ------------------------------------------------- | ---------------------------------------------------- |
+| `response.id`                                     | Unique payment ID                                    |
+| `response.action_id`                              | Unique action ID                                     |
+| `response.amount`                                 | Transaction amount                                   |
+| `response.currency`                               | Currency code                                        |
+| `response.approved`                               | Whether the payment is approved                      |
+| `response.status`                                 | e.g. `Pending`, `Authorized`, `Captured`, `Declined` |
+| `response.response_code`                          | Transaction outcome code                             |
+| `response.response_summary`                       | Human-readable outcome                               |
+| `response.transaction_state`                      | Authorization and capture status container           |
+| `response.transaction_state.AUTHORIZATION_STATUS` | `PENDING`, `SUCCESS`, or `FAILED`                    |
+| `response.transaction_state.CAPTURE_STATUS`       | `PENDING`, `SUCCESS`, or `FAILED`                    |
+| `response.source.id`                              | Source ID assigned by Simpaisa                       |
+| `response.source.type`                            | Source type                                          |
+| `response.source.card`                            | Masked or token-linked card value                    |
+| `response.source.billing_address`                 | Billing address (tokenization / direct charge)       |
+| `response.customer`                               | Customer details object                              |
+| `response.shipping.address`                       | Shipping address (tokenization / direct charge)      |
+| `response.processed_on`                           | ISO processing timestamp                             |
+| `response.reference`                              | Reference from request                               |
+| `response.redirect`                               | 3DS redirect URL when applicable                     |
+| `response.transaction_id`                         | Provider transaction ID                              |
+| `response.c_token`                                | Saved card token after successful tokenization       |
+| `response.payment_type`                           | Payment type processed                               |
+| `signature`                                       | RSA signature of the response body                   |
 
----
+***
 
 ## Samples
 
@@ -387,7 +385,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
 }
 ```
 
-### Direct charge with c_token
+### Direct charge with c\_token
 
 #### Request
 

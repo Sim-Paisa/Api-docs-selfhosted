@@ -1,4 +1,4 @@
-# Verify Payment — Non-OTP Flow
+# Verify Non-OTP
 
 ## One-time payment without OTP
 
@@ -8,16 +8,16 @@ This flow processes a wallet payment **without an OTP**. The customer approves t
 This is an **asynchronous** flow. The Verify API returns `Transaction-Pending` first, then Simpaisa notifies you later.
 {% endhint %}
 
----
+***
 
 ## Approval window
 
-| Wallet | Maximum time to approve |
-|--------|-------------------------|
-| Easypaisa | 60 seconds |
-| JazzCash | 360 seconds |
+| Wallet    | Maximum time to approve |
+| --------- | ----------------------- |
+| Easypaisa | 60 seconds              |
+| JazzCash  | 360 seconds             |
 
----
+***
 
 ## Sequence
 
@@ -25,26 +25,26 @@ This is an **asynchronous** flow. The Verify API returns `Transaction-Pending` f
 2. The merchant calls the [Verify API](../verify.md) (without OTP).
 3. Simpaisa validates the request, stores the data, and forwards it to the wallet channel.
 4. Simpaisa returns a synchronous response: `Transaction-Pending` (`status = 0037`).
-5. The wallet requests customer authentication/approval (~60–360 sec).
+5. The wallet requests customer authentication/approval (\~60–360 sec).
 6. The wallet updates the payment status to Simpaisa.
 7. Simpaisa sends a **postback/webhook** to the merchant callback URL with the final status.
 
 If you don't receive a postback, call the [Inquire API](../inquire.md) to fetch the latest status.
 
----
+***
 
 ## Headers
 
-| Header | Required | Description |
-|--------|----------|-------------|
-| `Content-Type` | Yes | `application/json` |
-| `operatorID` | Yes | Wallet operator code, e.g. `100008` |
-| `Request-Id` | No (recommended) | Unique request identifier for idempotency |
-| `mode` | Yes | `payin` |
-| `region` | Yes | `PK` |
-| `version` | Yes | `3.0` |
+| Header         | Required         | Description                               |
+| -------------- | ---------------- | ----------------------------------------- |
+| `Content-Type` | Yes              | `application/json`                        |
+| `operatorID`   | Yes              | Wallet operator code, e.g. `100008`       |
+| `Request-Id`   | No (recommended) | Unique request identifier for idempotency |
+| `mode`         | Yes              | `payin`                                   |
+| `region`       | Yes              | `PK`                                      |
+| `version`      | Yes              | `3.0`                                     |
 
----
+***
 
 ## Sample
 
@@ -114,19 +114,15 @@ curl -X POST "https://sandbox.simpaisa.com/v2/wallets/transaction/verify" \
 }
 ```
 
----
+***
 
 ## User journey
 
-<figure><img src="/files/OFElV98cpxX1jW1IkFVD" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="/files/YOgEDS65VEgq8jwzRUxk" alt=""><figcaption></figcaption></figure>
-
----
+***
 
 ## Related
 
-- [Verify Payment](../verify.md)
-- [Inquire Payment](../inquire.md)
-- [Webhooks](../../../../platform-reference/webhooks.md)
-- [Error handling](../../../../platform-reference/error-handling.md)
+* [Verify Payment](../verify.md)
+* [Inquire Payment](../inquire.md)
+* [Webhooks](../../../../platform-reference/webhooks.md)
+* [Error handling](../../../../platform-reference/error-handling.md)

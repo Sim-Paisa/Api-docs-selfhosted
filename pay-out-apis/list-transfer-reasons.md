@@ -1,46 +1,42 @@
 # List Transfer Reasons
 
-Fetch the list of transfer reason codes to pass when making an [Initiate Disbursement](./initiate-disbursement.md) call.
-
-<figure><img src="/files/rnxUvLJ8w8zNL19Y0cXA" alt=""><figcaption></figcaption></figure>
+Fetch the list of transfer reason codes to pass when making an [Initiate Disbursement](initiate-disbursement.md) call.
 
 > **Applies to:** Pakistan
 
----
+***
 
 ## Endpoint
 
-| | |
-|---|---|
-| **Method** | `GET` |
-| **Path** | `/merchants/{merchantId}/disbursements/reasons` |
-| **Sandbox** | `https://sandbox.simpaisa.com` |
+|             |                                                 |
+| ----------- | ----------------------------------------------- |
+| **Method**  | `GET`                                           |
+| **Path**    | `/merchants/{merchantId}/disbursements/reasons` |
+| **Sandbox** | `https://sandbox.simpaisa.com`                  |
 
----
+***
 
 ## Response parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | Int | Simpaisa-delegated ID for each reason, ordered sequentially |
+| Parameter  | Type   | Description                                                                   |
+| ---------- | ------ | ----------------------------------------------------------------------------- |
+| `id`       | Int    | Simpaisa-delegated ID for each reason, ordered sequentially                   |
 | `category` | String | Reason for the funds transfer or payment, covering B2B, B2C, or C2C scenarios |
-| `code` | String | The code defining the type of disbursement taking place |
+| `code`     | String | The code defining the type of disbursement taking place                       |
 
----
+***
 
 ## Sample
 
 {% tabs %}
 {% tab title="Request" %}
-
 ```bash
 curl --location --request GET 'https://sandbox.simpaisa.com/merchants/{merchantId}/disbursements/reasons' \
   --header 'Content-Type: application/json'
 ```
-
 {% endtab %}
-{% tab title="Response" %}
 
+{% tab title="Response" %}
 ```json
 [
   {
@@ -60,6 +56,5 @@ curl --location --request GET 'https://sandbox.simpaisa.com/merchants/{merchantI
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}

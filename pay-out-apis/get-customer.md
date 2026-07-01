@@ -2,66 +2,62 @@
 
 Fetch the details of a registered customer by their customer reference.
 
-<figure><img src="/files/73pbcFJnn5FIhZM8ucPC" alt=""><figcaption></figcaption></figure>
-
 > **Applies to:** Pakistan
 
----
+***
 
 ## Endpoint
 
-| | |
-|---|---|
-| **Method** | `GET` |
-| **Path** | `/merchants/{merchantId}/disbursements/register-customer?reference={reference}` |
-| **Sandbox** | `https://sandbox.simpaisa.com` |
+|             |                                                                                 |
+| ----------- | ------------------------------------------------------------------------------- |
+| **Method**  | `GET`                                                                           |
+| **Path**    | `/merchants/{merchantId}/disbursements/register-customer?reference={reference}` |
+| **Sandbox** | `https://sandbox.simpaisa.com`                                                  |
 
----
+***
 
 ## Response parameters
 
-| Parameter | Type | Length | Description |
-|-----------|------|--------|-------------|
-| `reference` | String | 45 | A unique reference per customer, attached to the bank or wallet account provided by the beneficiary. Used as `customerReference` in the initiate disbursement request. |
-| `customerName` | String | 45 | The customer's name shared by the merchant |
-| `customerContact` | String | 45 | The customer's contact number (mobile) with country code |
-| `customerEmail` | String | 100 | The customer's email address |
-| `customerDob` | String | 25 | The customer's date of birth, formatted as per ISO 8601 |
-| `customerGender` | String | 10 | The customer's gender — `MALE`, `FEMALE`, or `OTHER` |
-| `customerAddress` | Object | — | The address of the customer |
-| `customerAddress.country` | String | 45 | The country of the address as an ISO 3166 Alpha-2 code |
-| `customerAddress.city` | String | 45 | The city of the address |
-| `customerAddress.state` | String | 45 | The region/state of the address |
-| `customerAddress.streetAddress` | String | 45 | The street address |
-| `customerAddress.postalCode` | String | 25 | The postal code of the address |
-| `customerAddress.landmark` | String | 45 | A landmark for the address |
-| `customerAddress.freeformAddress` | String | 150 | A free-form description of the address |
-| `customerMaritalStatus` | String | 10 | The marital status — `SINGLE`, `MARRIED`, or `DIVORCED` |
-| `customerIdNumber` | String | 45 | The customer's national identification number |
-| `customerIdExpirationDate` | String | 25 | The expiration date of the national ID (e.g. CNIC), formatted as per ISO 8601 |
-| `customerNtnNumber` | String | 15 | The national taxation number of the customer |
-| `customerAccount` | String | 45 | The customer's account number (IBAN or wallet) shared for disbursement |
-| `accountType` | String | 3 | The account type — `BA` for bank accounts, `DW` for digital wallets |
-| `destinationBank` | String | 25 | The name of the bank/wallet entity holding the customer's account |
-| `branchCode` | String | 15 | The unique code assigned to the bank branch holding the customer's account |
-| `createdDate` | Datetime | — | The customer creation date |
+| Parameter                         | Type     | Length | Description                                                                                                                                                            |
+| --------------------------------- | -------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `reference`                       | String   | 45     | A unique reference per customer, attached to the bank or wallet account provided by the beneficiary. Used as `customerReference` in the initiate disbursement request. |
+| `customerName`                    | String   | 45     | The customer's name shared by the merchant                                                                                                                             |
+| `customerContact`                 | String   | 45     | The customer's contact number (mobile) with country code                                                                                                               |
+| `customerEmail`                   | String   | 100    | The customer's email address                                                                                                                                           |
+| `customerDob`                     | String   | 25     | The customer's date of birth, formatted as per ISO 8601                                                                                                                |
+| `customerGender`                  | String   | 10     | The customer's gender — `MALE`, `FEMALE`, or `OTHER`                                                                                                                   |
+| `customerAddress`                 | Object   | —      | The address of the customer                                                                                                                                            |
+| `customerAddress.country`         | String   | 45     | The country of the address as an ISO 3166 Alpha-2 code                                                                                                                 |
+| `customerAddress.city`            | String   | 45     | The city of the address                                                                                                                                                |
+| `customerAddress.state`           | String   | 45     | The region/state of the address                                                                                                                                        |
+| `customerAddress.streetAddress`   | String   | 45     | The street address                                                                                                                                                     |
+| `customerAddress.postalCode`      | String   | 25     | The postal code of the address                                                                                                                                         |
+| `customerAddress.landmark`        | String   | 45     | A landmark for the address                                                                                                                                             |
+| `customerAddress.freeformAddress` | String   | 150    | A free-form description of the address                                                                                                                                 |
+| `customerMaritalStatus`           | String   | 10     | The marital status — `SINGLE`, `MARRIED`, or `DIVORCED`                                                                                                                |
+| `customerIdNumber`                | String   | 45     | The customer's national identification number                                                                                                                          |
+| `customerIdExpirationDate`        | String   | 25     | The expiration date of the national ID (e.g. CNIC), formatted as per ISO 8601                                                                                          |
+| `customerNtnNumber`               | String   | 15     | The national taxation number of the customer                                                                                                                           |
+| `customerAccount`                 | String   | 45     | The customer's account number (IBAN or wallet) shared for disbursement                                                                                                 |
+| `accountType`                     | String   | 3      | The account type — `BA` for bank accounts, `DW` for digital wallets                                                                                                    |
+| `destinationBank`                 | String   | 25     | The name of the bank/wallet entity holding the customer's account                                                                                                      |
+| `branchCode`                      | String   | 15     | The unique code assigned to the bank branch holding the customer's account                                                                                             |
+| `createdDate`                     | Datetime | —      | The customer creation date                                                                                                                                             |
 
----
+***
 
 ## Sample
 
 {% tabs %}
 {% tab title="Request" %}
-
 ```bash
 curl --location --request GET \
   'https://sandbox.simpaisa.com/merchants/{merchantId}/disbursements/register-customer?reference=AJDfldjlafdJADJ000' \
   --header 'Content-Type: application/json'
 ```
-
 {% endtab %}
-{% tab title="Response" %}
 
+{% tab title="Response" %}
 ```json
 {
   "customer": {
@@ -85,6 +81,5 @@ curl --location --request GET \
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}

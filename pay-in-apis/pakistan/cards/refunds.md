@@ -2,67 +2,65 @@
 
 Process refunds for previously captured card transactions.
 
----
+***
 
 ## Refund process
 
-![Card refund flow](/files/WcOigQo1inzv6gXeNXre)
-
----
+***
 
 ## Endpoint
 
-| | |
-|---|---|
-| **Method** | `POST` |
-| **Path** | `/cards-refund/reverse` |
+|             |                                                     |
+| ----------- | --------------------------------------------------- |
+| **Method**  | `POST`                                              |
+| **Path**    | `/cards-refund/reverse`                             |
 | **Sandbox** | `https://sandbox.simpaisa.com/cards-refund/reverse` |
 
----
+***
 
 ## Headers
 
-| Header | Value |
-|--------|-------|
-| `client-id` | Your Client ID (e.g. `55f840e6afoc9853`) |
-| `Content-Type` | `application/json` |
-| `merchantId` | Your unique merchant ID (e.g. `2000123`) |
-| `mode` | `cards` |
-| `region` | `PK` |
-| `version` | `V5` |
+| Header         | Value                                    |
+| -------------- | ---------------------------------------- |
+| `client-id`    | Your Client ID (e.g. `55f840e6afoc9853`) |
+| `Content-Type` | `application/json`                       |
+| `merchantId`   | Your unique merchant ID (e.g. `2000123`) |
+| `mode`         | `cards`                                  |
+| `region`       | `PK`                                     |
+| `version`      | `V5`                                     |
 
----
+***
 
 ## Request body
 
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `request.apiOperation` | Yes | `REFUND` |
-| `request.reference` | Yes | Reference of the captured transaction to refund |
-| `request.amount` | No | Amount to refund |
-| `request.transactionDate` | Yes | Original transaction date (`YYYY-MM-DD`) |
-| `request.additionalParameter.additionalString1` | No | Additional string parameter |
-| `request.additionalParameter.additionalString2` | No | Additional string parameter |
-| `request.additionalParameter.additionalString3` | No | Additional string parameter |
-| `request.additionalParameter.additionalInteger1` | No | Additional integer parameter |
-| `request.additionalParameter.additionalInteger2` | No | Additional integer parameter |
-| `request.additionalParameter.additionalDate` | No | Date parameter (`YYYY-MM-DD`) |
-| `signature` | Yes | RSA signature of the request body |
+| Parameter                                        | Required | Description                                     |
+| ------------------------------------------------ | -------- | ----------------------------------------------- |
+| `request.apiOperation`                           | Yes      | `REFUND`                                        |
+| `request.reference`                              | Yes      | Reference of the captured transaction to refund |
+| `request.amount`                                 | No       | Amount to refund                                |
+| `request.transactionDate`                        | Yes      | Original transaction date (`YYYY-MM-DD`)        |
+| `request.additionalParameter.additionalString1`  | No       | Additional string parameter                     |
+| `request.additionalParameter.additionalString2`  | No       | Additional string parameter                     |
+| `request.additionalParameter.additionalString3`  | No       | Additional string parameter                     |
+| `request.additionalParameter.additionalInteger1` | No       | Additional integer parameter                    |
+| `request.additionalParameter.additionalInteger2` | No       | Additional integer parameter                    |
+| `request.additionalParameter.additionalDate`     | No       | Date parameter (`YYYY-MM-DD`)                   |
+| `signature`                                      | Yes      | RSA signature of the request body               |
 
----
+***
 
 ## Response body
 
-| Parameter | Description |
-|-----------|-------------|
-| `response.action_id` | Unique action ID for the refund |
-| `response.status` | e.g. `Refunded` or `Declined` |
-| `response.response_code` | Outcome code (e.g. `0` for success) |
+| Parameter                   | Description                               |
+| --------------------------- | ----------------------------------------- |
+| `response.action_id`        | Unique action ID for the refund           |
+| `response.status`           | e.g. `Refunded` or `Declined`             |
+| `response.response_code`    | Outcome code (e.g. `0` for success)       |
 | `response.response_summary` | e.g. `Transaction Refunded Successfully.` |
-| `response.reference` | Reference of the original transaction |
-| `signature` | RSA signature of the response body |
+| `response.reference`        | Reference of the original transaction     |
+| `signature`                 | RSA signature of the response body        |
 
----
+***
 
 ## Sample request
 
@@ -116,4 +114,4 @@ curl --location 'https://sandbox.simpaisa.com/cards-refund/reverse' \
 }
 ```
 
-See [Postbacks](./postbacks.md) for the refund postback payload.
+See [Postbacks](postbacks.md) for the refund postback payload.
