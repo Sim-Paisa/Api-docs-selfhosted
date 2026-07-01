@@ -1,25 +1,25 @@
-# Pay-Out Overview (Bangladesh)
+# Overview
 
-Bangladesh pay-out supports bank and wallet disbursements using the Bangladesh configuration profile.
+Bangladesh and Egypt pay-out supports bank and wallet disbursements using the Bangladesh and Egypt configuration profile.
 
-> **Applies to:** Bangladesh
+> **Applies to:** Bangladesh, Egypt
 
 ## Base URLs
 
-| Environment | URL |
-|-------------|-----|
-| Sandbox | `https://sandbox.simpaisa.com` |
-| Production | `https://payout.simpaisa.com` |
+| Environment | URL                            |
+| ----------- | ------------------------------ |
+| Sandbox     | `https://sandbox.simpaisa.com` |
+| Production  | `https://payout.simpaisa.com`  |
 
 ## Headers
 
-| Header | Value |
-|--------|-------|
-| `Accept` | `text/plain, application/json, application/*+json` |
-| `Content-Type` | `application/json` |
-| `mode` | `payout` |
-| `region` | `BD` |
-| `version` | `3.0` |
+| Header         | Value                                              |
+| -------------- | -------------------------------------------------- |
+| `Accept`       | `text/plain, application/json, application/*+json` |
+| `Content-Type` | `application/json`                                 |
+| `mode`         | `payout`                                           |
+| `region`       | `'BD' OR 'EG'`                                     |
+| `version`      | `3.0`                                              |
 
 ## Core Flow
 
@@ -29,8 +29,7 @@ Bangladesh pay-out supports bank and wallet disbursements using the Bangladesh c
 4. Reconcile with inquiry + postback notifications.
 
 Related pages:
-- [Initiate disbursement](./initiate-disbursement.md)
-- [Inquire disbursement](./inquire-disbursement.md)
-- [Disbursement states](./disbursement-states.md)
 
-Canonical reference: [Pay-Out Overview (Bangladesh section)](../overview.md#bangladesh)
+* [Initiate disbursement](initiate-disbursement.md)
+* [Inquire disbursement](inquire-disbursement.md)
+* [Disbursement states](disbursement-states.md)

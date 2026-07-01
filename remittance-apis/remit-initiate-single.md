@@ -2,7 +2,7 @@
 
 Initiate a remittance in a single call by submitting the sender's, beneficiary's, and transaction details together. This handles the core operation of transferring funds from the sender to the beneficiary, including currency codes, bank information, and the transaction amount.
 
-**Applies to:** Pakistan · Bangladesh
+**Applies to:** Pakistan · Bangladesh. Egypt
 
 ***
 

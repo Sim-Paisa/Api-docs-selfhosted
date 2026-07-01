@@ -1,4 +1,4 @@
-# Table Of Contents
+# Table of contents
 
 ## Getting Started
 
@@ -88,7 +88,7 @@
   * [Fetch Account Title](pay-out-apis/fetch-account-title.md)
   * [List Transfer Reasons](pay-out-apis/list-transfer-reasons.md)
   * [Banks & Wallets Reference](pay-out-apis/banks-reference-pk.md)
-* [Bangladesh](pay-out-apis/bangladesh/index.md)
+* [Rest of the World ](pay-out-apis/bangladesh/index.md)
   * [Overview](pay-out-apis/bangladesh/overview.md)
   * [Disbursement States](pay-out-apis/bangladesh/disbursement-states.md)
   * [Initiate Disbursement](pay-out-apis/bangladesh/initiate-disbursement.md)
