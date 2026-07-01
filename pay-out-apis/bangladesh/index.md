@@ -1,8 +1,8 @@
-# Pay-Out APIs - Bangladesh
+# Rest of the World&#x20;
 
-Bangladesh Pay-Out uses the same endpoint specifications as the shared Pay-Out references, with Bangladesh-specific behavior captured in anchored sections where applicable.
+Bangladesh and Egypt Pay-Out uses the same endpoint specifications as the shared Pay-Out references.
 
-- [Overview](./overview.md)
-- [Disbursement states](./disbursement-states.md)
-- [Initiate disbursement](./initiate-disbursement.md)
-- [Inquire disbursement](./inquire-disbursement.md)
+* [Overview](overview.md)
+* [Disbursement states](disbursement-states.md)
+* [Initiate disbursement](initiate-disbursement.md)
+* [Inquire disbursement](inquire-disbursement.md)

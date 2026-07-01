@@ -46,6 +46,15 @@ Headers: `mode: payout`, `region: PK`, `version: 3.0`
 
 Headers: `mode: payout`, `region: BD`, `version: 3.0`
 {% endtab %}
+
+{% tab title="Egypt(EG)" %}
+| Environment | Base URL                       |
+| ----------- | ------------------------------ |
+| Sandbox     | `https://sandbox.simpaisa.com` |
+| Production  | NA                             |
+
+Headers: Headers: `mode: payout`, `region: EG`, `version: 3.0`
+{% endtab %}
 {% endtabs %}
 
 See [Pay-Out overview](/broken/pages/scSBYWV61JpwedoHoPbY).
@@ -71,6 +80,15 @@ Headers: `mode: remittance`, `region: PK`, `version: 3.0`
 | Production  | `https://bd.commerceplex.com`  |
 
 Headers: `mode: remittance`, `region: BD`, `version: 3.0`
+{% endtab %}
+
+{% tab title="Egypt(EG)" %}
+| Environment | Base URL                       |
+| ----------- | ------------------------------ |
+| Sandbox     | `https://sandbox.simpaisa.com` |
+| Production  | NA                             |
+
+Headers: Headers: `mode: payout`, `region: EG`, `version: 3.0`
 {% endtab %}
 {% endtabs %}
 

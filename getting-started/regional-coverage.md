@@ -1,11 +1,11 @@
-# Regional-coverage
+# Regional Coverage
 
 | Country    | Pay-Ins                                      | Pay-Outs            | Remittances     |
 | ---------- | -------------------------------------------- | ------------------- | --------------- |
 | Pakistan   | Wallets, Cards, IBFT, E-Billing, Hosted Page | Full disbursement   | Full remittance |
 | Bangladesh | bKash, Nagad                                 | Direct disbursement | Remittance APIs |
 | Nepal      | Khalti                                       | NA                  | NA              |
-| Egypt      | Paymob                                       | NA                  | NA              |
+| Egypt      | Paymob                                       | Full disbursement   | Full remittance |
 | Iraq       | Wayl                                         | NA                  | NA              |
 
 ## Operator Codes

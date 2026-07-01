@@ -8,7 +8,7 @@ coverHeight: 135
 
 Welcome to the Simpaisa API Hub, your gateway to innovative payment solutions that power secure, seamless, and scalable digital transactions across emerging markets.
 
-Simpaisa offers a suite of RESTful APIs that enable Pay-Ins, Pay-Outs, and Cross-Border Remittances. Our APIs are designed to make payment integrations simple, scalable, and compliant across Pakistan, Bangladesh, and Nepal.
+Simpaisa offers a suite of RESTful APIs that enable Pay-Ins, Pay-Outs, and Cross-Border Remittances. Our APIs are designed to make payment integrations simple, scalable, and compliant across Pakistan, Bangladesh, Nepal and Egypt&#x20;
 
 ***
 
