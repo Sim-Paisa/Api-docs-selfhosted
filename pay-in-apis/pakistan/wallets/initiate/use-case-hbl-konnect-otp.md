@@ -13,7 +13,7 @@ The Initiate request triggers an OTP that the wallet sends to the customer. If t
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -28,7 +28,7 @@ The Initiate request triggers an OTP that the wallet sends to the customer. If t
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

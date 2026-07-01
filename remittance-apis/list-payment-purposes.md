@@ -19,7 +19,7 @@ Retrieve the list of predefined payment purposes (reasons) that must be provided
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter    | Required | Type   | Length | Description                                                |
 | ------------ | -------- | ------ | ------ | ---------------------------------------------------------- |
@@ -27,7 +27,7 @@ Retrieve the list of predefined payment purposes (reasons) that must be provided
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter    | Type   | Length | Description                                                                    |
 | ------------ | ------ | ------ | ------------------------------------------------------------------------------ |

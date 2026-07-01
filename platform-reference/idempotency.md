@@ -17,7 +17,7 @@ The idempotency header is **optional** on requests in these flows—not only on 
 
 ---
 
-## Headers by region
+## Headers By Region
 
 | Region | Header name | Required | Value format |
 |--------|-------------|----------|--------------|
@@ -30,7 +30,7 @@ The header names differ by region: **`Request-Id`** for Pakistan and **`RequestI
 
 ---
 
-## Pakistan — sample request
+## Pakistan — Sample Request
 
 ```bash
 curl --location --request POST 'https://sandbox.simpaisa.com/v2/wallets/transaction/initiate' \
@@ -53,7 +53,7 @@ curl --location --request POST 'https://sandbox.simpaisa.com/v2/wallets/transact
 
 ---
 
-## Bangladesh — sample request
+## Bangladesh — Sample Request
 
 ```bash
 curl --location --request POST 'https://sandbox.simpaisa.com/payins/payments/initiate' \
@@ -79,7 +79,7 @@ curl --location --request POST 'https://sandbox.simpaisa.com/payins/payments/ini
 
 ---
 
-## Generate a UUID (Java)
+## Generate A UUID (Java)
 
 ```java
 import java.util.UUID;

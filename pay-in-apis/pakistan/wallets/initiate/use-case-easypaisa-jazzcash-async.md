@@ -13,7 +13,7 @@ The async Initiate request parameters match the standard OTP flow. In async mode
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -27,7 +27,7 @@ The async Initiate request parameters match the standard OTP flow. In async mode
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

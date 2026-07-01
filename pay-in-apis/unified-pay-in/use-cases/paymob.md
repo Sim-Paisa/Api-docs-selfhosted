@@ -1,4 +1,4 @@
-# Use case: Paymob (Egypt)
+# Use Case: Paymob (Egypt)
 
 Collect a payment via **Paymob** using the unified [Initiate](../initiate.md) and [Inquire](../inquire.md) APIs.
 
@@ -43,7 +43,7 @@ Redirect the customer to `payment_url`, then call [Inquire](../inquire.md) with 
 
 ---
 
-## Sample postback
+## Sample Postback
 
 ```json
 {

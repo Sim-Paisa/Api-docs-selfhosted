@@ -4,7 +4,7 @@
 
 ---
 
-## Design rules
+## Design Rules
 
 1. **One page per API** — endpoint, headers, request/response, errors live on the API page.
 2. **Use cases are children** — operator-specific flows (Easypaisa OTP, Jazzcash async, Khalti redirect) are nested under the relevant API.
@@ -15,7 +15,7 @@
 
 ---
 
-## New sidebar tree
+## New Sidebar Tree
 
 ```
 Simpaisa API Hub
@@ -190,7 +190,7 @@ Simpaisa API Hub
 
 ---
 
-## Unified regional pay-in — configuration table
+## Unified Regional Pay-in — Configuration Table
 
 Single source of truth on **3.1 Unified Pay-In → Regional configuration**:
 
@@ -212,7 +212,7 @@ Single source of truth on **3.1 Unified Pay-In → Regional configuration**:
 
 ---
 
-## Pakistan wallet — API → use case map
+## Pakistan Wallet — API → Use Case Map
 
 | API | Endpoint | Former doc location(s) |
 |-----|----------|------------------------|
@@ -226,7 +226,7 @@ Single source of truth on **3.1 Unified Pay-In → Regional configuration**:
 
 ---
 
-## What gets removed or merged
+## What Gets Removed Or Merged
 
 | Retire as nav item | Absorbed into |
 |--------------------|---------------|
@@ -244,7 +244,7 @@ Single source of truth on **3.1 Unified Pay-In → Regional configuration**:
 
 ---
 
-## GitBook implementation order
+## GitBook Implementation Order
 
 1. Create **Platform Reference** section; move shared content.
 2. Create **3.1 Unified Pay-In**; merge BD/NP/EG/IQ pay-in pages.
@@ -257,7 +257,7 @@ Single source of truth on **3.1 Unified Pay-In → Regional configuration**:
 
 ---
 
-## Open decisions (confirm with team)
+## Open Decisions (confirm With Team)
 
 1. **Egypt** — docs show `operatorId: 100025` in headers but operator table lists Paymob `100026`. Standardize in unified config table.
 2. **“OTP Flow” → “Tokenization”** — current docs separate one-time OTP from tokenization. This plan keeps **tokenization** for saved-wallet/recurring only; one-time OTP becomes use cases under Initiate/Verify. Confirm this matches intent.

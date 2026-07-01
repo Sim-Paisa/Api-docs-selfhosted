@@ -16,7 +16,7 @@ Initiate a remittance in a single call by submitting the sender's, beneficiary's
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter                 | Required | Type   | Length | Description                                                    |
 | ------------------------- | -------- | ------ | ------ | -------------------------------------------------------------- |
@@ -43,7 +43,7 @@ Initiate a remittance in a single call by submitting the sender's, beneficiary's
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter   | Type   | Length | Description                                                                                      |
 | ----------- | ------ | ------ | ------------------------------------------------------------------------------------------------ |

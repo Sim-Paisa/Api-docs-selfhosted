@@ -13,7 +13,7 @@ After initiating a payment on Alfa, the customer receives an OTP that is alphanu
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -29,7 +29,7 @@ After initiating a payment on Alfa, the customer receives an OTP that is alphanu
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

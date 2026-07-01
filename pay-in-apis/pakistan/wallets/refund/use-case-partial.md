@@ -24,7 +24,7 @@ The partial refund amount must not exceed the original transaction amount — fo
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -36,7 +36,7 @@ The partial refund amount must not exceed the original transaction amount — fo
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

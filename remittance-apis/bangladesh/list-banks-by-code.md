@@ -1,4 +1,4 @@
-# List Banks by Code (Bangladesh)
+# List Banks By Code (Bangladesh)
 
 Resolve branch-level `bankId` values for Bangladesh remittance by passing a `bankCode` (and optionally a routing number). Use the returned `bankId` when initiating remittance.
 
@@ -28,7 +28,7 @@ Resolve branch-level `bankId` values for Bangladesh remittance by passing a `ban
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -38,7 +38,7 @@ Resolve branch-level `bankId` values for Bangladesh remittance by passing a `ban
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Type | Length | Description |
 |-----------|------|--------|-------------|

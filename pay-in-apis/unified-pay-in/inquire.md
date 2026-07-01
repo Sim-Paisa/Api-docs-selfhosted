@@ -1,4 +1,4 @@
-# inquire
+# Inquire
 
 Retrieve the final status of a pay-in transaction after the customer returns from the wallet operator's payment page.
 
@@ -17,7 +17,7 @@ Retrieve the final status of a pay-in transaction after the customer returns fro
 
 ***
 
-## When to call
+## When To Call
 
 Call Inquire on your `successUrl` and `failureUrl` landing pages after the customer is redirected back from `payment_url`.
 
@@ -48,7 +48,7 @@ Do not rely on the browser redirect alone. Always confirm payment server-side wi
 
 ***
 
-## Request body
+## Request Body
 
 | Parameter       | Type   | Required | Description                                |
 | --------------- | ------ | -------- | ------------------------------------------ |
@@ -57,7 +57,7 @@ Do not rely on the browser redirect alone. Always confirm payment server-side wi
 
 ***
 
-## Response body
+## Response Body
 
 | Parameter                          | Type   | Description                                             |
 | ---------------------------------- | ------ | ------------------------------------------------------- |
@@ -76,7 +76,7 @@ Do not rely on the browser redirect alone. Always confirm payment server-side wi
 
 ***
 
-## Flow position
+## Flow Position
 
 This is **step 5** in the [unified pay-in flow](overview.md#payment-flow) (after Initiate → redirect → customer payment → return URL).
 

@@ -28,7 +28,7 @@ Retrieve the list of banks available for Bangladesh remittance. Use the returned
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -36,7 +36,7 @@ Retrieve the list of banks available for Bangladesh remittance. Use the returned
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Type | Length | Description |
 |-----------|------|--------|-------------|

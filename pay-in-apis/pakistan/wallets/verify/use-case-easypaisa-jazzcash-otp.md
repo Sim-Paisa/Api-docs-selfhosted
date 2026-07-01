@@ -13,7 +13,7 @@ After entering the OTP, the customer receives a flash message asking for their M
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -28,7 +28,7 @@ After entering the OTP, the customer receives a flash message asking for their M
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

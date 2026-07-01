@@ -16,7 +16,7 @@ Fetch the list of available banks and mobile wallets on which a disbursement can
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter     | Type   | Length | Description                                                                               |
 | ------------- | ------ | ------ | ----------------------------------------------------------------------------------------- |

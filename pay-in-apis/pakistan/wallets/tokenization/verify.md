@@ -1,4 +1,4 @@
-# tokenization verify
+# Tokenization Verify
 
 Complete Easypaisa tokenization by submitting the OTP. JazzCash uses [Finalize](finalize.md) instead of this API.
 

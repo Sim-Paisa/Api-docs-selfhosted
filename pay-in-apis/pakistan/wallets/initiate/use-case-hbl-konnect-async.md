@@ -13,7 +13,7 @@ The async Initiate request includes `cnic`, as in the standard HBL Konnect flow.
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -28,7 +28,7 @@ The async Initiate request includes `cnic`, as in the standard HBL Konnect flow.
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

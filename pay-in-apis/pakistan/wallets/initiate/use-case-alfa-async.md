@@ -13,7 +13,7 @@ The async Initiate request includes `accountNumber`, as in the standard Alfa flo
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -28,7 +28,7 @@ The async Initiate request includes `accountNumber`, as in the standard Alfa flo
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

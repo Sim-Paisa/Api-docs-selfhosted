@@ -8,7 +8,7 @@ To set up a webhook, configure your payload URL in the dashboard or share it wit
 Non-OTP wallet payments are asynchronous. The Verify API can return `Transaction-Pending`, then the webhook returns success or failure.
 {% endhint %}
 
-## Why webhooks
+## Why Webhooks
 
 - You get the final status without polling.
 - You avoid race conditions on `Transaction-Pending`.
@@ -18,7 +18,7 @@ The `signature` field in the webhook payload verifies the authenticity of the no
 
 ---
 
-## Sample callback notifications
+## Sample Callback Notifications
 
 A delivery is considered successful when your server returns HTTP `200`.
 
@@ -83,7 +83,7 @@ A delivery is considered successful when your server returns HTTP `200`.
 
 ---
 
-## Expected response from merchant
+## Expected Response From Merchant
 
 Return a `200` so Simpaisa can mark the delivery as successful. Non-200 responses may trigger retries.
 
@@ -94,11 +94,11 @@ Content-Type: application/json
 
 ---
 
-## Card payment postbacks (3DS + capture)
+## Card Payment Postbacks (3DS + Capture)
 
 Card payments can generate **one** or **two** postbacks depending on `capture`.
 
-### 3ds=true, capture=false
+### 3ds=true, Capture=false
 
 You receive **two** postbacks:
 
@@ -161,7 +161,7 @@ You receive **two** postbacks:
 {% endtab %}
 {% endtabs %}
 
-### 3ds=true, capture=true
+### 3ds=true, Capture=true
 
 You receive **one** postback after the customer completes 3DS authentication. The system captures automatically.
 
@@ -188,7 +188,7 @@ You receive **one** postback after the customer completes 3DS authentication. Th
 }
 ```
 
-### Refund postback
+### Refund Postback
 
 ```json
 {
@@ -209,14 +209,14 @@ You receive **one** postback after the customer completes 3DS authentication. Th
 
 ---
 
-## Handling webhook notifications
+## Handling Webhook Notifications
 
 Upon receiving a webhook, your server should:
 
 - **Verify the signature** — use the provided signature to confirm the payload's authenticity.
 - **Acknowledge receipt** — return a `200 OK` response. Non-200 responses may trigger retries.
 
-### Sample webhook (declined)
+### Sample Webhook (declined)
 
 ```json
 {

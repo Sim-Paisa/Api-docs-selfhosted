@@ -31,7 +31,7 @@ Create a pay-in session and receive a `payment_url` to redirect the customer to 
 
 ---
 
-## Request body
+## Request Body
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -51,7 +51,7 @@ Create a pay-in session and receive a `payment_url` to redirect the customer to 
 
 ---
 
-## Response body
+## Response Body
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
@@ -69,7 +69,7 @@ Create a pay-in session and receive a `payment_url` to redirect the customer to 
 
 ---
 
-## Integration steps
+## Integration Steps
 
 1. Call Initiate with the correct `region`, `operatorId`, and body fields.
 2. If `status` is `0037` (Transaction-Pending), redirect the customer to `payment_url`.
@@ -213,7 +213,7 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/initiate' \
 
 ---
 
-## Operator use cases
+## Operator Use Cases
 
 | Operator | Region | Details |
 |----------|--------|---------|

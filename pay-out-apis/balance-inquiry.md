@@ -16,7 +16,7 @@ Fetch real-time balance information. Checking your balance before making a disbu
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter           | Type   | Description                                                                         |
 | ------------------- | ------ | ----------------------------------------------------------------------------------- |

@@ -24,7 +24,7 @@ Check the status of a payment against the token. If the customer has not paid, t
 
 ***
 
-## Request body
+## Request Body
 
 | Parameter       | Required | Type   | Length | Description                                                        |
 | --------------- | -------- | ------ | ------ | ------------------------------------------------------------------ |
@@ -35,7 +35,7 @@ Check the status of a payment against the token. If the customer has not paid, t
 
 ***
 
-## Response body
+## Response Body
 
 | Parameter                    | Description                              |
 | ---------------------------- | ---------------------------------------- |
@@ -54,7 +54,7 @@ Check the status of a payment against the token. If the customer has not paid, t
 
 ## Samples
 
-### Sample request
+### Sample Request
 
 ```json
 {
@@ -65,7 +65,7 @@ Check the status of a payment against the token. If the customer has not paid, t
 }
 ```
 
-### Successful response
+### Successful Response
 
 ```json
 {

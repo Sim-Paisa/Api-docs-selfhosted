@@ -30,7 +30,7 @@ Start a wallet payment by sending an OTP to the customer's mobile wallet number.
 
 ---
 
-## Request body (common fields)
+## Request Body (common Fields)
 
 | Parameter | Type | Required | Length | Description |
 |-----------|------|----------|--------|-------------|
@@ -42,7 +42,7 @@ Start a wallet payment by sending an OTP to the customer's mobile wallet number.
 | `msisdn` | Int | Yes | 10 | Customer mobile number linked to the wallet |
 | `productReference` | String | Yes | — | Brief description of the product or service |
 
-### Wallet-specific fields
+### Wallet-specific Fields
 
 | Parameter | Wallets | Type | Length | Description |
 |-----------|---------|------|--------|-------------|
@@ -51,7 +51,7 @@ Start a wallet payment by sending an OTP to the customer's mobile wallet number.
 
 ---
 
-## Response body
+## Response Body
 
 | Parameter | Description |
 |-----------|-------------|
@@ -64,7 +64,7 @@ Start a wallet payment by sending an OTP to the customer's mobile wallet number.
 
 ---
 
-## Integration steps
+## Integration Steps
 
 1. Collect wallet-specific customer details (see use cases below).
 2. Call Initiate with `transactionType` = `0`.
@@ -77,7 +77,7 @@ For Easypaisa and JazzCash, only `msisdn` is required beyond the common fields. 
 
 ---
 
-## cURL (Easypaisa)
+## CURL (Easypaisa)
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/initiate' \
@@ -137,7 +137,7 @@ curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/initiate' \
 
 ---
 
-## Use case: Easypaisa and JazzCash (OTP)
+## Use Case: Easypaisa And JazzCash (OTP)
 
 To charge customers on Easypaisa or JazzCash, call Initiate with the customer's `msisdn` (wallet account number). An OTP is sent to the customer's mobile wallet number, which leads to the first step of verification.
 
@@ -197,7 +197,7 @@ curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/initiate' \
 
 ---
 
-## Use case: HBL Konnect
+## Use Case: HBL Konnect
 
 HBL Konnect requires the customer's **CNIC** (Computerized National Identity Card) in addition to `msisdn`. The wallet sends an OTP after Initiate. If the customer enters a valid OTP and has sufficient funds, the transaction succeeds — no MPIN step.
 
@@ -262,7 +262,7 @@ curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/initiate' \
 
 ---
 
-## Use case: Alfa
+## Use Case: Alfa
 
 Alfa requires both `msisdn` (customer mobile number) and `accountNumber` (the Alfa wallet account number — distinct from MSISDN).
 
@@ -327,7 +327,7 @@ curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/initiate' \
 
 ---
 
-## Async flow
+## Async Flow
 
 In async flow, you must configure a **postback/callback URL**. Simpaisa posts the final transaction result after the Verify call completes. See [overview — Async flow](./overview.md#async-flow-overview).
 
@@ -339,7 +339,7 @@ The Initiate request body is identical to the synchronous OTP flow for each wall
 If the customer does not enter the OTP and leaves the payment journey, **no postback** is sent for that transaction.
 {% endhint %}
 
-### Async: Easypaisa and JazzCash
+### Async: Easypaisa And JazzCash
 
 Request parameters match the standard OTP Initiate call.
 

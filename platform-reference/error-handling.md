@@ -4,7 +4,7 @@ If an error occurs, the API returns an appropriate HTTP status code along with a
 
 ---
 
-## HTTP status codes
+## HTTP Status Codes
 
 | Status Code | Description |
 | ----------- | ----------- |
@@ -15,7 +15,7 @@ If an error occurs, the API returns an appropriate HTTP status code along with a
 
 ---
 
-## Application-level errors
+## Application-level Errors
 
 Pay-in, pay-out, remittance, and card APIs also return **business status codes** in the JSON body (e.g. `status: "0050"`). These are distinct from HTTP status codes.
 
@@ -29,7 +29,7 @@ Pay-in, pay-out, remittance, and card APIs also return **business status codes**
 
 ---
 
-## Recommended handling
+## Recommended Handling
 
 1. Check the HTTP status first — retry only on transient `5xx` errors with backoff.
 2. Parse the JSON `status` and `message` fields for business outcomes.

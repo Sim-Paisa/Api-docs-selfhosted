@@ -16,7 +16,7 @@ Check your available balance, total balance, and any amount on hold before initi
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter    | Required | Type   | Length | Description                                      |
 | ------------ | -------- | ------ | ------ | ------------------------------------------------ |
@@ -24,7 +24,7 @@ Check your available balance, total balance, and any amount on hold before initi
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter           | Type   | Length | Description                                     |
 | ------------------- | ------ | ------ | ----------------------------------------------- |

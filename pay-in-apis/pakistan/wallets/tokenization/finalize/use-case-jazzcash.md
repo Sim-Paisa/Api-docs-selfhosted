@@ -27,7 +27,7 @@ Once the payment cycle is complete on the hosted page, the customer is redirecte
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -37,7 +37,7 @@ Once the payment cycle is complete on the hosted page, the customer is redirecte
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

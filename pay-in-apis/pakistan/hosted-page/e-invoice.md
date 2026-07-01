@@ -4,7 +4,7 @@ The e-invoice (link to pay) solution is designed for merchants with minimal tech
 
 ***
 
-## How it works
+## How It Works
 
 1. **Register** and request the e-invoice feature from Simpaisa.
 2. Once enabled, generate payment links from the **Simpaisa Portal** with amount, order ID, payment channel, expiry date, and optional customer data fields.
@@ -14,23 +14,23 @@ The e-invoice (link to pay) solution is designed for merchants with minimal tech
 
 ***
 
-## Steps in the portal
+## Steps In The Portal
 
 ### Select E-Invoice
 
 Select the **E-invoice** feature from the dashboard.
 
-### Configure payment details
+### Configure Payment Details
 
 Add amount, order ID, payment channel, expiry (or lifetime link), and any custom customer fields. Review details and choose the payment page color theme.
 
 Click **Generate Link** to create the payment URL. **One-time links** can only be opened once — reopening shows an error.
 
-### Share the link
+### Share The Link
 
 Share the generated link with customers via email or your preferred channel.
 
-### Customer payment page
+### Customer Payment Page
 
 When a customer opens the link, they see a payment page with mandatory fields before paying.
 
@@ -38,13 +38,13 @@ After entering personal details, the customer sees available payment options. Th
 
 The customer selects a payment channel and completes payment.
 
-### Dashboard status
+### Dashboard Status
 
 After payment, view status on the Simpaisa dashboard. All transaction data is available and can be downloaded.
 
 ***
 
-## When to use e-invoice vs hosted page API
+## When To Use E-invoice Vs Hosted Page API
 
 |                 | E-Invoice (portal)                    | [Hosted Page API](overview.md)           |
 | --------------- | ------------------------------------- | ---------------------------------------- |

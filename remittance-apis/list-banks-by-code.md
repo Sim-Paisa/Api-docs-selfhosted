@@ -1,4 +1,4 @@
-# List Banks by Code
+# List Banks By Code
 
 The bank code (and optionally a routing number) serves as an identifier to retrieve a specific `bankId`. If a routing number is provided, the API returns the corresponding `bankId` directly, which can then be used to process the remittance. If the routing number is omitted, the API returns all routing numbers associated with the bank — letting merchants either retrieve the full list or directly access a specific one.
 
@@ -16,7 +16,7 @@ The bank code (and optionally a routing number) serves as an identifier to retri
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter    | Required | Type | Length | Description                                                                                                             |
 | ------------ | -------- | ---- | ------ | ----------------------------------------------------------------------------------------------------------------------- |
@@ -26,7 +26,7 @@ The bank code (and optionally a routing number) serves as an identifier to retri
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter    | Type   | Length | Description                                                                               |
 | ------------ | ------ | ------ | ----------------------------------------------------------------------------------------- |

@@ -4,7 +4,7 @@ Save a customer's wallet credentials as a **source ID** (SP token) and charge th
 
 ***
 
-## Tokenization flow
+## Tokenization Flow
 
 Tokenization makes scheduled payments more robust and gives merchants more control over package design and recurring charges. The `sourceId` (SP token) maps to the customer's wallet account details in encrypted form, enabling future charges per your defined schedule.
 
@@ -21,7 +21,7 @@ Tokenization makes scheduled payments more robust and gives merchants more contr
 
 ***
 
-## Transaction type
+## Transaction Type
 
 | Value | Meaning                          |
 | ----- | -------------------------------- |
@@ -29,7 +29,7 @@ Tokenization makes scheduled payments more robust and gives merchants more contr
 
 ***
 
-## sourceId (SP token)
+## SourceId (SP Token)
 
 After successful tokenization, the Verify or Finalize response includes a `sourceId`:
 
@@ -48,7 +48,7 @@ Direct Charge cannot run without a valid `sourceId`. The customer must complete 
 
 ***
 
-## Wallet comparison
+## Wallet Comparison
 
 |              | Easypaisa                           | JazzCash                     |
 | ------------ | ----------------------------------- | ---------------------------- |
@@ -59,7 +59,7 @@ Direct Charge cannot run without a valid `sourceId`. The customer must complete 
 
 ***
 
-## Related guides
+## Related Guides
 
 | Guide                             | Description                     |
 | --------------------------------- | ------------------------------- |

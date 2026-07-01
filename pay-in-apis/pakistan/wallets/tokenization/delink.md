@@ -29,7 +29,7 @@ Remove a saved `sourceId` (SP token) so no further direct charges can be made ag
 
 ---
 
-## Request body
+## Request Body
 
 | Parameter | Type | Required | Length | Description |
 |-----------|------|----------|--------|-------------|
@@ -39,7 +39,7 @@ Remove a saved `sourceId` (SP token) so no further direct charges can be made ag
 
 ---
 
-## Response body
+## Response Body
 
 | Parameter | Description |
 |-----------|-------------|
@@ -55,7 +55,7 @@ After a successful Delink, [Direct Charge](./direct-charge.md) calls against tha
 
 ---
 
-## cURL
+## CURL
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/delink' \

@@ -29,7 +29,7 @@ Use when you need to close an authorized transaction on your side after 3DS comp
 
 ---
 
-## Request body
+## Request Body
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
@@ -38,7 +38,7 @@ Use when you need to close an authorized transaction on your side after 3DS comp
 
 ---
 
-## Response body
+## Response Body
 
 | Parameter | Description |
 |-----------|-------------|
@@ -66,7 +66,7 @@ Use when you need to close an authorized transaction on your side after 3DS comp
 
 ---
 
-## Sample request
+## Sample Request
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/mastercard/finalize' \
@@ -84,7 +84,7 @@ curl --location 'https://sandbox.simpaisa.com/mastercard/finalize' \
 }'
 ```
 
-## Sample response
+## Sample Response
 
 ```json
 {

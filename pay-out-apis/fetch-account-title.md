@@ -16,7 +16,7 @@ Fetch the account title information of a customer. This is useful for checking w
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter         | Required | Type   | Description                                    |
 | ----------------- | -------- | ------ | ---------------------------------------------- |
@@ -25,7 +25,7 @@ Fetch the account title information of a customer. This is useful for checking w
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter         | Type   | Description                                   |
 | ----------------- | ------ | --------------------------------------------- |

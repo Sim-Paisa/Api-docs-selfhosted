@@ -1,6 +1,6 @@
 # Verify Non-OTP
 
-## One-time payment without OTP
+## One-time Payment Without OTP
 
 This flow processes a wallet payment **without an OTP**. The customer approves the payment in the wallet app (or via USSD), and the merchant makes the final decision based on the **postback/webhook**.
 
@@ -10,7 +10,7 @@ This is an **asynchronous** flow. The Verify API returns `Transaction-Pending` f
 
 ***
 
-## Approval window
+## Approval Window
 
 | Wallet    | Maximum time to approve |
 | --------- | ----------------------- |
@@ -96,7 +96,7 @@ curl -X POST "https://sandbox.simpaisa.com/v2/wallets/transaction/verify" \
 {% endtab %}
 {% endtabs %}
 
-### Sample webhook (final status)
+### Sample Webhook (final Status)
 
 ```json
 {
@@ -116,7 +116,7 @@ curl -X POST "https://sandbox.simpaisa.com/v2/wallets/transaction/verify" \
 
 ***
 
-## User journey
+## User Journey
 
 ***
 

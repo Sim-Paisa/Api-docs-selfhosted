@@ -13,7 +13,7 @@ In async mode, the Verify call returns a pending status (`0037`). Simpaisa posts
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -28,7 +28,7 @@ In async mode, the Verify call returns a pending status (`0037`). Simpaisa posts
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

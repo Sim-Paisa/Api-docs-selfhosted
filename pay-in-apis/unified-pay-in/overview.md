@@ -1,4 +1,4 @@
-# overview
+# Overview
 
 Accept customer payments through mobile wallets in **Bangladesh**, **Nepal**, **Egypt**, and **Iraq** using the same two REST APIs. Regional differences are limited to **headers** (region, operator) and **operator-specific configuration**—not separate endpoints or integration patterns.
 
@@ -6,7 +6,7 @@ Accept customer payments through mobile wallets in **Bangladesh**, **Nepal**, **
 
 ***
 
-## Payment flow
+## Payment Flow
 
 All unified regions follow a **redirect-based** flow.
 
@@ -42,7 +42,7 @@ Always call **Inquire** on your success/failure landing page. Do not treat the r
 
 ***
 
-## APIs at a glance
+## APIs At A Glance
 
 | API              | Method | Path                        |
 | ---------------- | ------ | --------------------------- |
@@ -60,7 +60,7 @@ Always call **Inquire** on your success/failure landing page. Do not treat the r
 
 ***
 
-## Regional configuration
+## Regional Configuration
 
 Set these values per region and operator. Use the same `merchantId` in sandbox and production.
 
@@ -72,7 +72,7 @@ Set these values per region and operator. Use the same `merchantId` in sandbox a
 | Egypt      | `EG`            | EGP      | Paymob    | `100026`                       |
 | Iraq       | `IQ`            | IQD      | Wayl      | `100027`                       |
 
-### Common request headers
+### Common Request Headers
 
 | Header         | Value                                              | Required |
 | -------------- | -------------------------------------------------- | -------- |
@@ -98,7 +98,7 @@ For webhook setup and postback handling, see [Webhooks](./webhooks.md) and [Plat
 
 ***
 
-## Operator use cases
+## Operator Use Cases
 
 Each operator uses the same Initiate and Inquire APIs. Examples with region-specific payloads:
 
@@ -113,7 +113,7 @@ Each operator uses the same Initiate and Inquire APIs. Examples with region-spec
 ***
 
 
-## Status codes
+## Status Codes
 
 See [Unified Pay-In status codes](../../platform-reference/status-codes/pay-in-unified.md).
 
@@ -128,7 +128,7 @@ Key codes:
 
 ***
 
-## Getting started
+## Getting Started
 
 1. Request sandbox credentials and `api-token` from the Simpaisa integration team.
 2. Configure your [postback URL](webhooks.md).

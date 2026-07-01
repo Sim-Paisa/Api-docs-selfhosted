@@ -1,4 +1,4 @@
-# Use case: Nagad (Bangladesh)
+# Use Case: Nagad (Bangladesh)
 
 Collect a payment via **Nagad** using the unified [Initiate](../initiate.md) and [Inquire](../inquire.md) APIs.
 

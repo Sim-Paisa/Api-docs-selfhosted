@@ -1,8 +1,8 @@
-# card-encryption
+# Card-encryption
 
-### Encryption and Authentication
+### Encryption And Authentication
 
-#### AES card encryption (what to encrypt and how)
+#### AES Card Encryption (what To Encrypt And How)
 
 The `card` field in the Payments API is **not plain card data**.
 
@@ -20,7 +20,7 @@ AES keys must be **16 / 24 / 32 bytes** long (AES-128 / AES-192 / AES-256).
 In Java, `Cipher.getInstance("AES")` usually resolves to `AES/ECB/PKCS5Padding`.
 {% endhint %}
 
-#### Sample AES encryption code (Java)
+#### Sample AES Encryption Code (Java)
 
 {% code title="AES encryption helper (Java)" %}
 ```java

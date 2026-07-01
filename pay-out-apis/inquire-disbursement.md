@@ -18,7 +18,7 @@ Monitor the status and details of a disbursement transaction after it has been i
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter    | Required | Type   | Length | Description                                                     |
 | ------------ | -------- | ------ | ------ | --------------------------------------------------------------- |
@@ -27,7 +27,7 @@ Monitor the status and details of a disbursement transaction after it has been i
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter              | Type   | Length | Description                                                     |
 | ---------------------- | ------ | ------ | --------------------------------------------------------------- |

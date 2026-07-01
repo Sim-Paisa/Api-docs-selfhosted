@@ -1,4 +1,4 @@
-# Initiate E-Bill (Payment via Voucher)
+# Initiate E-Bill (Payment Via Voucher)
 
 Generate a payment voucher (token) for the customer to pay via their bank portal or mobile banking app. See the [E-Billing overview](./overview.md) for the P2B/B2B concept, operator ID, and how tokens work.
 
@@ -15,7 +15,7 @@ Generate a payment voucher (token) for the customer to pay via their bank portal
 
 ---
 
-## Request body
+## Request Body
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -29,7 +29,7 @@ Generate a payment voucher (token) for the customer to pay via their bank portal
 
 ---
 
-## Response body
+## Response Body
 
 | Parameter | Description |
 |-----------|-------------|
@@ -47,7 +47,7 @@ Generate a payment voucher (token) for the customer to pay via their bank portal
 
 ## Samples
 
-### Sample request
+### Sample Request
 
 ```json
 {
@@ -61,7 +61,7 @@ Generate a payment voucher (token) for the customer to pay via their bank portal
 }
 ```
 
-### Successful response
+### Successful Response
 
 ```json
 {
@@ -79,7 +79,7 @@ Generate a payment voucher (token) for the customer to pay via their bank portal
 
 ---
 
-## E-Billing postback (IPN)
+## E-Billing Postback (IPN)
 
 When the customer pays, Simpaisa sends an async notification to your configured postback URL:
 

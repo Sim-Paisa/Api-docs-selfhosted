@@ -48,7 +48,7 @@ The `code` column is the value to pass in the `destinationBank` parameter when r
 
 ---
 
-## Microfinance banks & mobile wallets
+## Microfinance Banks & Mobile Wallets
 
 | # | Name | Code |
 |---|------|------|

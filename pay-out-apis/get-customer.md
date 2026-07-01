@@ -16,7 +16,7 @@ Fetch the details of a registered customer by their customer reference.
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter                         | Type     | Length | Description                                                                                                                                                            |
 | --------------------------------- | -------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -29,7 +29,7 @@ Use this API when the original payment was initiated with `3ds.enabled=true` and
 
 ---
 
-## Request body
+## Request Body
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
@@ -38,7 +38,7 @@ Use this API when the original payment was initiated with `3ds.enabled=true` and
 
 ---
 
-## Response body
+## Response Body
 
 | Parameter | Description |
 |-----------|-------------|
@@ -58,7 +58,7 @@ Use this API when the original payment was initiated with `3ds.enabled=true` and
 
 ---
 
-## Sample request
+## Sample Request
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/capture' \
@@ -76,7 +76,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/capture' \
 }'
 ```
 
-## Sample response
+## Sample Response
 
 ```json
 {
@@ -104,7 +104,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/capture' \
 
 ---
 
-## Postback after capture
+## Postback After Capture
 
 If you initiated the payment with `3ds.enabled=true` and `capture=false`, you receive:
 

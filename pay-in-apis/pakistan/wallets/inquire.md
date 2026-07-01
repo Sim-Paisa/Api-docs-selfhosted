@@ -35,7 +35,7 @@ Avoid frequent polling. Use [postbacks](./overview.md#transaction-callbacks-ipn-
 
 ---
 
-## Request body
+## Request Body
 
 Identify the transaction by **`userKey`** or **`transactionId`** (provide one).
 
@@ -49,7 +49,7 @@ Identify the transaction by **`userKey`** or **`transactionId`** (provide one).
 
 ---
 
-## Response body
+## Response Body
 
 | Parameter | Description |
 |-----------|-------------|
@@ -58,7 +58,7 @@ Identify the transaction by **`userKey`** or **`transactionId`** (provide one).
 | `userKey` | Your order reference |
 | `transaction` | Nested object with full transaction details |
 
-### `transaction` object
+### `transaction` Object
 
 | Parameter | Description |
 |-----------|-------------|
@@ -76,7 +76,7 @@ Identify the transaction by **`userKey`** or **`transactionId`** (provide one).
 
 ---
 
-## When to use
+## When To Use
 
 - Postback URL is not configured
 - Postback was not received (network timeout, server downtime)
@@ -88,7 +88,7 @@ At present, this Inquire API works for **mobile wallets** only.
 
 ---
 
-## cURL
+## CURL
 
 ```bash
 curl -X POST "https://sandbox.simpaisa.com/v2/inquire/wallet/transaction/inquiry" \

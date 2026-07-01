@@ -28,7 +28,7 @@ Verify a beneficiary account title before remittance initiation. This helps prev
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -39,7 +39,7 @@ Verify a beneficiary account title before remittance initiation. This helps prev
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Type | Length | Description |
 |-----------|------|--------|-------------|

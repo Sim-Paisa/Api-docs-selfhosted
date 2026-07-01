@@ -4,11 +4,11 @@
 
 ***
 
-### RSA (digital signature) and SHA 256
+### RSA (digital Signature) And SHA 256
 
 RSA and SHA 256 are two of the most popular encryption algorithms designed to secure data fully.
 
-#### How it works?
+#### How It Works?
 
 • RSA (Rivest-Shamir-Adleman) uses asymmetric encryption, which means two keys are needed to secure data. One key is private, and only the sender and recipient have access to it. The other key is public and shared with entities outside the secure conversation.
 
@@ -16,7 +16,7 @@ RSA and SHA 256 are two of the most popular encryption algorithms designed to se
 
 RSA and SHA 256 safely work together to protect digital data. RSA encryption is used to encrypt the data, and the SHA 256 hash protects it. The entire process ensures that the data is secure on-site and in transit, ensuring that data is protected from malicious hackers or malicious network conditions.
 
-### Encryption for Simpaisa APIs
+### Encryption For Simpaisa APIs
 
 The merchant must send a digital signature along with each API request. Simpaisa uses this signature to authenticate the client before processing the request. The steps required to perform this encryption are described below:
 
@@ -44,7 +44,7 @@ Note
 
 The above method is only an example to assist with the process, one can follow their respective technology or structure or generate the Key Pair.
 
-### Signing the API Request
+### Signing The API Request
 
 To generate a signature or sign an API request using an RSA private key with the SHA-256 algorithm, you may follow these steps:
 

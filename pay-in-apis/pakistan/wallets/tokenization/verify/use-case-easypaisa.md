@@ -1,4 +1,4 @@
-# tokenization verify easypaisa
+# Tokenization Verify Easypaisa
 
 Once the payment is initiated, the mobile wallet triggers an OTP on the customer's account, leading to a flash-message or in-app approval. If the customer approves, the amount is deducted from their account.
 
@@ -27,7 +27,7 @@ Once the payment is initiated, the mobile wallet triggers an OTP on the customer
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter          | Required | Type   | Length | Description                                                  |
 | ------------------ | -------- | ------ | ------ | -------------------------------------------------------------- |
@@ -42,7 +42,7 @@ Once the payment is initiated, the mobile wallet triggers an OTP on the customer
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter       | Description                                                                                                                                                       |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |

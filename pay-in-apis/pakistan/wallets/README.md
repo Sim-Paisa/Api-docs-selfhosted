@@ -18,7 +18,7 @@ GitBook-ready markdown for **Pakistan Wallet Pay-In APIs**.
 | [tokenization/direct-charge.md](./tokenization/direct-charge.md) | Tokenization — Direct Charge |
 | [tokenization/delink.md](./tokenization/delink.md) | Tokenization — Delink |
 
-## Images (all `/files/{id}` preserved)
+## Images (all `/files/{id}` Preserved)
 
 | ID | Used in |
 |----|---------|
@@ -32,7 +32,7 @@ GitBook-ready markdown for **Pakistan Wallet Pay-In APIs**.
 | `OFElV98cpxX1jW1IkFVD` | verify — non-OTP step 1 |
 | `YOgEDS65VEgq8jwzRUxk` | verify — non-OTP step 2 |
 
-## Publishing in GitBook
+## Publishing In GitBook
 
 1. Create folder **Pay-In APIs → Pakistan Wallets**
 2. Paste each `.md` file as a page (tokenization as sub-pages)

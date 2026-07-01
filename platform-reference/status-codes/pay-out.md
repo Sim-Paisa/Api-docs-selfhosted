@@ -8,7 +8,7 @@
 | ---- | ------- |
 | 0000 | SUCCESS |
 
-### Error messages
+### Error Messages
 
 | Code | Message |
 | ---- | ------- |
@@ -30,7 +30,7 @@
 | 0057 | Invalid-Merchant |
 | 9999 | System-Failure |
 
-### Rejection / failure messages
+### Rejection / Failure Messages
 
 | Code | Message |
 | ---- | ------- |

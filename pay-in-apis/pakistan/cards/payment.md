@@ -4,7 +4,7 @@ Initiate one-time card payments, tokenization, and direct charges.
 
 ***
 
-## Payment process
+## Payment Process
 
 Request behavior depends on `payment_type`, `source.type`, `3ds.enabled`, and `capture`:
 
@@ -49,7 +49,7 @@ Request behavior depends on `payment_type`, `source.type`, `3ds.enabled`, and `c
 
 ***
 
-## Request body
+## Request Body
 
 | Parameter                                | Required                          | Description                                              |
 | ---------------------------------------- | --------------------------------- | -------------------------------------------------------- |
@@ -83,7 +83,7 @@ See [Overview — AES encryption](overview.md#aes-card-encryption) for card encr
 
 ***
 
-## Response body
+## Response Body
 
 | Parameter                                         | Description                                          |
 | ------------------------------------------------- | ---------------------------------------------------- |
@@ -116,7 +116,7 @@ See [Overview — AES encryption](overview.md#aes-card-encryption) for card encr
 
 ## Samples
 
-### 3DS enabled, capture false
+### 3DS Enabled, Capture False
 
 #### Request
 
@@ -196,7 +196,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
 }
 ```
 
-### 3DS enabled, capture true
+### 3DS Enabled, Capture True
 
 #### Request
 
@@ -385,7 +385,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
 }
 ```
 
-### Direct charge with c\_token
+### Direct Charge With C\_token
 
 #### Request
 

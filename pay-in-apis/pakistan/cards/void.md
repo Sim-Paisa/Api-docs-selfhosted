@@ -27,7 +27,7 @@ Cancel a card transaction before it has been settled.
 
 ---
 
-## Request body
+## Request Body
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
@@ -45,7 +45,7 @@ Cancel a card transaction before it has been settled.
 
 ---
 
-## Response body
+## Response Body
 
 | Parameter | Description |
 |-----------|-------------|
@@ -59,7 +59,7 @@ Cancel a card transaction before it has been settled.
 
 ---
 
-## Sample request
+## Sample Request
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards-refund/reverse' \
@@ -88,7 +88,7 @@ curl --location 'https://sandbox.simpaisa.com/cards-refund/reverse' \
 }'
 ```
 
-## Sample response
+## Sample Response
 
 ```json
 {

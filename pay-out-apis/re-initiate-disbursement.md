@@ -16,7 +16,7 @@ Re-initiate a disbursement request against an individual through the Simpaisa pl
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter     | Required | Type   | Length | Description                                                                                                                                                          |
 | ------------- | -------- | ------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

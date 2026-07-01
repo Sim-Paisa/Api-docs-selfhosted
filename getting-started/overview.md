@@ -44,7 +44,7 @@ All Simpaisa APIs follow **REST standards** and exchange data in **JSON**.
 
 Start integrating Simpaisa APIs today — powering payins, payouts, and remittances across borders.
 
-## Next steps
+## Next Steps
 
 | Topic             | Guide                                                               |
 | ----------------- | ------------------------------------------------------------------- |

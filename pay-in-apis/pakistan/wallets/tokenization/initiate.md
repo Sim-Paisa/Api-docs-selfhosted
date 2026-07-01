@@ -1,4 +1,4 @@
-# tokenization initiate
+# Tokenization Initiate
 
 Start a tokenization consent flow. **Easypaisa** uses a REST Initiate call. **JazzCash** opens a hosted registration page via a GET URL.
 
@@ -12,7 +12,7 @@ Full endpoint, headers, parameters, and a sample request/response: [Tokenization
 
 ***
 
-## JazzCash — Hosted page
+## JazzCash — Hosted Page
 
 Open the hosted page URL in the customer's browser or WebView. After the customer completes authentication, they are redirected to your `ReturnUrl`. Then call [Finalize](finalize.md).
 
@@ -20,7 +20,7 @@ Full URL parameters and the hosted page flow: [Tokenization Initiate — JazzCas
 
 ***
 
-## Next steps
+## Next Steps
 
 | Wallet    | Next API                                              |
 | --------- | ----------------------------------------------------- |

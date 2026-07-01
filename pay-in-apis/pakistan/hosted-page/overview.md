@@ -10,7 +10,7 @@ Use the Hosted Page when you want Simpaisa to handle the checkout UI. You genera
 
 ***
 
-## Generating the hosted page link
+## Generating The Hosted Page Link
 
 Build a **GET** URL with the query parameters below.
 
@@ -45,7 +45,7 @@ The `operator` parameter is optional. When omitted, all enabled payment channels
 
 ***
 
-## Integration flow
+## Integration Flow
 
 1. Build the checkout URL with `merchantId`, `key`, `orderId`, `amount` or `productId`, and `redirectUrl`.
 2. Redirect the customer's browser to the checkout URL.
@@ -55,7 +55,7 @@ The `operator` parameter is optional. When omitted, all enabled payment channels
 
 ***
 
-## APIs at a glance
+## APIs At A Glance
 
 | Action                 | Method | Path            |
 | ---------------------- | ------ | --------------- |

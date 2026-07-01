@@ -6,22 +6,22 @@ The `signature` field verifies payload authenticity. Validate it using Simpaisa'
 
 ---
 
-## Webhook setup
+## Webhook Setup
 
 Configure your postback URL in the Simpaisa dashboard or share it with your integration contact. Simpaisa delivers `application/json` payloads via HTTP `POST`. Delivery is considered successful when your server returns **HTTP 200**.
 
 ---
 
-## Card payment postbacks (3DS + capture behavior)
+## Card Payment Postbacks (3DS + Capture Behavior)
 
 Card payments generate **one** or **two** postbacks depending on `capture`.
 
-### 3DS enabled, capture false — two postbacks
+### 3DS Enabled, Capture False — Two Postbacks
 
 1. **Interim postback** after the customer completes 3DS (authorization approved, capture pending).
 2. **Capture postback** after you run the [Capture API](./capture.md).
 
-#### Interim postback (authorization approved, capture pending)
+#### Interim Postback (authorization Approved, Capture Pending)
 
 ```json
 {
@@ -46,7 +46,7 @@ Card payments generate **one** or **two** postbacks depending on `capture`.
 }
 ```
 
-#### Capture postback (capture successful)
+#### Capture Postback (capture Successful)
 
 ```json
 {
@@ -72,7 +72,7 @@ Card payments generate **one** or **two** postbacks depending on `capture`.
 }
 ```
 
-### 3DS enabled, capture true — one postback
+### 3DS Enabled, Capture True — One Postback
 
 One postback after the customer completes 3DS. The system captures automatically.
 
@@ -101,7 +101,7 @@ One postback after the customer completes 3DS. The system captures automatically
 
 ---
 
-## Refund postback
+## Refund Postback
 
 ```json
 {
@@ -122,7 +122,7 @@ One postback after the customer completes 3DS. The system captures automatically
 
 ---
 
-## Handling webhook notifications
+## Handling Webhook Notifications
 
 Upon receiving a webhook:
 
@@ -133,7 +133,7 @@ If no postback arrives within **40 minutes**, call the [Inquiry API](./inquiry.m
 
 ---
 
-## Sample webhook (declined — 3DS failure)
+## Sample Webhook (declined — 3DS Failure)
 
 ```json
 {

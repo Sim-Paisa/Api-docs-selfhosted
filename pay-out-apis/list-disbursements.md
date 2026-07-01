@@ -16,7 +16,7 @@ Fetch disbursement transactions within a chosen date range.
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter    | Required | Type   | Description                                                 |
 | ------------ | -------- | ------ | ----------------------------------------------------------- |
@@ -29,7 +29,7 @@ Fetch disbursement transactions within a chosen date range.
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter            | Description                                                                       |
 | -------------------- | --------------------------------------------------------------------------------- |

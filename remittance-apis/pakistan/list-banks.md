@@ -28,7 +28,7 @@ Retrieve the list of banks and wallets available for Pakistan remittance, and us
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -37,7 +37,7 @@ Retrieve the list of banks and wallets available for Pakistan remittance, and us
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Type | Length | Description |
 |-----------|------|--------|-------------|

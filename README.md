@@ -1,8 +1,8 @@
-﻿# Simpaisa API Documentation — Complete GitBook Package
+# Simpaisa API Documentation — Complete GitBook Package
 
 **98 pages** — API-first structure, fully populated from official Simpaisa GitBook export. Paste into GitBook from scratch (no redirects needed).
 
-## Quick publish
+## Quick Publish
 
 1. Open GitBook → your **simpaisa-docs** space.
 2. Create page groups matching the folders below (or import via Git Sync).
@@ -10,7 +10,7 @@
 4. Follow **SUMMARY.md** for sidebar order.
 5. Images using `/files/...` resolve automatically in the same GitBook space.
 
-## Folder structure
+## Folder Structure
 
 ```
 getting-started/           Overview, environments, regional coverage, checklist
@@ -28,7 +28,7 @@ pay-out-apis/              Disbursements (Pakistan + Bangladesh sections)
 remittance-apis/           Remittances (Pakistan + Bangladesh sections)
 ```
 
-## Supporting files
+## Supporting Files
 
 | File | Purpose |
 |------|---------|
@@ -37,7 +37,7 @@ remittance-apis/           Remittances (Pakistan + Bangladesh sections)
 | `NEW_HIERARCHY.md` | Architecture design notes |
 | `PAGE_MIGRATION_MAP.csv` | Old URL → new path mapping (reference only) |
 
-## Regenerate from source exports
+## Regenerate From Source Exports
 
 If source docs update, re-run:
 

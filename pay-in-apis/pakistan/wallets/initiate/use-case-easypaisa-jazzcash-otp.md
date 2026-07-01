@@ -15,7 +15,7 @@ For Easypaisa and JazzCash, only `msisdn` is required beyond the common fields. 
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -29,7 +29,7 @@ For Easypaisa and JazzCash, only `msisdn` is required beyond the common fields. 
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

@@ -1,4 +1,4 @@
-# integration-checklist
+# Integration-checklist
 
 Use this checklist before going live with any Simpaisa API family.
 
@@ -26,7 +26,7 @@ See [API Token Authentication](../platform-reference/authentication/api-token.md
 
 ***
 
-## 3. Mutual SSL (pay-out & remittance — production)
+## 3. Mutual SSL (pay-out & Remittance — Production)
 
 * [ ] Generate client certificate and keystore
 * [ ] Share certificate with Simpaisa integration team
@@ -35,7 +35,7 @@ See [API Token Authentication](../platform-reference/authentication/api-token.md
 
 ***
 
-## 4. Pay-In integration
+## 4. Pay-In Integration
 
 * [ ] Implement Initiate → customer flow → Inquire (or Verify for PK wallets)
 * [ ] Handle [webhooks](../platform-reference/webhooks.md) for async final status
@@ -43,7 +43,7 @@ See [API Token Authentication](../platform-reference/authentication/api-token.md
 
 ***
 
-## 5. Pay-Out integration (PK)
+## 5. Pay-Out Integration (PK)
 
 * [ ] Prefund sandbox account (Simpaisa handles sandbox prefunding)
 * [ ] [List banks](../pay-out-apis/list-banks.md) and map `destinationBank` codes
@@ -54,7 +54,7 @@ See [API Token Authentication](../platform-reference/authentication/api-token.md
 
 ***
 
-## 6. Pay-Out integration (BD)
+## 6. Pay-Out Integration (BD)
 
 * [ ] Obtain bank/branch CSV from integration team
 * [ ] [Initiate disbursement](../pay-out-apis/pakistan/initiate-disbursement.md) with inline beneficiary details
@@ -62,7 +62,7 @@ See [API Token Authentication](../platform-reference/authentication/api-token.md
 
 ***
 
-## 7. Remittance integration
+## 7. Remittance Integration
 
 * [ ] Confirm single-API vs double-API flow with your integration POC
 * [ ] Refresh [bank list](/broken/pages/xFB6tZWe5WjoXOpanYpZ) periodically (weekly/monthly)
@@ -74,7 +74,7 @@ See [API Token Authentication](../platform-reference/authentication/api-token.md
 
 ***
 
-## 8. Pre-production validation
+## 8. Pre-production Validation
 
 * [ ] End-to-end sandbox test for each enabled operator/channel
 * [ ] Webhook endpoint returns HTTP `200`

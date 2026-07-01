@@ -1,4 +1,4 @@
-# Use case: Wayl (Iraq)
+# Use Case: Wayl (Iraq)
 
 Collect a payment via **Wayl** using the unified [Initiate](../initiate.md) and [Inquire](../inquire.md) APIs.
 
@@ -38,7 +38,7 @@ Redirect the customer to `payment_url`, then call [Inquire](../inquire.md) with 
 
 ---
 
-## Sample postback
+## Sample Postback
 
 ```json
 {

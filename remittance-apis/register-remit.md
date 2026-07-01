@@ -16,7 +16,7 @@
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter                 | Required | Type   | Length | Description                                                    |
 | ------------------------- | -------- | ------ | ------ | -------------------------------------------------------------- |
@@ -41,7 +41,7 @@
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter   | Type   | Length | Description                                                                    |
 | ----------- | ------ | ------ | ------------------------------------------------------------------------------ |

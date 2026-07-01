@@ -36,7 +36,7 @@ If a payment was initiated with `capture=false`, the transaction is authorized a
 
 ---
 
-## Request body
+## Request Body
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
@@ -45,7 +45,7 @@ If a payment was initiated with `capture=false`, the transaction is authorized a
 
 ---
 
-## Response body
+## Response Body
 
 | Parameter | Description |
 |-----------|-------------|
@@ -70,7 +70,7 @@ If a payment was initiated with `capture=false`, the transaction is authorized a
 
 ---
 
-## Sample request
+## Sample Request
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
@@ -90,9 +90,9 @@ curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
 
 ---
 
-## Sample responses
+## Sample Responses
 
-### Authorization successful, capture pending
+### Authorization Successful, Capture Pending
 
 Typical when the payment was initiated with `capture=false`.
 
@@ -119,7 +119,7 @@ Typical when the payment was initiated with `capture=false`.
 }
 ```
 
-### Capture successful
+### Capture Successful
 
 After [Capture](./capture.md), or when payment was initiated with `capture=true`.
 
@@ -146,7 +146,7 @@ After [Capture](./capture.md), or when payment was initiated with `capture=true`
 }
 ```
 
-### Successful tokenization inquiry
+### Successful Tokenization Inquiry
 
 Retrieve the saved `c_token` after tokenization completes.
 
@@ -175,7 +175,7 @@ Retrieve the saved `c_token` after tokenization completes.
 }
 ```
 
-### Direct charge inquiry (c_token)
+### Direct Charge Inquiry (c_token)
 
 ```json
 {

@@ -16,7 +16,7 @@ Register customer/beneficiary details on Simpaisa. Once a customer is registered
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter                         | Required | Type   | Length | Description                                                                                                                                                            |
 | --------------------------------- | -------- | ------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -16,7 +16,7 @@ Fetch the list of transfer reason codes to pass when making an [Initiate Disburs
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter  | Type   | Description                                                                   |
 | ---------- | ------ | ----------------------------------------------------------------------------- |

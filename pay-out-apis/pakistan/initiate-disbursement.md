@@ -12,7 +12,7 @@ Initiate a disbursement request to a registered beneficiary through the Simpaisa
 | **Path**    | `/merchants/{merchantId}/disbursements/initiate` |
 | **Sandbox** | `https://sandbox.simpaisa.com`                   |
 
-## Request parameters
+## Request Parameters
 
 | Parameter           | Required | Type   | Length | Description                                                                                                                                                          |
 | ------------------- | -------- | ------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

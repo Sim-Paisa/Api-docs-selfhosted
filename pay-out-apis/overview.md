@@ -2,7 +2,7 @@
 
 The Simpaisa Disbursement API lets you transfer funds to end beneficiaries directly from your app or web platform, covering mobile wallets and bank accounts with a strict KYC and screening system.
 
-## Key features
+## Key Features
 
 - **Extensive reach** — covers all the major banks and mobile wallets in your region, ensuring widespread accessibility for your beneficiaries.
 - **Pre-funded model** — merchants pre-fund their accounts with Simpaisa, enabling swift and secure transactions for both merchants and beneficiaries.
@@ -10,7 +10,7 @@ The Simpaisa Disbursement API lets you transfer funds to end beneficiaries direc
 - **Bulk disbursement via CSV** — for larger-scale operations, the system supports bulk disbursement through CSV files for efficient management of multiple transactions.
 - **Centralized dashboard** — monitor success rates, review transactions, and access detailed reporting from a single dashboard.
 
-## Getting started
+## Getting Started
 
 To begin the integration, refer to the following sections in this documentation:
 
@@ -45,7 +45,7 @@ If you have any questions or require assistance during integration, our support 
 | `region` | `PK` |
 | `version` | `3.0` |
 
-### Disbursement flow
+### Disbursement Flow
 
 Before integrating, understand how the flow works and which calls need to be made.
 
@@ -79,7 +79,7 @@ Before integrating, understand how the flow works and which calls need to be mad
 | `region` | `BD` |
 | `version` | `3.0` |
 
-### Disbursement flow
+### Disbursement Flow
 
 1. **Pre-fund your account** with Simpaisa. To test disbursement APIs, you must pre-fund your account to provide testing credit. On sandbox, pre-funding is done by Simpaisa, since transactions only run against restricted or whitelisted accounts.
 2. **Receive your Merchant ID (MID)** from the Simpaisa integration team.

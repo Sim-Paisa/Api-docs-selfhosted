@@ -4,7 +4,7 @@ Use this document to publish the complete API documentation package into a **new
 
 ---
 
-## Package location
+## Package Location
 
 ```
 c:\Users\SyedMohammadOmer\OneDrive - SIMPAISA\Desktop\simpaisa-docs-restructure\
@@ -21,7 +21,7 @@ c:\Users\SyedMohammadOmer\OneDrive - SIMPAISA\Desktop\simpaisa-docs-restructure\
 
 ---
 
-## Hierarchy flow (API-first)
+## Hierarchy Flow (API-first)
 
 ```
 Simpaisa API Documentation
@@ -106,9 +106,9 @@ Simpaisa API Documentation
 
 ---
 
-## Procedure A — New GitBook space (manual paste) — RECOMMENDED
+## Procedure A — New GitBook Space (manual Paste) — RECOMMENDED
 
-### Phase 1 — Create the space
+### Phase 1 — Create The Space
 
 1. Go to [https://app.gitbook.com](https://app.gitbook.com) and sign in.
 2. Click **+ New** → **Space**.
@@ -117,7 +117,7 @@ Simpaisa API Documentation
 5. Set visibility (Private while building, Public when ready).
 6. **Do not** import the old space structure — this is a fresh API-first layout.
 
-### Phase 2 — Create page groups (sidebar folders)
+### Phase 2 — Create Page Groups (sidebar Folders)
 
 In the GitBook editor left sidebar, create **groups** (not pages yet) in this order:
 
@@ -147,7 +147,7 @@ Under **Pakistan → Wallets**, create sub-groups as needed:
 - `Tokenization` (overview, initiate, verify, finalize, direct-charge, delink + use-case children)
 - `Refund` (parent + partial refund child)
 
-### Phase 3 — Create pages and paste content
+### Phase 3 — Create Pages And Paste Content
 
 For **each line** in `SUMMARY.md` (top to bottom):
 
@@ -184,7 +184,7 @@ For **each line** in `SUMMARY.md` (top to bottom):
 - **If new space in same org as old simpaisa-docs:** images should work automatically.
 - **If completely new org with no assets:** re-upload images from `IMAGE_CATALOG.md` or duplicate the old space’s file library first.
 
-### Phase 5 — Verify GitBook blocks
+### Phase 5 — Verify GitBook Blocks
 
 After pasting, preview pages that use:
 
@@ -194,7 +194,7 @@ After pasting, preview pages that use:
 
 Fix any blocks that render as raw text (re-insert via GitBook’s Tab/Hint/Mermaid blocks if needed).
 
-### Phase 6 — Internal links
+### Phase 6 — Internal Links
 
 Markdown links like `./initiate.md` are for the repo. In GitBook:
 
@@ -225,7 +225,7 @@ Use if you prefer automated sync instead of manual paste.
 
 ---
 
-## Procedure C — Duplicate old space, then replace content
+## Procedure C — Duplicate Old Space, Then Replace Content
 
 If you need to **keep existing `/files/` images** without re-uploading:
 
@@ -237,7 +237,7 @@ If you need to **keep existing `/files/` images** without re-uploading:
 
 ---
 
-## AI agent instructions (copy-paste prompt)
+## AI Agent Instructions (copy-paste Prompt)
 
 Give another AI the following prompt and point it at this folder:
 
@@ -278,7 +278,7 @@ If using GitBook UI automation is not available, output a CSV: group, page_title
 
 ---
 
-## Post-publish checklist
+## Post-publish Checklist
 
 - [ ] Homepage / Getting Started → Overview is the landing page
 - [ ] Mermaid diagram renders on Unified Pay-In overview
@@ -291,7 +291,7 @@ If using GitBook UI automation is not available, output a CSV: group, page_title
 
 ---
 
-## What NOT to do
+## What NOT To Do
 
 - Do **not** rebuild the old hierarchy (Country → Pay-Ins → OTP Flow).
 - Do **not** split BD/NP/EG/IQ into separate top-level country sections.
@@ -300,7 +300,7 @@ If using GitBook UI automation is not available, output a CSV: group, page_title
 
 ---
 
-## Quick reference — API endpoints by section
+## Quick Reference — API Endpoints By Section
 
 | Section | Key endpoints |
 |---------|----------------|
@@ -314,7 +314,7 @@ If using GitBook UI automation is not available, output a CSV: group, page_title
 
 ---
 
-## Support files in this package
+## Support Files In This Package
 
 | File | When to use |
 |------|-------------|

@@ -41,7 +41,7 @@ Direct Charge **cannot** run without a `sourceId`. If the customer was [delinked
 
 ---
 
-## Request body
+## Request Body
 
 | Parameter | Type | Required | Length | Description |
 |-----------|------|----------|--------|-------------|
@@ -55,7 +55,7 @@ Direct Charge **cannot** run without a `sourceId`. If the customer was [delinked
 
 ---
 
-## Response body
+## Response Body
 
 | Parameter | Description |
 |-----------|-------------|
@@ -68,7 +68,7 @@ Direct Charge **cannot** run without a `sourceId`. If the customer was [delinked
 
 ---
 
-## cURL
+## CURL
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/direct-payment' \
@@ -123,7 +123,7 @@ curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/direct-paym
 {% endtab %}
 {% endtabs %}
 
-### With `platform` parameter
+### With `platform` Parameter
 
 ```json
 {

@@ -4,7 +4,7 @@ Process refunds for previously captured card transactions.
 
 ***
 
-## Refund process
+## Refund Process
 
 ***
 
@@ -31,7 +31,7 @@ Process refunds for previously captured card transactions.
 
 ***
 
-## Request body
+## Request Body
 
 | Parameter                                        | Required | Description                                     |
 | ------------------------------------------------ | -------- | ----------------------------------------------- |
@@ -49,7 +49,7 @@ Process refunds for previously captured card transactions.
 
 ***
 
-## Response body
+## Response Body
 
 | Parameter                   | Description                               |
 | --------------------------- | ----------------------------------------- |
@@ -62,7 +62,7 @@ Process refunds for previously captured card transactions.
 
 ***
 
-## Sample request
+## Sample Request
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards-refund/reverse' \
@@ -91,7 +91,7 @@ curl --location 'https://sandbox.simpaisa.com/cards-refund/reverse' \
 }'
 ```
 
-## Sample response
+## Sample Response
 
 ```json
 {

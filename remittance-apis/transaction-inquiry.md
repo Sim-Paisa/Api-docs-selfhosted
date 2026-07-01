@@ -16,7 +16,7 @@ Monitor the status and details of a remittance transaction after it has been ini
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter    | Required | Type   | Length | Description                                                    |
 | ------------ | -------- | ------ | ------ | -------------------------------------------------------------- |
@@ -25,7 +25,7 @@ Monitor the status and details of a remittance transaction after it has been ini
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter              | Type   | Length | Description                                                       |
 | ---------------------- | ------ | ------ | ----------------------------------------------------------------- |

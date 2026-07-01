@@ -2,7 +2,7 @@
 
 All diagrams and images from the live GitBook docs, preserved using GitBook-native `/files/{id}` references. **Paste these blocks directly into GitBook** — assets stay linked to your existing space.
 
-## How to use
+## How To Use
 
 ```markdown
 <figure>
@@ -19,7 +19,7 @@ All diagrams and images from the live GitBook docs, preserved using GitBook-nati
 
 ---
 
-## API Hub & general
+## API Hub & General
 
 | File ID | Original location | New location (planned) | Description |
 |---------|-------------------|------------------------|-------------|
@@ -31,7 +31,7 @@ All diagrams and images from the live GitBook docs, preserved using GitBook-nati
 
 ---
 
-## Pakistan — Wallet pay-in
+## Pakistan — Wallet Pay-in
 
 | File ID | Original location | New location (planned) | Description |
 |---------|-------------------|------------------------|-------------|
@@ -106,7 +106,7 @@ All diagrams and images from the live GitBook docs, preserved using GitBook-nati
 
 ---
 
-## Bangladesh — Remittances (page 2 export)
+## Bangladesh — Remittances (page 2 Export)
 
 | File ID | Original location | New location (planned) | Description |
 |---------|-------------------|------------------------|-------------|
@@ -121,7 +121,7 @@ All diagrams and images from the live GitBook docs, preserved using GitBook-nati
 
 ---
 
-## External images (CDN)
+## External Images (CDN)
 
 | URL | Location | Description |
 |-----|----------|-------------|
@@ -132,7 +132,7 @@ All diagrams and images from the live GitBook docs, preserved using GitBook-nati
 
 ---
 
-## Copy-paste template (all wallet journey images)
+## Copy-paste Template (all Wallet Journey Images)
 
 <details>
 <summary>Pakistan wallet journey diagrams</summary>

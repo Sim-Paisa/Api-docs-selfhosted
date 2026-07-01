@@ -5,9 +5,9 @@ In async flow, the Verify response is **always** `Transaction-Pending` (`0037`).
 All four wallets support async Verify. Parameter sets match the synchronous OTP Verify calls for each wallet.\
 <br>
 
-### User journey
+### User Journey
 
-### Request body (non-OTP)
+### Request Body (non-OTP)
 
 No `otp` field. All other fields match the standard Verify call.
 
@@ -21,7 +21,7 @@ No `otp` field. All other fields match the standard Verify call.
 | `amount`           | String | Yes      | Transaction amount             |
 | `productReference` | String | Yes      | Product or service description |
 
-### Async: Easypaisa and JazzCash
+### Async: Easypaisa And JazzCash
 
 {% tabs %}
 {% tab title="Request" %}
@@ -121,7 +121,7 @@ No `otp` field. All other fields match the standard Verify call.
 
 ***
 
-## Non-OTP flow
+## Non-OTP Flow
 
 Process a wallet payment **without an OTP**. The customer approves the payment in the wallet app (or via USSD). You make the final decision from the **postback/webhook** or [Inquire](inquire.md).
 

@@ -1,4 +1,4 @@
-# tokenization initiate easypaisa
+# Tokenization Initiate Easypaisa
 
 Initiate a tokenization payment using the customer's `msisdn` and `amount`.
 
@@ -27,7 +27,7 @@ Initiate a tokenization payment using the customer's `msisdn` and `amount`.
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter          | Required | Type   | Length | Description                                                 |
 | ------------------ | -------- | ------ | ------ | ----------------------------------------------------------- |
@@ -41,7 +41,7 @@ Initiate a tokenization payment using the customer's `msisdn` and `amount`.
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter       | Description                                                                  |
 | --------------- | ---------------------------------------------------------------------------- |

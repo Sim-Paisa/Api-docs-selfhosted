@@ -2,13 +2,13 @@
 
 The Simpaisa Remittance API lets you integrate cross-border remittances into your platform. Merchants can send funds to beneficiaries across Pakistan and Bangladesh through major banks and mobile wallets.
 
-## Key features
+## Key Features
 
 - **Extensive reach** — covers all the major banks and mobile wallets in Pakistan and Bangladesh, ensuring widespread accessibility for your beneficiaries.
 - **Pre-funded model** — merchants pre-fund their accounts with Simpaisa, enabling swift and secure transactions for both merchants and beneficiaries.
 - **API-based solution** — real-time, secure fund transfers that integrate into your existing platform for quick and efficient transactions.
 
-## Getting started
+## Getting Started
 
 To begin the integration, refer to the following sections in this documentation:
 
@@ -63,7 +63,7 @@ If you have any questions or require assistance during integration, our support 
 
 ---
 
-## Remittance flow
+## Remittance Flow
 
 Before integrating, it is essential to understand how the flow works and which calls need to be made.
 

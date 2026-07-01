@@ -1,4 +1,4 @@
-# Use case: bKash (Bangladesh)
+# Use Case: BKash (Bangladesh)
 
 Collect a payment via **bKash** using the unified [Initiate](../initiate.md) and [Inquire](../inquire.md) APIs.
 
@@ -44,7 +44,7 @@ After redirect, call Inquire with the returned `transactionId`. See [Inquire](..
 
 ---
 
-## Sample postback
+## Sample Postback
 
 ```json
 {

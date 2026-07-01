@@ -6,7 +6,7 @@ E-billing supports both **P2B** and **B2B** payments. You generate a bill and re
 
 ---
 
-## How it works
+## How It Works
 
 - Tokens expire after **15–30 days** by default; you can set a custom expiry per bill.
 - E-billing uses an **async flow** — Simpaisa sends an **IPN** once payment completes.
@@ -25,7 +25,7 @@ E-billing supports both **P2B** and **B2B** payments. You generate a bill and re
 
 ---
 
-## APIs at a glance
+## APIs At A Glance
 
 | API | Method | Path |
 |-----|--------|------|
@@ -34,7 +34,7 @@ E-billing supports both **P2B** and **B2B** payments. You generate a bill and re
 
 ---
 
-## Common headers
+## Common Headers
 
 | Header | Value |
 |--------|-------|

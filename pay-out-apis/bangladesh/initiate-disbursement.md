@@ -12,7 +12,7 @@ Create a payout request for a Bangladesh beneficiary account or wallet.
 | **Path** | `/remittance/{merchantId}/initiateDisbursement` |
 | **Sandbox** | `https://sandbox.simpaisa.com` |
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -26,7 +26,7 @@ Create a payout request for a Bangladesh beneficiary account or wallet.
 | `amount` | Yes | Int | 11 | The amount of money to transfer to the recipient |
 | `reason` | Yes | Varchar | 30 | Purpose of payment or reason for the funds transfer. Pass the code from the provided list. |
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Type | Length | Description |
 |-----------|------|--------|-------------|

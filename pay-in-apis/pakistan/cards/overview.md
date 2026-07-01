@@ -4,7 +4,7 @@ Collect payments from customers via debit and credit cards. Cards support one-ti
 
 ---
 
-## Supported card flows
+## Supported Card Flows
 
 | `payment_type` | Description |
 |----------------|-------------|
@@ -38,7 +38,7 @@ To proceed with integration you need merchant credentials and a defined integrat
 
 ---
 
-## Collection steps
+## Collection Steps
 
 Before using the REST APIs, understand how the flow works and which calls are made.
 
@@ -46,7 +46,7 @@ Before using the REST APIs, understand how the flow works and which calls are ma
 
 Obtain a **Merchant ID** and **Base URL** from the integration team. Share your **PCI DSS certificate** with the information security team.
 
-### Step 02 — RSA key pair and postback URL
+### Step 02 — RSA Key Pair And Postback URL
 
 Provide a **Sandbox Postback URL** and generate an **RSA key pair** (2048-bit, PKCS8 padding, SHA-256 algorithm). The merchant signs API requests with the RSA private key; Simpaisa verifies using the merchant's RSA public key. The integration team configures this against your merchant ID.
 
@@ -54,7 +54,7 @@ Provide a **Sandbox Postback URL** and generate an **RSA key pair** (2048-bit, P
 
 Establish **2-way (mutual) SSL** authentication between your servers and Simpaisa.
 
-### Step 04 — Card encryption
+### Step 04 — Card Encryption
 
 The PCI DSS-compliant merchant converts card details to the format below and passes them in the `card` parameter. Set `source.type` to `card`. Encrypt card details with **AES** using the `secretKey` provided to the merchant. Simpaisa decrypts using the same key.
 
@@ -64,7 +64,7 @@ Card detail orientation:
 <CardNumber>.<Month>.<Year>.<CVV>
 ```
 
-### Step 05 — Payment processing
+### Step 05 — Payment Processing
 
 Process transactions based on `payment_type`:
 
@@ -78,19 +78,19 @@ Once 3DS verification and capture complete, the full amount is deducted and a po
 
 If no postback arrives within **40 minutes**, call the [Inquiry API](./inquiry.md) to verify status and close the transaction on your platform.
 
-### Step 06 — UAT and production
+### Step 06 — UAT And Production
 
 Conduct **User Acceptance Testing (UAT)** with the integration team. After UAT, complete the pre-production checklist. Production credentials are then generated and shared.
 
 ---
 
-## Encryption and authentication
+## Encryption And Authentication
 
-### AES card encryption
+### AES Card Encryption
 
 The `card` field in the Payments API is **not plain card data** — it must be AES-encrypted and Base64-encoded before being sent. See [Card Encryption](../../../platform-reference/authentication/card-encryption.md) for the exact format and a sample encryption helper.
 
-### RSA (digital signature) and SHA-256
+### RSA (digital Signature) And SHA-256
 
 RSA and SHA-256 secure card API traffic.
 
@@ -99,7 +99,7 @@ RSA and SHA-256 secure card API traffic.
 
 Together, RSA encrypts/signs data and SHA-256 hashes protect integrity in transit.
 
-### Encryption for Simpaisa APIs
+### Encryption For Simpaisa APIs
 
 The merchant sends a **digital signature** with each API request. Simpaisa authenticates the client before processing.
 
@@ -107,7 +107,7 @@ The merchant sends a **digital signature** with each API request. Simpaisa authe
 - Sign each request with your **RSA private key**; Simpaisa verifies with your **RSA public key**.
 - Verify API **response signatures** using Simpaisa's RSA public key.
 
-### Generating RSA keys
+### Generating RSA Keys
 
 Generate a SHA-256 key pair with RSA 2048-bit using OpenSSL:
 
@@ -125,7 +125,7 @@ openssl rsa -in PRIVATE_KEY.pem -pubout -out PUBLIC_KEY.pem
 The above is one example. Follow your technology stack or internal key-generation process.
 {% endhint %}
 
-### Signing the API request
+### Signing The API Request
 
 1. **Prepare the data** — the full request body or required fields per your integration spec.
 2. **Hash the data** — SHA-256.
@@ -135,7 +135,7 @@ The above is one example. Follow your technology stack or internal key-generatio
 
 ---
 
-## APIs at a glance
+## APIs At A Glance
 
 | API | Method | Path | Guide |
 |-----|--------|------|-------|
@@ -157,7 +157,7 @@ The above is one example. Follow your technology stack or internal key-generatio
 
 ---
 
-## Common request headers
+## Common Request Headers
 
 All card APIs use these headers:
 

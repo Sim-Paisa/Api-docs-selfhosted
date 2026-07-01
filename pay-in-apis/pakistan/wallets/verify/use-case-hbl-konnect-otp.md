@@ -13,7 +13,7 @@ The customer only needs to provide the OTP to complete the transaction — there
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -29,7 +29,7 @@ The customer only needs to provide the OTP to complete the transaction — there
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

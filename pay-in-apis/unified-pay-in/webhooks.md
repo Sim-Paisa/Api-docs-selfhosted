@@ -7,7 +7,7 @@ Postbacks are sent when:
 - A transaction completes (success or failure)
 - An async payment cycle completes
 
-## Sample success postback
+## Sample Success Postback
 
 ```json
 {
@@ -26,7 +26,7 @@ Postbacks are sent when:
 }
 ```
 
-## Sample failure postback
+## Sample Failure Postback
 
 ```json
 {

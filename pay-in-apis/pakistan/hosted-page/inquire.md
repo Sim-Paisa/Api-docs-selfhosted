@@ -24,7 +24,7 @@ After the customer completes payment on the hosted page, they are redirected to 
 
 ---
 
-## Request body
+## Request Body
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -33,7 +33,7 @@ After the customer completes payment on the hosted page, they are redirected to 
 
 ---
 
-## Response body
+## Response Body
 
 | Parameter | Description |
 |-----------|-------------|
@@ -51,7 +51,7 @@ After the customer completes payment on the hosted page, they are redirected to 
 
 ## Samples
 
-### Sample request
+### Sample Request
 
 ```json
 {
@@ -60,7 +60,7 @@ After the customer completes payment on the hosted page, they are redirected to 
 }
 ```
 
-### Sample response
+### Sample Response
 
 ```json
 {

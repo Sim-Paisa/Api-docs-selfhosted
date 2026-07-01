@@ -15,7 +15,7 @@ GitBook-ready markdown for section **3.1 Unified Pay-In (BD · NP · EG · IQ)**
 | [use-cases/paymob.md](./use-cases/paymob.md) | Use case: Paymob |
 | [use-cases/wayl.md](./use-cases/wayl.md) | Use case: Wayl |
 
-## Platform reference (linked)
+## Platform Reference (linked)
 
 | File | Purpose |
 |------|---------|
@@ -27,13 +27,13 @@ GitBook-ready markdown for section **3.1 Unified Pay-In (BD · NP · EG · IQ)**
 - Unified regions had **no legacy flow diagrams** — overview uses Mermaid.
 - All other site images are in [IMAGE_CATALOG.md](../IMAGE_CATALOG.md) with `/files/{id}` blocks for Pakistan and remittance sections (next drafts).
 
-## Publishing in GitBook
+## Publishing In GitBook
 
 1. Create folder **Pay-In APIs → Unified Pay-In**
 2. Paste each `.md` file as a page
 3. Set sidebar order per table above
 4. Add redirects from old URLs (`/reference/bangladesh/pay-ins`, etc.)
 
-## Next draft
+## Next Draft
 
 **Pakistan Wallet APIs** (Initiate, Verify, Inquire, Tokenization) — includes all wallet journey diagrams from `IMAGE_CATALOG.md`.

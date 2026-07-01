@@ -2,7 +2,7 @@
 
 Simpaisa allows pay-out calls from external systems only when authentication is performed via mutual SSL with RSA encryption.
 
-## SSL handshake
+## SSL Handshake
 
 All API connections for **Disbursements** and **Remittance** between Simpaisa and partner systems must be secured using 2-way (mutual) SSL. Unlike 1-way SSL — where the client only verifies the server — in a 2-way setup the server also verifies the client.
 
@@ -13,7 +13,7 @@ A partner may act as both a server (for one set of services) and a client (for o
 
 ***
 
-## Minimum SSL requirements
+## Minimum SSL Requirements
 
 Any third-party endpoint connected to Simpaisa must meet the following minimum standards:
 
@@ -30,7 +30,7 @@ Any third-party endpoint connected to Simpaisa must meet the following minimum s
 
 ***
 
-## Generating a certificate & keystore
+## Generating A Certificate & Keystore
 
 Generate a self-signed certificate:
 

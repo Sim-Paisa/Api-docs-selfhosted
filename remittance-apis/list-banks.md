@@ -29,14 +29,14 @@ You can optionally specify an `accountType` — `BA` for bank account or `DW` fo
 | **Path** | `/remittance/{merchantId}/banks/listByAccountType` |
 | **Sandbox** | `https://sandbox.simpaisa.com` |
 
-### Request parameters
+### Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
 | `merchantId` | Yes | String | 10 | The unique identifier provided to the merchant by Simpaisa |
 | `accountType` | No | String | — | `BA` for bank account, `DW` for digital wallets |
 
-### Response parameters
+### Response Parameters
 
 | Parameter | Type | Length | Description |
 |-----------|------|--------|-------------|
@@ -94,13 +94,13 @@ This API returns the list of banks available for remittance. The `bankCode` in t
 | **Path** | `/remittance/{merchantId}/banks/list` |
 | **Sandbox** | `https://sandbox.simpaisa.com` |
 
-### Request parameters
+### Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
 | `merchantId` | Yes | Int | 10 | The unique ID of a merchant provided by Simpaisa |
 
-### Response parameters
+### Response Parameters
 
 | Parameter | Type | Length | Description |
 |-----------|------|--------|-------------|

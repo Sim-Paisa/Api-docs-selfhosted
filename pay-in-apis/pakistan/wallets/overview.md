@@ -6,7 +6,7 @@ Accept one-time and tokenized payments from Pakistan's major mobile wallets thro
 
 ***
 
-## Supported wallets
+## Supported Wallets
 
 | Wallet      | Operator ID | Transaction types      |
 | ----------- | ----------- | ---------------------- |
@@ -17,7 +17,7 @@ Accept one-time and tokenized payments from Pakistan's major mobile wallets thro
 
 ***
 
-## Payment flows
+## Payment Flows
 
 | Flow               | Description                                                                          | APIs                                                                          |
 | ------------------ | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
@@ -26,15 +26,15 @@ Accept one-time and tokenized payments from Pakistan's major mobile wallets thro
 | **Non-OTP**        | Single Verify call (no OTP); customer approves in wallet app                         | [Verify — Non-OTP](verify.md#non-otp-flow) → Postback / [Inquire](inquire.md) |
 | **Tokenization**   | Save wallet credentials as `sourceId`; charge later via Direct Charge                | [Tokenization](tokenization/overview.md)                                      |
 
-### One-time payment journey
+### One-time Payment Journey
 
-### Easypaisa sample user journey
+### Easypaisa Sample User Journey
 
-### JazzCash sample user journey
+### JazzCash Sample User Journey
 
 ***
 
-## APIs at a glance
+## APIs At A Glance
 
 | API                              | Method | Path                                     |
 | -------------------------------- | ------ | ---------------------------------------- |
@@ -77,7 +77,7 @@ Set `operatorId` in the header **and** in the request body. They must match the 
 
 ***
 
-## Common request parameters
+## Common Request Parameters
 
 Parameters shared across wallet APIs. Wallet-specific fields are documented on [Initiate](initiate.md) and [Verify](verify.md).
 
@@ -99,7 +99,7 @@ Parameters shared across wallet APIs. Wallet-specific fields are documented on [
 | `mpin`                    | N/A    | String | Mobile wallet PIN — handled by the wallet app on Easypaisa/JazzCash |
 | `sourceId` / `sptoken`    | N/A    | String | Simpaisa token for saved wallet credentials (tokenization)          |
 
-### Parameter matrix by wallet (one-time OTP)
+### Parameter Matrix By Wallet (one-time OTP)
 
 | Parameter          | Easypaisa | JazzCash | HBL Konnect | Alfa |
 | ------------------ | :-------: | :------: | :---------: | :--: |
@@ -114,7 +114,7 @@ Parameters shared across wallet APIs. Wallet-specific fields are documented on [
 | `productReference` |     ✅     |     ✅    |      ✅      |   ✅  |
 | `otp` (Verify)     |     ✅     |     ✅    |      ✅      |   ✅  |
 
-### OTP length and type
+### OTP Length And Type
 
 | Wallet      | Type                                  | Length |
 | ----------- | ------------------------------------- | ------ |
@@ -123,7 +123,7 @@ Parameters shared across wallet APIs. Wallet-specific fields are documented on [
 | HBL Konnect | Int                                   | 05     |
 | Alfa        | String (alphanumeric, case-sensitive) | 08     |
 
-### Account number length and type
+### Account Number Length And Type
 
 | Wallet      | Type | Length |
 | ----------- | ---- | ------ |
@@ -138,7 +138,7 @@ Easypaisa and JazzCash enforce an **MPIN approval** flow handled entirely by the
 
 ***
 
-## Transaction callbacks (IPN / postback)
+## Transaction Callbacks (IPN / Postback)
 
 When a transaction status changes, Simpaisa sends an HTTP `POST` to your configured callback URL.
 
@@ -150,7 +150,7 @@ Callbacks are sent when:
 * Payment is made against a voucher or bill number
 * An **async** flow completes (after Verify returns `Transaction-Pending`)
 
-### Sample wallet callback
+### Sample Wallet Callback
 
 ```json
 {
@@ -168,7 +168,7 @@ Callbacks are sent when:
 }
 ```
 
-### Sample refund callback
+### Sample Refund Callback
 
 ```json
 {
@@ -191,7 +191,7 @@ In async flows, the Verify response is always `Transaction-Pending` (`0037`). Us
 
 ***
 
-## Async flow overview
+## Async Flow Overview
 
 1. **Initiate** — customer enters mobile number (and wallet-specific fields) to receive OTP.
 2. **Verify** — customer submits OTP; response is `Transaction-Pending`.
@@ -203,7 +203,7 @@ All four wallets support async flow. See [Initiate — Async](initiate.md#async-
 
 ***
 
-## Related guides
+## Related Guides
 
 | Topic               | Guide                                             |
 | ------------------- | ------------------------------------------------- |

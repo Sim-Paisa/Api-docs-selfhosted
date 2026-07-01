@@ -21,7 +21,7 @@ Bangladesh pay-out supports bank and wallet disbursements using the Bangladesh c
 | `region` | `BD` |
 | `version` | `3.0` |
 
-## Core flow
+## Core Flow
 
 1. Pre-fund account and obtain MID.
 2. Use bank/branch mapping data to resolve destination details.

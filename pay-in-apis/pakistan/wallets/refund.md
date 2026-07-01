@@ -4,7 +4,7 @@ Refund wallet transactions via API, email, or the Simpaisa Portal. API refunds s
 
 ---
 
-## Refund methods
+## Refund Methods
 
 | Method | Description | Operators |
 |--------|-------------|-----------|
@@ -16,7 +16,7 @@ Refund wallet transactions via API, email, or the Simpaisa Portal. API refunds s
 Portal refunds require feature enablement. Contact Simpaisa support to activate portal refund access for your merchant account.
 {% endhint %}
 
-### Refund features
+### Refund Features
 
 - **Full refund** — refund the entire original transaction amount
 - **Partial refund** — refund a portion of the original amount (Easypaisa, JazzCash, and HBL Konnect)
@@ -54,7 +54,7 @@ Partial and full API refunds are currently available for **wallets only**. Suppo
 
 ---
 
-## Response codes
+## Response Codes
 
 | Code | Message |
 |------|---------|
@@ -72,7 +72,7 @@ Partial and full API refunds are currently available for **wallets only**. Suppo
 Refunds run on an **asynchronous** flow. The API returns `Refund-Submitted` (`0135`); the final status is sent via IPN/postback to your configured URL.
 {% endhint %}
 
-### Sample refund callback
+### Sample Refund Callback
 
 ```json
 {
@@ -91,11 +91,11 @@ Refunds run on an **asynchronous** flow. The API returns `Refund-Submitted` (`01
 
 ---
 
-## Full refund
+## Full Refund
 
 Refund the entire original transaction amount. Omit the `amount` field.
 
-### Request body
+### Request Body
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -104,7 +104,7 @@ Refund the entire original transaction amount. Omit the `amount` field.
 | `transactionDate` | String | Yes | Original transaction date (`YYYY-MM-DD`) |
 | `type` | String | Yes | Must be `WALLETS` |
 
-### Response body
+### Response Body
 
 | Parameter | Description |
 |-----------|-------------|
@@ -114,7 +114,7 @@ Refund the entire original transaction amount. Omit the `amount` field.
 | `transactionId` | Original transaction ID |
 | `referenceNumber` | Unique reference for this refund request |
 
-### cURL
+### CURL
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/v3/transaction/refund' \
@@ -159,7 +159,7 @@ curl --location 'https://sandbox.simpaisa.com/v3/transaction/refund' \
 
 ---
 
-## Partial refund
+## Partial Refund
 
 Refund a portion of the original transaction. Currently supported on **Easypaisa**, **JazzCash**, and **HBL Konnect**.
 
@@ -167,7 +167,7 @@ Full parameters, headers, and a sample request/response: [Partial Refund](./refu
 
 ---
 
-## Refund via email
+## Refund Via Email
 
 Send the following details to your Simpaisa support contact or delegated POC:
 
@@ -180,7 +180,7 @@ Refunds are executed per Simpaisa SLA.
 
 ---
 
-## Refund via portal
+## Refund Via Portal
 
 1. Log in to the Simpaisa Portal/Dashboard.
 2. Navigate to the **Transactions** tab.

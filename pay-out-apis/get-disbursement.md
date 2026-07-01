@@ -17,7 +17,7 @@ Sandbox base URL: `https://sandbox.simpaisa.com`
 
 ***
 
-## Response parameters
+## Response Parameters
 
 | Parameter            | Description                                                                                                                                     |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |

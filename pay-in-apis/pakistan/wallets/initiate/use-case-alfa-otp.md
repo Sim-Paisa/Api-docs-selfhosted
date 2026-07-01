@@ -13,7 +13,7 @@ When initiating a payment on the Alfa wallet, collect the wallet's `accountNumbe
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -28,7 +28,7 @@ When initiating a payment on the Alfa wallet, collect the wallet's `accountNumbe
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Description |
 |-----------|-------------|

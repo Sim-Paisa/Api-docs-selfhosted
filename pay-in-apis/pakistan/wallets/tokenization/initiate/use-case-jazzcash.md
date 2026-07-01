@@ -17,7 +17,7 @@ The following parameters are passed in the URL to open the hosted page:
 
 ***
 
-## Hosted page URL
+## Hosted Page URL
 
 **With `platform` parameter**
 

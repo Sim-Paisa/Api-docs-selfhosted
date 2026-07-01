@@ -16,7 +16,7 @@ Update the details of a registered customer on Simpaisa. The core fields — `re
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter                         | Required | Type   | Length | Description                                                                                                                                                            |
 | --------------------------------- | -------- | ------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

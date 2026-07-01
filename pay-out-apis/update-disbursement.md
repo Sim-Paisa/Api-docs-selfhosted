@@ -16,7 +16,7 @@ Update a disbursement request against an individual through the Simpaisa platfor
 
 ***
 
-## Request parameters
+## Request Parameters
 
 | Parameter           | Required | Type   | Length | Description                                                                                                                                                          |
 | ------------------- | -------- | ------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

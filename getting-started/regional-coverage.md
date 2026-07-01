@@ -1,4 +1,4 @@
-# regional-coverage
+# Regional-coverage
 
 | Country    | Pay-Ins                                      | Pay-Outs            | Remittances     |
 | ---------- | -------------------------------------------- | ------------------- | --------------- |
@@ -8,7 +8,7 @@
 | Egypt      | Paymob                                       | NA                  | NA              |
 | Iraq       | Wayl                                         | NA                  | NA              |
 
-## Operator codes
+## Operator Codes
 
 | Region | Operator    | Code   |
 | ------ | ----------- | ------ |

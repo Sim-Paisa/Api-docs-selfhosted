@@ -1,4 +1,4 @@
-# Use case: Khalti (Nepal)
+# Use Case: Khalti (Nepal)
 
 Collect a payment via **Khalti** using the unified [Initiate](../initiate.md) and [Inquire](../inquire.md) APIs.
 
@@ -43,7 +43,7 @@ Redirect the customer to `payment_url`, then call [Inquire](../inquire.md).
 
 ---
 
-## Sample postback
+## Sample Postback
 
 ```json
 {

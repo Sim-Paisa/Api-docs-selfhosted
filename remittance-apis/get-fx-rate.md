@@ -16,7 +16,7 @@ The FX Rate API allows merchants to retrieve the foreign exchange (FX) rate betw
 
 ---
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
@@ -27,7 +27,7 @@ The FX Rate API allows merchants to retrieve the foreign exchange (FX) rate betw
 
 ---
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Type | Length | Description |
 |-----------|------|--------|-------------|

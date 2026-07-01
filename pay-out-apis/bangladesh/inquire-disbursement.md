@@ -12,14 +12,14 @@ Query a previously initiated Bangladesh payout by merchant reference to retrieve
 | **Path** | `/remittance/{merchantId}/inquire?reference={reference}` |
 | **Sandbox** | `https://sandbox.simpaisa.com` |
 
-## Request parameters
+## Request Parameters
 
 | Parameter | Required | Type | Length | Description |
 |-----------|----------|------|--------|-------------|
 | `merchantId` | Yes | Int | 10 | The unique ID of a merchant provided by Simpaisa |
 | `reference` | Yes | String | 50 | The payment reference provided when initiating the disbursement |
 
-## Response parameters
+## Response Parameters
 
 | Parameter | Type | Length | Description |
 |-----------|------|--------|-------------|
