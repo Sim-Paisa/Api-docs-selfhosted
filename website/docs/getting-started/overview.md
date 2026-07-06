@@ -5,7 +5,11 @@ sidebar_label: "Overview"
 
 <div style={{textAlign: 'center'}}>
 
+<div style={{display: 'inline-block', background: '#ffffff', padding: '1.5rem 2.5rem', borderRadius: '12px'}}>
+
 ![Simpaisa](/img/simpaisa-banner.png)
+
+</div>
 
 </div>
 
