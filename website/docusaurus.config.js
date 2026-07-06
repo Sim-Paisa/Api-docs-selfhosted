@@ -58,10 +58,10 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'Simpaisa API Docs',
+        title: 'API Docs',
         logo: {
           alt: 'Simpaisa Logo',
-          src: 'img/logo.svg',
+          src: 'img/simpaisa-logo.webp',
         },
         items: [
           {
