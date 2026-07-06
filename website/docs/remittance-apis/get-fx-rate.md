@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1080
 sidebar_label: "Get FX Rate"
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

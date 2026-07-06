@@ -1,5 +1,6 @@
 ---
 sidebar_position: 9000
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

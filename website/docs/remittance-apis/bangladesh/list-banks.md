@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1210
 sidebar_label: "List Banks"
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
