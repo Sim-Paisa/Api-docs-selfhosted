@@ -1,0 +1,8 @@
+name = "simpaisa-docs-oauth"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET are set as secrets, not here:
+#   npx wrangler secret put GITHUB_CLIENT_ID
+#   npx wrangler secret put GITHUB_CLIENT_SECRET
+# See README.md for the full setup.

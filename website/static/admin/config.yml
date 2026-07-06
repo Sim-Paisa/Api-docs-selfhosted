@@ -1,0 +1,133 @@
+# Decap CMS configuration for the Simpaisa API docs.
+# Served at /API-docs-New/admin/ — see website/ADMIN-EDITING.md for the editor guide
+# and oauth-worker/README.md for the one-time OAuth setup.
+
+backend:
+  name: github
+  repo: Sim-Paisa/Api-docs-selfhosted
+  branch: main
+  # base_url = your deployed Cloudflare Worker (OAuth proxy). REQUIRED before the
+  # production login works. See oauth-worker/README.md.
+  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+  auth_endpoint: /auth
+  squash_merges: true
+
+# Editorial workflow: every edit becomes a draft PR (Draft → In Review → Ready).
+# "Publish" merges the PR into main, which triggers the deploy workflow.
+publish_mode: editorial_workflow
+
+# Local testing with `npx decap-server` (see ADMIN-EDITING.md).
+# Uncomment for local preview only — must stay commented out for real commits/deploys.
+# local_backend: true
+
+site_url: https://sim-paisa.github.io/Api-docs-selfhosted
+display_url: https://sim-paisa.github.io/Api-docs-selfhosted
+
+# Images uploaded through the CMS are committed to git and served by the site.
+media_folder: website/static/img/uploads
+public_folder: /API-docs-New/img/uploads
+
+# Each collection mirrors a top-level category in website/docs/. Front-matter
+# fields match the schema already used across the docs (sidebar_position /
+# sidebar_label) plus the optional SEO description. _category_.json files are
+# managed in git, not through the CMS. Preview is disabled because the docs use
+# Docusaurus-specific MDX (admonitions, Tabs) that Decap cannot render.
+#
+# No `meta.path` field on purpose: exposing an editable file-path widget lets a
+# click (e.g. on "Duplicate" with the path left blank) silently rename/overwrite
+# an existing file instead of creating a new one, since nested collections fall
+# back to `index.md` when the path is empty — which breaks every relative link
+# pointing at the original filename. New entries still get placed in the right
+# nested folder via the "New Entry" folder picker; existing files can't be moved
+# from the CMS UI (rename in Git/GitHub instead if that's ever needed).
+
+collections:
+  - name: getting-started
+    label: Getting Started
+    folder: website/docs/getting-started
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: sidebar_label
+    summary: '{{filename}}'
+    editor:
+      preview: false
+    nested:
+      depth: 5
+    fields:
+      - { name: sidebar_position, label: Sidebar position, widget: number, value_type: int, required: false }
+      - { name: sidebar_label, label: Sidebar label, widget: string, required: false }
+      - { name: description, label: Meta description (SEO), widget: string, required: false }
+      - { name: body, label: Page content, widget: markdown }
+
+  - name: pay-in-apis
+    label: Pay-in APIs
+    folder: website/docs/pay-in-apis
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: sidebar_label
+    summary: '{{filename}}'
+    editor:
+      preview: false
+    nested:
+      depth: 5
+    fields:
+      - { name: sidebar_position, label: Sidebar position, widget: number, value_type: int, required: false }
+      - { name: sidebar_label, label: Sidebar label, widget: string, required: false }
+      - { name: description, label: Meta description (SEO), widget: string, required: false }
+      - { name: body, label: Page content, widget: markdown }
+
+  - name: pay-out-apis
+    label: Pay-out APIs
+    folder: website/docs/pay-out-apis
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: sidebar_label
+    summary: '{{filename}}'
+    editor:
+      preview: false
+    nested:
+      depth: 5
+    fields:
+      - { name: sidebar_position, label: Sidebar position, widget: number, value_type: int, required: false }
+      - { name: sidebar_label, label: Sidebar label, widget: string, required: false }
+      - { name: description, label: Meta description (SEO), widget: string, required: false }
+      - { name: body, label: Page content, widget: markdown }
+
+  - name: platform-reference
+    label: Platform Reference
+    folder: website/docs/platform-reference
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: sidebar_label
+    summary: '{{filename}}'
+    editor:
+      preview: false
+    nested:
+      depth: 5
+    fields:
+      - { name: sidebar_position, label: Sidebar position, widget: number, value_type: int, required: false }
+      - { name: sidebar_label, label: Sidebar label, widget: string, required: false }
+      - { name: description, label: Meta description (SEO), widget: string, required: false }
+      - { name: body, label: Page content, widget: markdown }
+
+  - name: remittance-apis
+    label: Remittance APIs
+    folder: website/docs/remittance-apis
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: sidebar_label
+    summary: '{{filename}}'
+    editor:
+      preview: false
+    nested:
+      depth: 5
+    fields:
+      - { name: sidebar_position, label: Sidebar position, widget: number, value_type: int, required: false }
+      - { name: sidebar_label, label: Sidebar label, widget: string, required: false }
+      - { name: description, label: Meta description (SEO), widget: string, required: false }
+      - { name: body, label: Page content, widget: markdown }
