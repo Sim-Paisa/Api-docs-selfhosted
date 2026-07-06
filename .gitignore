@@ -4,3 +4,6 @@
 # OS/editor cruft
 .DS_Store
 Thumbs.db
+
+# Wrangler local state (Cloudflare Worker deploy tooling)
+oauth-worker/.wrangler/

@@ -8,7 +8,7 @@ backend:
   branch: main
   # base_url = your deployed Cloudflare Worker (OAuth proxy). REQUIRED before the
   # production login works. See oauth-worker/README.md.
-  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+  base_url: https://simpaisa-docs-oauth.mohammad-omar.workers.dev
   auth_endpoint: /auth
   squash_merges: true
 
