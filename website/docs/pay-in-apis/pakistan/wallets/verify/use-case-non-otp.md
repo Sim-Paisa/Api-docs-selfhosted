@@ -30,7 +30,7 @@ This is an **asynchronous** flow. The Verify API returns `Transaction-Pending` f
 ## Sequence
 
 1. The user initiates payment on the merchant checkout.
-2. The merchant calls the [Verify API](../verify.md) (without OTP).
+2. The merchant calls the [Verify API](./index.md) (without OTP).
 3. Simpaisa validates the request, stores the data, and forwards it to the wallet channel.
 4. Simpaisa returns a synchronous response: `Transaction-Pending` (`status = 0037`).
 5. The wallet requests customer authentication/approval (\~60–360 sec).
@@ -133,7 +133,7 @@ curl -X POST "https://sandbox.simpaisa.com/v2/wallets/transaction/verify" \
 
 ## Related
 
-* [Verify Payment](../verify.md)
+* [Verify Payment](./index.md)
 * [Inquire Payment](../inquire.md)
 * [Webhooks](../../../../platform-reference/webhooks.md)
 * [Error handling](../../../../platform-reference/error-handling.md)

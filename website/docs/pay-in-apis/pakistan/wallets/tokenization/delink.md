@@ -58,7 +58,7 @@ Remove a saved `sourceId` (SP token) so no further direct charges can be made ag
 | `sourceId` | Echo of the revoked SP token |
 
 :::info
-After a successful Delink, [Direct Charge](./direct-charge.md) calls against that `sourceId` will fail. The customer must go through [Initiate](./initiate.md) and [Verify](./verify.md) / [Finalize](./finalize.md) again.
+After a successful Delink, [Direct Charge](./direct-charge.md) calls against that `sourceId` will fail. The customer must go through [Initiate](./initiate/index.md) and [Verify](./verify/index.md) / [Finalize](./finalize/index.md) again.
 :::
 
 ---

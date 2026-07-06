@@ -88,7 +88,7 @@ Identify the transaction by **`userKey`** or **`transactionId`** (provide one).
 
 - Postback URL is not configured
 - Postback was not received (network timeout, server downtime)
-- [Non-OTP](./verify.md#non-otp-flow) or [async](./verify.md#async-flow) Verify returned `Transaction-Pending`
+- [Non-OTP](./verify/index.md#non-otp-flow) or [async](./verify/index.md#async-flow) Verify returned `Transaction-Pending`
 
 :::info
 At present, this Inquire API works for **mobile wallets** only.

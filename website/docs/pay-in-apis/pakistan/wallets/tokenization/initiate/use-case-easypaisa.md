@@ -115,4 +115,4 @@ curl --location 'https://sandbox.simpaisa.com/v2/wallets/transaction/initiate' \
 </TabItem>
 </Tabs>
 
-After Initiate, an OTP is sent to the customer. Proceed to [Verify](../verify.md).
+After Initiate, an OTP is sent to the customer. Proceed to [Verify](../verify/index.md).

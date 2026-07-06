@@ -11,4 +11,4 @@ Complete JazzCash tokenization after the customer returns from the hosted page. 
 
 ---
 
-Full endpoint, headers, parameters, and a sample request/response: [Tokenization Finalize — JazzCash](./finalize/use-case-jazzcash.md).
+Full endpoint, headers, parameters, and a sample request/response: [Tokenization Finalize — JazzCash](./use-case-jazzcash.md).

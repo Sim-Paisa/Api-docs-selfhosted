@@ -19,8 +19,8 @@ Tokenization makes scheduled payments more robust and gives merchants more contr
 
 | Step                  | API                                            | Easypaisa                               | JazzCash                |
 | --------------------- | ---------------------------------------------- | --------------------------------------- | ----------------------- |
-| 1. Start tokenization | [Initiate](initiate.md)                        | REST Initiate (`transactionType` = `8`) | Hosted page (GET URL)   |
-| 2. Verify / complete  | [Verify](verify.md) or [Finalize](finalize.md) | REST Verify with OTP                    | Finalize after redirect |
+| 1. Start tokenization | [Initiate](initiate/index.md)                        | REST Initiate (`transactionType` = `8`) | Hosted page (GET URL)   |
+| 2. Verify / complete  | [Verify](verify/index.md) or [Finalize](finalize/index.md) | REST Verify with OTP                    | Finalize after redirect |
 | 3. Recurring charge   | [Direct Charge](direct-charge.md)              | ✅                                       | ✅                       |
 | 4. Remove token       | [Delink](delink.md)                            | ✅                                       | ✅                       |
 
@@ -68,8 +68,8 @@ Direct Charge cannot run without a valid `sourceId`. The customer must complete 
 
 | Guide                             | Description                     |
 | --------------------------------- | ------------------------------- |
-| [Initiate](initiate.md)           | Start Easypaisa tokenization    |
-| [Verify](verify.md)               | Complete Easypaisa tokenization |
-| [Finalize](finalize.md)           | Complete JazzCash tokenization  |
+| [Initiate](initiate/index.md)           | Start Easypaisa tokenization    |
+| [Verify](verify/index.md)               | Complete Easypaisa tokenization |
+| [Finalize](finalize/index.md)           | Complete JazzCash tokenization  |
 | [Direct Charge](direct-charge.md) | Charge a saved wallet           |
 | [Delink](delink.md)               | Remove saved credentials        |

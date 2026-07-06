@@ -39,7 +39,7 @@ Charge a customer on a defined schedule using a saved `sourceId` from a complete
 
 ## Prerequisites
 
-- Customer completed initial tokenization ([Easypaisa Verify](./verify.md) or [JazzCash Finalize](./finalize.md))
+- Customer completed initial tokenization ([Easypaisa Verify](./verify/index.md) or [JazzCash Finalize](./finalize/index.md))
 - Valid `sourceId` (SP token) was returned and stored
 - Customer approved the initial charge via wallet app or flash message
 

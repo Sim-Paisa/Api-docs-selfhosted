@@ -140,10 +140,10 @@ No `otp` field. All other fields match the standard Verify call.
 
 ## Non-OTP Flow
 
-Process a wallet payment **without an OTP**. The customer approves the payment in the wallet app (or via USSD). You make the final decision from the **postback/webhook** or [Inquire](inquire.md).
+Process a wallet payment **without an OTP**. The customer approves the payment in the wallet app (or via USSD). You make the final decision from the **postback/webhook** or [Inquire](../inquire.md).
 
 :::info
 This is an **asynchronous** flow. Verify returns `Transaction-Pending` (`0037`) first; Simpaisa notifies you later with the final status.
 :::
 
-Full flow details, headers, and a sample request/response: [Verify — Non-OTP](./verify/use-case-non-otp.md).
+Full flow details, headers, and a sample request/response: [Verify — Non-OTP](./use-case-non-otp.md).

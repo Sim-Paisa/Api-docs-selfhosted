@@ -170,7 +170,7 @@ curl --location 'https://sandbox.simpaisa.com/v3/transaction/refund' \
 
 Refund a portion of the original transaction. Currently supported on **Easypaisa**, **JazzCash**, and **HBL Konnect**.
 
-Full parameters, headers, and a sample request/response: [Partial Refund](./refund/use-case-partial.md).
+Full parameters, headers, and a sample request/response: [Partial Refund](./use-case-partial.md).
 
 ---
 

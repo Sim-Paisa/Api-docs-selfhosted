@@ -26,9 +26,9 @@ Accept one-time and tokenized payments from Pakistan's major mobile wallets thro
 
 | Flow               | Description                                                                          | APIs                                                                          |
 | ------------------ | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
-| **One-time (OTP)** | Initiate sends OTP; Verify completes payment with OTP (+ MPIN on Easypaisa/JazzCash) | Initiate → [Verify](verify.md)                                 |
-| **Async (OTP)**    | Verify returns `Transaction-Pending`; final status via postback                      | Initiate → [Verify](verify.md) → Postback                      |
-| **Non-OTP**        | Single Verify call (no OTP); customer approves in wallet app                         | [Verify — Non-OTP](verify.md#non-otp-flow) → Postback / [Inquire](inquire.md) |
+| **One-time (OTP)** | Initiate sends OTP; Verify completes payment with OTP (+ MPIN on Easypaisa/JazzCash) | Initiate → [Verify](verify/index.md)                                 |
+| **Async (OTP)**    | Verify returns `Transaction-Pending`; final status via postback                      | Initiate → [Verify](verify/index.md) → Postback                      |
+| **Non-OTP**        | Single Verify call (no OTP); customer approves in wallet app                         | [Verify — Non-OTP](verify/index.md#non-otp-flow) → Postback / [Inquire](inquire.md) |
 | **Tokenization**   | Save wallet credentials as `sourceId`; charge later via Direct Charge                | [Tokenization](tokenization/overview.md)                                      |
 
 ### One-time Payment Journey
@@ -60,7 +60,7 @@ Accept one-time and tokenized payments from Pakistan's major mobile wallets thro
 | Sandbox     | `https://sandbox.simpaisa.com` |
 | Production  | `https://wallets.simpaisa.com` |
 
-Refunds use a separate host — see [Refund](refund.md).
+Refunds use a separate host — see [Refund](refund/index.md).
 
 ***
 
@@ -84,7 +84,7 @@ Set `operatorId` in the header **and** in the request body. They must match the 
 
 ## Common Request Parameters
 
-Parameters shared across wallet APIs. Wallet-specific fields are documented on Initiate and [Verify](verify.md).
+Parameters shared across wallet APIs. Wallet-specific fields are documented on Initiate and [Verify](verify/index.md).
 
 | Parameter                 | Length | Type   | Description                                                         |
 | ------------------------- | ------ | ------ | ------------------------------------------------------------------- |
@@ -204,7 +204,7 @@ In async flows, the Verify response is always `Transaction-Pending` (`0037`). Us
 
 If the customer abandons before entering OTP, no postback is sent. If Verify does not return `Transaction-Pending`, no postback will follow.
 
-All four wallets support async flow. See [Verify — Async](verify.md#async-flow).
+All four wallets support async flow. See [Verify — Async](verify/index.md#async-flow).
 
 ***
 
@@ -213,7 +213,7 @@ All four wallets support async flow. See [Verify — Async](verify.md#async-flow
 | Topic               | Guide                                             |
 | ------------------- | ------------------------------------------------- |
 | Initiate payment    | Initiate                           |
-| Verify payment      | [Verify](verify.md)                               |
+| Verify payment      | [Verify](verify/index.md)                               |
 | Transaction inquiry | [Inquire](inquire.md)                             |
 | Tokenization        | [Tokenization overview](tokenization/overview.md) |
-| Refunds             | [Refund](refund.md)                               |
+| Refunds             | [Refund](refund/index.md)                               |
