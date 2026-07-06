@@ -3,6 +3,12 @@ sidebar_position: 80
 sidebar_label: "Overview"
 ---
 
+<div style={{textAlign: 'center'}}>
+
+![Simpaisa](/img/simpaisa-banner.png)
+
+</div>
+
 # Overview
 
 Welcome to the Simpaisa API Hub, your gateway to innovative payment solutions that power secure, seamless, and scalable digital transactions across emerging markets.
