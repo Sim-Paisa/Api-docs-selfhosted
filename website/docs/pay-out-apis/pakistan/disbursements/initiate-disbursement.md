@@ -72,5 +72,5 @@ curl --location --request POST 'https://sandbox.simpaisa.com/merchants/{merchant
 </Tabs>
 
 :::info
-The signature is generated only for the `request` and `response` sections. A request can be canceled through an [Update Disbursement](../update-disbursement.md) call against the same reference number, by passing `amount` as `0` — but only while it is in the `in_review` state.
+The signature is generated only for the `request` and `response` sections. A request can be canceled through an [Update Disbursement](./update-disbursement.md) call against the same reference number, by passing `amount` as `0` — but only while it is in the `in_review` state.
 :::

@@ -85,4 +85,4 @@ curl --location --request GET \
 </TabItem>
 </Tabs>
 
-Canonical reference: [Inquire Disbursement](../inquire-disbursement.md)
+Canonical reference: [Inquire Disbursement](../pakistan/disbursements/inquire-disbursement.md)

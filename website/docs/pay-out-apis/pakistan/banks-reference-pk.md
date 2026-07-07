@@ -77,4 +77,4 @@ The `code` column is the value to pass in the `destinationBank` parameter when r
 
 ## Related
 
-- [Sample code — signature generation](../platform-reference/signature-samples.md)
+- [Sample code — signature generation](../../platform-reference/signature-samples.md)

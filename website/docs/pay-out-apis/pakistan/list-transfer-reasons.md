@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # List Transfer Reasons
 
-Fetch the list of transfer reason codes to pass when making an [Initiate Disbursement](pakistan/initiate-disbursement.md) call.
+Fetch the list of transfer reason codes to pass when making an [Initiate Disbursement](./disbursements/initiate-disbursement.md) call.
 
 > **Applies to:** Pakistan
 

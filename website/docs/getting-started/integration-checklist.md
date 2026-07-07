@@ -51,19 +51,19 @@ See [API Token Authentication](../platform-reference/authentication/api-token.md
 ## 5. Pay-Out Integration (PK)
 
 * [ ] Prefund sandbox account (Simpaisa handles sandbox prefunding)
-* [ ] [List banks](../pay-out-apis/list-banks.md) and map `destinationBank` codes
-* [ ] [Register customers](../pay-out-apis/register-customer.md) before disbursement
-* [ ] [Initiate disbursement](../pay-out-apis/pakistan/initiate-disbursement.md) with transfer reason code
-* [ ] Handle disbursement postbacks; reconcile with [Get Disbursement](../pay-out-apis/get-disbursement.md)
-* [ ] Monitor balance via [Balance Inquiry](../pay-out-apis/balance-inquiry.md)
+* [ ] [List banks](../pay-out-apis/pakistan/list-banks.md) and map `destinationBank` codes
+* [ ] [Register customers](../pay-out-apis/pakistan/customer/register-customer.md) before disbursement
+* [ ] [Initiate disbursement](../pay-out-apis/pakistan/disbursements/initiate-disbursement.md) with transfer reason code
+* [ ] Handle disbursement postbacks; reconcile with [Get Disbursement](../pay-out-apis/pakistan/disbursements/get-disbursement.md)
+* [ ] Monitor balance via [Balance Inquiry](../pay-out-apis/pakistan/balance-inquiry.md)
 
 ***
 
 ## 6. Pay-Out Integration (BD)
 
 * [ ] Obtain bank/branch CSV from integration team
-* [ ] [Initiate disbursement](../pay-out-apis/pakistan/initiate-disbursement.md) with inline beneficiary details
-* [ ] [Inquire disbursement](../pay-out-apis/inquire-disbursement.md) for status reconciliation
+* [ ] [Initiate disbursement](../pay-out-apis/pakistan/disbursements/initiate-disbursement.md) with inline beneficiary details
+* [ ] [Inquire disbursement](../pay-out-apis/pakistan/disbursements/inquire-disbursement.md) for status reconciliation
 
 ***
 
