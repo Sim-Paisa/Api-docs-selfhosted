@@ -53,5 +53,7 @@ Postbacks are sent when:
 :::info
 Use postbacks together with [Inquire](./inquire.md)—treat Inquire as the source of truth when reconciling orders.
 
+Postback field name for the operator is region-specific: **`operator` for Bangladesh**; **`operatorId` for Nepal, Egypt, and Iraq**. Samples above are Bangladesh (`BDT`).
+
 For general webhook setup and security, see [Platform webhooks reference](../../platform-reference/webhooks.md).
 :::

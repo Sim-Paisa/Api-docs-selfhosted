@@ -1,11 +1,11 @@
 ---
 sidebar_position: 330
-sidebar_label: "Wayl"
+sidebar_label: "ZainCash"
 ---
 
-# Use Case: Wayl (Iraq)
+# Use Case: ZainCash (Iraq)
 
-Collect a payment via **Wayl** using the unified [Initiate](../initiate.md) and [Inquire](../inquire.md) APIs.
+Collect a payment via **ZainCash** using the unified [Initiate](../initiate.md) and [Inquire](../inquire.md) APIs.
 
 | Setting | Value |
 |---------|-------|
@@ -41,6 +41,10 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/initiate' \
 
 Redirect the customer to `payment_url`, then call [Inquire](../inquire.md) with `region: IQ` and `operatorId: 100027`.
 
+:::info
+Iraq uses `operatorId` in the request and response (not `operator`). `operator` is Bangladesh-only.
+:::
+
 ---
 
 ## Sample Postback
@@ -54,7 +58,7 @@ Redirect the customer to `payment_url`, then call [Inquire](../inquire.md) with 
   "amount": "365.0",
   "msisdn": "1632332883",
   "userKey": "BDTb95a870f04403992d5034a2d201d2",
-  "operator": "100027",
+  "operatorId": "100027",
   "transactionType": "0",
   "createdTimestamp": "2025-09-19 16:15:53.0",
   "updatedTimestamp": "2025-09-19 16:17:07.187",

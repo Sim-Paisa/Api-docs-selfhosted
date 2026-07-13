@@ -76,7 +76,8 @@ Do not rely on the browser redirect alone. Always confirm payment server-side wi
 | `msisdn`                           | String | Customer mobile number                                  |
 | `amount`                           | String | Charged amount                                          |
 | `transactionId`                    | String | Echo of transaction ID                                  |
-| `operator` / `operatorId`          | String | Operator used                                           |
+| `operator`                         | String | **Bangladesh only.** Operator used                      |
+| `operatorId`                       | String | **Nepal, Egypt, Iraq.** Operator used                   |
 | `currencyCode`                     | String | `BDT` · `NPR` · `EGP` · `IQD`                           |
 | `transactionType`                  | String | `0` = one-time payment                                  |
 | `createdTimestamp` / `createdDate` | String | Transaction created time                                |
@@ -154,7 +155,7 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/inquire' \
   "merchantId": "xxxxxxx",
   "userKey": "9993-MD1",
   "msisdn": "xxxxxxxxxx",
-  "operator": "100025",
+  "operatorId": "100025",
   "currencyCode": "NPR",
   "amount": "100.0",
   "transactionId": "1827",
@@ -190,7 +191,7 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/inquire' \
   "merchantId": "xxxxxxx",
   "userKey": "9993-MD1",
   "msisdn": "xxxxxxxxxx",
-  "operator": "100026",
+  "operatorId": "100026",
   "currencyCode": "EPG",
   "amount": "100.0",
   "transactionId": "1827",
@@ -226,7 +227,7 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/inquire' \
   "merchantId": "xxxxxxx",
   "userKey": "9993-MD1",
   "msisdn": "xxxxxxxxxx",
-  "operator": "100027",
+  "operatorId": "100027",
   "currencyCode": "IQD",
   "amount": "100.0",
   "transactionId": "1827",

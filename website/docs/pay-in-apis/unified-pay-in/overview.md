@@ -69,13 +69,13 @@ Always call **Inquire** on your success/failure landing page. Do not treat the r
 
 Set these values per region and operator. Use the same `merchantId` in sandbox and production.
 
-| Region     | `region` header | Currency | Operators | `operatorId` / body `operator` |
-| ---------- | --------------- | -------- | --------- | ------------------------------ |
-| Bangladesh | `BD`            | BDT      | bKash     | `10001`                        |
-| Bangladesh | `BD`            | BDT      | Nagad     | `10002`                        |
-| Nepal      | `NP`            | NPR      | Khalti    | `100025`                       |
-| Egypt      | `EG`            | EGP      | Paymob    | `100026`                       |
-| Iraq       | `IQ`            | IQD      | Wayl      | `100027`                       |
+| Region     | `region` header | Currency | Operators | Operator code | Body / response field |
+| ---------- | --------------- | -------- | --------- | -------------- | ---------------------- |
+| Bangladesh | `BD`            | BDT      | bKash     | `10001`        | `operator`             |
+| Bangladesh | `BD`            | BDT      | Nagad     | `10002`        | `operator`             |
+| Nepal      | `NP`            | NPR      | Khalti    | `100025`       | `operatorId`           |
+| Egypt      | `EG`            | EGP      | Paymob    | `100026`       | `operatorId`           |
+| Iraq       | `IQ`            | IQD      | ZainCash  | `100027`       | `operatorId`           |
 
 ### Common Request Headers
 
@@ -90,7 +90,7 @@ Set these values per region and operator. Use the same `merchantId` in sandbox a
 | `version`      | `3.0`                                              | Yes      |
 
 :::info
-Pass the operator in **both** the `operatorId` header and the request body (`operator` or `operatorId` field, depending on region—see [Initiate](initiate.md) samples).
+Pass the operator in **both** the `operatorId` header and the request/response payload field. Field name is region-specific: **`operator` for Bangladesh only**; **`operatorId` for Nepal, Egypt, and Iraq**. See [Initiate](initiate.md) samples.
 :::
 
 ***
@@ -113,7 +113,7 @@ Each operator uses the same Initiate and Inquire APIs. Examples with region-spec
 | Nagad    | Bangladesh | [Use case: Nagad](use-cases/nagad.md)   |
 | Khalti   | Nepal      | [Use case: Khalti](use-cases/khalti.md) |
 | Paymob   | Egypt      | [Use case: Paymob](use-cases/paymob.md) |
-| Wayl     | Iraq       | [Use case: Wayl](use-cases/wayl.md)     |
+| ZainCash | Iraq       | [Use case: ZainCash](use-cases/zaincash.md) |
 
 ***
 

@@ -47,7 +47,8 @@ Create a pay-in session and receive a `payment_url` to redirect the customer to 
 | `userKey` | String | Yes | Your unique order reference |
 | `msisdn` | String | Yes | Customer mobile number linked to the wallet |
 | `amount` | String | Yes | Amount to charge |
-| `operator` | String | Yes | Operator ID (must match `operatorId` header) |
+| `operator` | String | Yes† | **Bangladesh only.** Operator ID (must match `operatorId` header) |
+| `operatorId` | String | Yes† | **Nepal, Egypt, Iraq.** Operator ID (must match `operatorId` header) |
 | `successUrl` | String | Yes | Redirect URL after successful payment |
 | `failureUrl` | String | Yes | Redirect URL after failed payment |
 | `productReference` | String | Yes | Short description of the product or service |
@@ -56,6 +57,8 @@ Create a pay-in session and receive a `payment_url` to redirect the customer to 
 | `transactionType` | String | No | `0` = one-time payment (default) |
 
 \* Recommended for NP, EG, and IQ. Required for correct currency handling in those regions.
+
+† Field name is region-specific for **request and response**: use `operator` for **BD** only; use `operatorId` for **NP**, **EG**, and **IQ**. Send one field, not both.
 
 ---
 
@@ -71,7 +74,8 @@ Create a pay-in session and receive a `payment_url` to redirect the customer to 
 | `amount` | String | Transaction amount |
 | `transactionId` | String | Simpaisa transaction ID — **store this** for [Inquire](./inquire.md) |
 | `payment_url` | String | URL to redirect the customer to complete payment |
-| `operator` | String | Operator ID used |
+| `operator` | String | **Bangladesh only.** Operator ID used |
+| `operatorId` | String | **Nepal, Egypt, Iraq.** Operator ID used |
 | `currencyCode` | String | Currency, when returned |
 | `transactionType` | String | Transaction type |
 
@@ -174,7 +178,7 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/initiate' \
   --header 'version: 3.0' \
   --data '{
     "merchantId": "2000150",
-    "operator": "100026",
+    "operatorId": "100026",
     "msisdn": "1012345678",
     "amount": "10",
     "userKey": "sample-order-001",
@@ -188,7 +192,7 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/initiate' \
 ```
 
 </TabItem>
-<TabItem value="iraq-wayl" label="Iraq — Wayl">
+<TabItem value="iraq-zaincash" label="Iraq — ZainCash">
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/payins/payments/initiate' \
@@ -225,7 +229,7 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/initiate' \
 | Nagad | BD | [Use case: Nagad](./use-cases/nagad.md) |
 | Khalti | NP | [Use case: Khalti](./use-cases/khalti.md) |
 | Paymob | EG | [Use case: Paymob](./use-cases/paymob.md) |
-| Wayl | IQ | [Use case: Wayl](./use-cases/wayl.md) |
+| ZainCash | IQ | [Use case: ZainCash](./use-cases/zaincash.md) |
 
 ---
 

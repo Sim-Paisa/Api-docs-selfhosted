@@ -17,7 +17,7 @@ Collect a payment via **Nagad** using the unified [Initiate](../initiate.md) and
 
 ## Initiate
 
-Same request as [bKash](./bkash.md). Set `operatorId` header and body `operator` to **`10002`**.
+Same request as [bKash](./bkash.md). Set `operatorId` header and body `operator` to **`10002`**. Bangladesh uses `operator` in request and response; all other unified regions use `operatorId`.
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/payins/payments/initiate' \

@@ -27,7 +27,7 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/initiate' \
   --header 'version: 3.0' \
   --data '{
     "merchantId": "2000150",
-    "operator": "100026",
+    "operatorId": "100026",
     "msisdn": "1012345678",
     "amount": "10",
     "userKey": "sample-order-001",
@@ -40,8 +40,8 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/initiate' \
   }'
 ```
 
-:::warning
-Legacy Egypt docs showed `operatorId: 100025` in the headers table but Paymob is **`100026`**. Use `100026` in both header and body.
+:::info
+Egypt uses `operatorId` in the request and response (not `operator`). `operator` is Bangladesh-only. Keep header and body values aligned — Paymob is **`100026`**.
 :::
 
 Redirect the customer to `payment_url`, then call [Inquire](../inquire.md) with `region: EG` and `operatorId: 100026`.
@@ -59,7 +59,7 @@ Redirect the customer to `payment_url`, then call [Inquire](../inquire.md) with 
   "amount": "365.0",
   "msisdn": "1632332883",
   "userKey": "BDTb95a870f04403992d5034a2d201d2",
-  "operator": "100026",
+  "operatorId": "100026",
   "transactionType": "0",
   "createdTimestamp": "2025-09-19 16:15:53.0",
   "updatedTimestamp": "2025-09-19 16:17:07.187",

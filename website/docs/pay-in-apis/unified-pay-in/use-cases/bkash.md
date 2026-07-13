@@ -17,7 +17,7 @@ Collect a payment via **bKash** using the unified [Initiate](../initiate.md) and
 
 ## Initiate
 
-Set `operatorId: 10001` in headers and `"operator": "10001"` in the body.
+Set `operatorId: 10001` in headers and `"operator": "10001"` in the body. Bangladesh uses `operator` in request and response; all other unified regions use `operatorId`.
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/payins/payments/initiate' \

@@ -41,7 +41,7 @@ curl --location 'https://sandbox.simpaisa.com/payins/payments/initiate' \
 ```
 
 :::info
-Nepal samples use `operatorId` in the body (not `operator`). Keep header and body operator values aligned.
+Nepal uses `operatorId` in the request and response (not `operator`). `operator` is Bangladesh-only. Keep header and body values aligned.
 :::
 
 Redirect the customer to `payment_url`, then call [Inquire](../inquire.md).
@@ -59,7 +59,7 @@ Redirect the customer to `payment_url`, then call [Inquire](../inquire.md).
   "amount": "365.0",
   "msisdn": "1632332883",
   "userKey": "BDTb95a870f04403992d5034a2d201d2",
-  "operator": "100025",
+  "operatorId": "100025",
   "transactionType": "0",
   "createdTimestamp": "2025-09-19 16:15:53.0",
   "updatedTimestamp": "2025-09-19 16:17:07.187",

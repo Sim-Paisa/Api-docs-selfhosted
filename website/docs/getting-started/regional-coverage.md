@@ -11,7 +11,7 @@ sidebar_label: "Regional Coverage"
 | Bangladesh | bKash, Nagad                                 | Direct disbursement | Remittance APIs |
 | Nepal      | Khalti                                       | NA                  | NA              |
 | Egypt      | Paymob                                       | Full disbursement   | Full remittance |
-| Iraq       | Wayl                                         | NA                  | NA              |
+| Iraq       | ZainCash                                     | NA                  | NA              |
 
 ## Operator Codes
 
@@ -26,4 +26,4 @@ sidebar_label: "Regional Coverage"
 | BD     | Nagad       | 10002  |
 | NP     | Khalti      | 100025 |
 | EG     | Paymob      | 100026 |
-| IQ     | Wayl        | 100027 |
+| IQ     | ZainCash    | 100027 |
