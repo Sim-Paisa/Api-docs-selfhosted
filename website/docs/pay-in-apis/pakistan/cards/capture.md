@@ -28,9 +28,9 @@ Use this API when a payment was initiated with `capture: "false"` (onetime, toke
 
 | Header         | Value                                    |
 | -------------- | ---------------------------------------- |
-| `client-id`    | Your Client ID (e.g. `f8QK3aZ9M2LxR7P4YB5H`) |
+| `client-id`    | Your Client ID (e.g. `YOUR_CLIENT_ID`) |
 | `Content-Type` | `application/json`                       |
-| `merchantId`   | Your unique merchant ID (e.g. `700001`)  |
+| `merchantId`   | Your unique merchant ID (e.g. `YOUR_MERCHANT_ID`)  |
 | `mode`         | `cards`                                  |
 | `region`       | `PK`                                     |
 | `version`      | `V5`                                     |
@@ -73,15 +73,15 @@ Use this API when a payment was initiated with `capture: "false"` (onetime, toke
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/capture' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "request": { "reference": "h388-1782917244521" },
-  "signature": "BquF7IBUJbNbMLmVXYde3jA8awtJ/QAAgeV+G5ZFKiqndwyvmKWdLkuRqYZMoHJdCnMzjXRx+/OiarMOUJcEYcuBMFtX9GR+elpRAOxQfEt0ovuwAd7WTF4vk2mAxou4EMP5VozZM8L8CxhrINzEmxp7U8WCk7UbWDdgmhuOJZkKDvQLAz2nbJNAXZnrukSBZ9aFCvO4N++QDiyq/lbZ0sUoQImSvZVC8RgW4HAX0pQ1w5MVCtKfWVJ4sS6MWQ/q4u/zXW2Z//j/uoslzV/2sIOBxNPZ9Lm1hZlVEBhfafA0RKS/PqQ3fXrNqMTcNZXKMyb53+qyi2w84XsNVW+1Hg=="
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -107,7 +107,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/capture' \
     "reference": "h388-1782917244521",
     "transaction_id": "3282"
   },
-  "signature": "dqFwN6K8FlhmlZ8uKbsG+B0dxzYs3nGtN7NoPUUBfTWEAw8XJ8w1olko/atoxi+Ge/sXdXS41xHcTo/4bTSy15z5qvQj9OTYqNVcJ8EGNUPzK4/7HvVWwJSfIltViRF6LMya/tI2IbGoIX9WB2fo/V33KRqODDkYNL6DenX31GTQsQqsNyaU2t2CvK/sksE/vtdnKIUkfdyaGzDSWer62Gd4UE6/am3l0wF3+uH3SwOHgSY3N3gY9EXG0FoPPR79LqmydZh3HMT27EDpSLzF3y1lrgrwxOUf1oMuOUpy4YdOEi/OvtKmtleQXmhwBN4rERivon9RJFpQkMssH2iHXw=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 
@@ -122,15 +122,15 @@ Calling Capture against a reference created via zero-amount tokenization (`payme
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/capture' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "request": { "reference": "tok-c2-1782917563029" },
-  "signature": "xxxx"
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -149,7 +149,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/capture' \
     "reference": "tok-c2-1782917563029",
     "transaction_id": "3284"
   },
-  "signature": "mlQYs1nN6r2HPDmzEjjdyH0EHeBJNK9sPMosEG0zllGm9MsmMztlLAKUk6MZ6QgdGlobCXA1HjpY1IoeAxy5zbFRIoV+/fN5YsawfIunf7y1+MywPajcqhItVKZT0Fttpl6fV1oMRPOmASowFiNTZQNBlqJCqGfLt9mOtlIawTjYDlIdjttmjWWzKFldAE6gwF5XTlYLdswe6TD9BXCPOyGP+igQGtTAasrwQ588cjBPmEZ+Ean+dsm85k4VOulIw6dSP3c1T1ysSeJAd4WhlMvfsEESmzqw+h71MsLW181wp7zonV/FVTnxqTq8K+qegS+9BoTV+LiPEKqNqibSQw=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 

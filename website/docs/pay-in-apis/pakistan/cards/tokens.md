@@ -34,9 +34,9 @@ The LIST sample below uses the same `c_token` created via [Tokenization — Pay 
 
 | Header         | Value                                    |
 | -------------- | ---------------------------------------- |
-| `client-id`    | Your Client ID (e.g. `f8QK3aZ9M2LxR7P4YB5H`) |
+| `client-id`    | Your Client ID (e.g. `YOUR_CLIENT_ID`) |
 | `Content-Type` | `application/json`                       |
-| `merchantId`   | Your unique merchant ID (e.g. `700001`)  |
+| `merchantId`   | Your unique merchant ID (e.g. `YOUR_MERCHANT_ID`)  |
 | `mode`         | `cards`                                  |
 | `region`       | `PK`                                     |
 | `version`      | `V5`                                     |
@@ -92,8 +92,8 @@ The LIST sample below uses the same `c_token` created via [Tokenization — Pay 
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/tokens' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
@@ -126,7 +126,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/tokens' \
             }
         ]
     },
-    "signature": "qrc0Q2THPuB4ZN+C1dc/ZsuS11caXfJw9gjBOOsAUxVSG5TekBbKGJH31HUCYtVigOTBYhBASWpzPm+iygVvxhPheWj687tWPTRtHVSAoqylEPQdk6Q9Ild1DyfiSOLgL8IPbMw0SJQXHIfgefJjpkynsrjy+r7yHG7R6ElfUjTVPoyPGgyvbIjKrdEaHpdDu1g53Wd1BYD+y0Wkp6sWu+PySUXXpq+MpRq7hnF3YqtGDZ7CIDG2lIhBGYL0Rtk4Zk6w/RXk5Nm9SBhA34gfY4f/5i504ac/Au1JTvSqTwEAcLtpDwWZgtCU+OmfvcGLop2T6OgXzEyJvvWGUXxyrA=="
+    "signature": "YOUR_SIGNATURE"
 }
 ```
 
@@ -139,8 +139,8 @@ Note this `c_token` (`ct_v1_c0091c45-a7ff-4728-88ee-834b284848fc`) and `customer
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/tokens' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
@@ -165,7 +165,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/tokens' \
         "status": "DELETED",
         "response_summary": "Card removed successfully."
     },
-    "signature": "kLh58QXGZyQIytE8bNC3W7SvSv2VuytDUjG9Snwozlq8eOA7HxsKT3PDCIVxvReNEJlng+E0RfjiRaq592QmDQcHWLlxoPao6wzRR8nsy9QzMnnOzT7Gwt05RqyB4y1BFOO7hJvndr8Nzzme+SzR9AG4k2Xd/8bL6HisbToYLD1KjOolyswIzesspwtJEbYf8G2wHjtH3x8jUgokBzFg/DepHNyT/LaHyXTcRxSfwVVU3XdmK8GYjlJf6vq25VXORGsYF1yGfURgqHQKababvtDsHzgbjFh62qYM+m5n/U54d4HIxcRKQ42yP85fM3FsnKOEk7844T9FUlECx8nS4w=="
+    "signature": "YOUR_SIGNATURE"
 }
 ```
 

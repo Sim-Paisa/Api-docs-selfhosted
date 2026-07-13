@@ -23,9 +23,9 @@ Process refunds for previously captured card transactions.
 
 | Header         | Value                                    |
 | -------------- | ---------------------------------------- |
-| `client-id`    | Your Client ID (e.g. `55f840e6afoc9853`) |
+| `client-id`    | Your Client ID (e.g. `YOUR_CLIENT_ID`) |
 | `Content-Type` | `application/json`                       |
-| `merchantId`   | Your unique merchant ID (e.g. `2000123`) |
+| `merchantId`   | Your unique merchant ID (e.g. `YOUR_MERCHANT_ID`) |
 | `mode`         | `cards`                                  |
 | `region`       | `PK`                                     |
 | `version`      | `V5`                                     |
@@ -67,8 +67,8 @@ Process refunds for previously captured card transactions.
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards-refund/reverse' \
---header 'client-id: 55f840e6afoc9853' \
---header 'merchantId: 20000123' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
@@ -88,7 +88,7 @@ curl --location 'https://sandbox.simpaisa.com/cards-refund/reverse' \
             "additionalDate": "2024-09-13"
         }
     },
-    "signature": "J0KHdnXhQZitkd+yiwROetMO2Zpfdtug+NuWy8S81rKnd7cRlvBXC3cXepbhbi6RSl44fWxCsFK/N5jhVNZzKPMqXIVcCR/0UOkOt539bvkUIoozNdmxYDJK6k0sBJFz5C+dsdV+i2sCdoQeFCg9DOVPw231/qUqfay+E436B9UGOhbrtWHITKENp1LC2yCHLi/IxO4sdi7BuL6ZMNHwrZLyln6RnV3KtSmRngEYC/QdqZxw7mGRMLRDahsUIi8yJnyuDp2is+BCFCU4qIv4ScegN/yevosKfK3iqjBym49h20O6lg9I7HIaop713663XWM+18LF9unELENQ8SO76g=="
+    "signature": "YOUR_SIGNATURE"
 }'
 ```
 

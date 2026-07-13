@@ -155,6 +155,6 @@ If no postback arrives within **40 minutes**, call the [Inquiry API](./inquiry.m
       "Retrieval_reference_number": "686348034614"
     }
   },
-  "signature": "pbPJAcGX+/jmDiuouH/OpAcFX+ =="
+  "signature": "YOUR_SIGNATURE"
 }
 ```

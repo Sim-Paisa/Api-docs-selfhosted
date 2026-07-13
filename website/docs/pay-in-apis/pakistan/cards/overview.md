@@ -15,7 +15,7 @@ Collect payments from customers via debit and credit cards. Cards support one-ti
 |-----------------|----------|----------------|----------------|-------------|
 | `onetime` | > 0 | `card` | `true` | Regular one-time card payment |
 | `tokenization` | > 0 | `card` | `true` | Pay once and save the card as a reusable `c_token` |
-| `tokenization` | `0.00` | `card` | `true` | Save a card without charging the customer (zero-amount verification) |
+| `tokenization` | `0.00` | `card` | `true` | Save a `c_token` with 0 charge (zero-amount verification) |
 | `directcharge` | > 0 | `c_token` | `true` | Charge a previously saved `c_token` with a 3DS redirect |
 | `directcharge` | > 0 | `c_token` | `false` | Charge a previously saved `c_token` synchronously, no redirect |
 
@@ -24,7 +24,7 @@ Collect payments from customers via debit and credit cards. Cards support one-ti
 - For direct charge, the saved card's billing/shipping address is retrieved automatically by Simpaisa — it does not need to be resubmitted.
 - Direct charge identifies the customer by setting `customer.id` to the `cref_` value returned from the original tokenization — **not** a top-level `customer_id` field. A top-level or request-level `customer_id` field is rejected with `customer_required`.
 - `success_url` and `failure_url` are required on every flow, including non-3DS direct charge — they are not silently ignored.
-- When tokenization or direct charge completes, use the [Inquiry API](./inquiry.md) to fetch the final status and `c_token`.
+- When tokenization or direct charge completes, use the [Inquiry API](./inquiry.md) to fetch the final status and `c_token`. The `c_token` is also provided in the callback.
 
 ---
 
@@ -71,7 +71,7 @@ Card detail orientation:
 
 ### Step 05 — Payment Processing
 
-Process transactions based on `payment_type`, `amount`, and `source.type` — see [Supported Card Flows](#supported-card-flows) above.
+Process transactions based on `payment_type`, `amount`, and `source.type` — see [Supported Card Flows](#supported-card-flows) above. The flows available to you are configured on your MID according to the allowed functionality assessed by our Business Team.
 
 Once 3DS verification and capture complete, the full amount is deducted. If `capture=false`, the transaction stays authorized until you call the [Capture API](./capture.md).
 
@@ -160,9 +160,9 @@ All card APIs use these headers:
 
 | Header | Value |
 |--------|-------|
-| `client-id` | Your Client ID (e.g. `55f840e6afoc9853`) |
+| `client-id` | Your Client ID (e.g. `YOUR_CLIENT_ID`) |
 | `Content-Type` | `application/json` |
-| `merchantId` | Your unique merchant ID (e.g. `2000123`) |
+| `merchantId` | Your unique merchant ID (e.g. `YOUR_MERCHANT_ID`) |
 | `mode` | `cards` |
 | `region` | `PK` |
 | `version` | `V5` |

@@ -20,7 +20,7 @@ Request behavior depends on `payment_type`, `source.type`, `amount`, `3ds.enable
 | --------------- | -------- | ----------- |
 | `onetime`       | > 0      | Regular card payment |
 | `tokenization`  | > 0      | Pay once and save a reusable `c_token` |
-| `tokenization`  | `0.00`   | Save a `c_token` without charging the customer |
+| `tokenization`  | `0.00`   | Save a `c_token` with 0 charge |
 | `directcharge`  | > 0      | Charge a previously saved `c_token` |
 
 **Rules:**
@@ -52,9 +52,9 @@ Request behavior depends on `payment_type`, `source.type`, `amount`, `3ds.enable
 
 | Header         | Value                                    |
 | -------------- | ---------------------------------------- |
-| `client-id`    | Your Client ID (e.g. `f8QK3aZ9M2LxR7P4YB5H`) |
+| `client-id`    | Your Client ID (e.g. `YOUR_CLIENT_ID`) |
 | `Content-Type` | `application/json`                       |
-| `merchantId`   | Your unique merchant ID (e.g. `700001`)  |
+| `merchantId`   | Your unique merchant ID (e.g. `YOUR_MERCHANT_ID`)  |
 | `mode`         | `cards`                                  |
 | `region`       | `PK`                                     |
 | `version`      | `V5`                                     |
@@ -134,8 +134,8 @@ See [Overview — AES encryption](overview.md#aes-card-encryption) for card encr
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/payments' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
@@ -163,7 +163,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
     },
     "payment_ip": "0:0:0:0:0:0:0:1"
   },
-  "signature": "CXr/4oimVo+MoR8teQKe86Lu0vaZKXDT5acOcFkRI0HOK1cvel3LxmrrOfW4JT7eisi3OeFisd2ODuOddXStqfBl+KkeFxXGuwlnh5RmoeT7+ka4Dq0FMkX21g3bBewJAXpIaMgHPAk0y6ERxKWYuWKT6zhg5imPKsIMkCOmTFeplJyCfU6gBT2l8vUYiun/Q3ygV9mPCc3aiy7iicubboWOrvGdFKexujzpaG4FMEIO54vr3NLDj0YCRoh8zYTWfyxiymVYDVV/cIj37sG0FBdftB+AkosiRsdYFeadaYbLc9b6xXpF8IcvJsUO5ULeNBkkI7CAwMfYT875L3N83w=="
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -200,7 +200,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
     "redirect": "https://sandbox.simpaisa.com/card/?transactionId=3282&refId=h388-1782917244521",
     "transaction_id": "3282"
   },
-  "signature": "CXr/4oimVo+MoR8teQKe86Lu0vaZKXDT5acOcFkRI0HOK1cvel3LxmrrOfW4JT7eisi3OeFisd2ODuOddXStqfBl+KkeFxXGuwlnh5RmoeT7+ka4Dq0FMkX21g3bBewJAXpIaMgHPAk0y6ERxKWYuWKT6zhg5imPKsIMkCOmTFeplJyCfU6gBT2l8vUYiun/Q3ygV9mPCc3aiy7iicubboWOrvGdFKexujzpaG4FMEIO54vr3NLDj0YCRoh8zYTWfyxiymVYDVV/cIj37sG0FBdftB+AkosiRsdYFeadaYbLc9b6xXpF8IcvJsUO5ULeNBkkI7CAwMfYT875L3N83w=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 
@@ -213,8 +213,8 @@ After completing 3DS at `response.redirect` (expires in ~2-3 minutes in sandbox)
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/payments' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
@@ -251,7 +251,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
     },
     "payment_ip": "0:0:0:0:0:0:0:1"
   },
-  "signature": "pBm2GCSllnqdMjuSq34K6AVstOGIHwdnn83UMPr5nPOgor+snR0qNHtjUnDFOAmO/QpK4BxSUwaq5E/NA0vkLX3rNl78X3AowZrR8tAPYqAWNX8QcLYSDaMv8F/iGp+z671FtjXe0CEzI8csnPixMGHjJ28ks4RTzLJP6ekeRbB4F+64qveBm/pJJ6oEL3zdgRnIwKSPsZtBoP7EdP64uydPNb/s8s6a1IYs7/kT2BVmaIAQdHstbJx5HNC1uWtVtzcw92MiRgOB6e0Sw+xmMC+jnkrU1d6nSSBs9YxlV+xntA97JuSLPwwaiA2v621L2Uo+1AdFrZuhIMa2HAI5PA=="
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -305,7 +305,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
     "transaction_id": "3283",
     "payment_type": "tokenization"
   },
-  "signature": "nrusRb65mAmCgVdv+8E8rlP6YoeZWDbH61kLmG2z15V/9/IWE1/1pv4sA/Q8iO3QjjyDbprkZAvAzUINMp9ImRGh637J/a7A+A0USN66wFGbzDwejtYQYWRR1mOAWY15EPbu0OZkkL4HOy6GNNWFzs3aqSdsqVls7naAudcXqpUBO6Ir7C4PkCHXqejFmDciGFRn+zrpaFlZYYMflvRX3lgnNRhBp2MVC5jt8TidUeLHAiKlnpRtzP6O07doH4GmXak8tVEeD+kSgiKZemJG4J/s2SXZ/MBzhO282U+chF91ZWW7cpgypCunNjYZu6WYRwex0O8+0V9W4Nxa6xhoHQ=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 
@@ -318,8 +318,8 @@ After 3DS completion, [Inquiry](inquiry.md#successful-tokenization-inquiry-non-z
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/payments' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
@@ -356,7 +356,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
     },
     "payment_ip": "0:0:0:0:0:0:0:1"
   },
-  "signature": "nII606OZhkQiXBDY3BIEfeP7Z2M9aVD0IVA7Qtrh+ZVe5msNDFcJ/Jw7DzlEzLFiKCJBTiE+EUOZ00FtPsBEIEDcbnf2WaMgm0IZloEv6UupJJU0XhBz8GTcDNe0y6KWG44c+YYpF2SETkuC9SPw4LukkgICZkzjnyrbVbDsTrsP1WIJeBePHEUVjVDLcWJxqgvdkKkMLLlIiXsm/l0pMs+bCBkS7D0pPa/eN1M83R0WQWE3XHndEeZ5+N2faWqfO9IluZUNGNZiSn+bB2Kh4YjFkCqlRzUTKfEv6GZLNADE7Xtix8gDOzU9NUa136yJ7RCA0J4ZY9loJl8JfdKDhw=="
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -410,7 +410,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
     "transaction_id": "3284",
     "payment_type": "tokenization"
   },
-  "signature": "LtssUWspvbqfqw92kslCOeoLvzOKsvIf9WPCEwP2EVc/oEmkMRY4G+rWkpylpGczdtrPPWa8c/TrpSyYOuSW94adKWN8dMtw5ev93R5HVwgAd+UpxmWZUGLo1fJUQwsOlk3sIk+oTNDJsS8j5CGLkIe43Bzs52XaZQywRDquBmm4vd4Q4U3H72/DaauVPqo12Urp9BQCQ7lJK29IFI9TvEzmh2CvTF9O7KMaXJg60GmMH4/YRaW4NMIqRwsPD3h//fUtF2hqrPStnuxI3XVyhpN5w5QadstEcxWBeTrb/icrhSvT+e4cRhvp2G2dzCbBccMKup83BQRYpAMEsF8SZg=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 
@@ -423,8 +423,8 @@ After 3DS completion, the transaction settles directly as `status: "Tokenized"` 
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/payments' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
@@ -453,7 +453,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
     },
     "payment_ip": "0:0:0:0:0:0:0:1"
   },
-  "signature": "rrK89VaNIPL/4Dniamsl7SjgriljGDmPe3fUliV7f63SCT4DVsLsjjwrvfWDPUyTDQyhwQLJBHofR7crx19q/ZgT7bf/IUTJL2ivc+wEEjS7c2YUeIFudIZZMzVumEDxvHTZh3bxVSs2ZwQG+4DtgHZmwmbMUGpclkzO2uzvupBY4lgrVvbOKY6mql439A6fzGJ/QWFrup56m02o5KEQI948SstGR5kbi34G+JH29kiumfdO2NS00MYET9tQ89QzBlOkGxWRf6iKbXwtyV+imPpzipM68xBZGUN2ZGNvQ/Q4tn13+PUXnjzhUmluwCttbxjpD+/ahC+FTRiAiBassQ=="
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -511,7 +511,7 @@ Do **not** send a top-level `customer_id` field, and do not nest `customer_id` d
     "transaction_id": "3285",
     "payment_type": "directcharge"
   },
-  "signature": "HD6hlvdx7/BKgateL+kGRZ6w1h1Ee5Nhflw28x6Wt32KW3x/1vHDoDBUAW9ZKoV+nHdBWwjVT3KfP/9liMHmNz7UIM7hZ36oyk3yvPclpVCQ6/a+3C569+zixl7xbS4v3uibYuNs1IDI/GwNNA8Y5Vr4TI8H6h6DRx7VwIy5kaiU19kINHy6dxUSZ8Yjpsw7AIWY07rbeJ1vYH8HkLiRqDaCeBbJylWsIDAVpjTHnrt5hlgT5gXLkdbJ+diqBa6D8NqJNS1RGkuSFpJWgWzjVM546VUW2M1EZnsX75MNb9Gp36asOBUX4VVlZQmP6ma0smilApqy/Ixypv4MgrllcQ=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 
@@ -524,8 +524,8 @@ Note that `billing_address`/`shipping.address` are populated automatically from 
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/payments' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
@@ -554,7 +554,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
     },
     "payment_ip": "0:0:0:0:0:0:0:1"
   },
-  "signature": "tRzNqkreA2Dhy3+lRoHkIA3f3cxCgMLt/1Ob5F5SCfCm23jd2BRjYM0tzhsMAGaVD4RhW8d68mWncU/oejhxVOgw1CH3pPDPAIhCfRtAFI94iV83atv6/Mr4ijxqT1G71Qp+yw/HIStHhHGXS2d1y3buIdQ6e6FppldY2+nzRkSSioTeIz2upX+V+OZcYF27xoTmFqstmFJSYwFPFvo3x1lb22I87jKSJwQ/ykeC0h0SmlpsE51+X0e4SgYfmHrd6+s6CfEoEBuQ7zARD/DzhbWxqLnpP5yA9o1z63pd0guswnk+ZBfEX+Q4fJ7drduP3ASNaEfHmp0u1e19OiYOJw=="
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -604,7 +604,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/payments' \
     "c_token": "ct_v1_c0091c45-a7ff-4728-88ee-834b284848fc",
     "payment_type": "directcharge"
   },
-  "signature": "tRzNqkreA2Dhy3+lRoHkIA3f3cxCgMLt/1Ob5F5SCfCm23jd2BRjYM0tzhsMAGaVD4RhW8d68mWncU/oejhxVOgw1CH3pPDPAIhCfRtAFI94iV83atv6/Mr4ijxqT1G71Qp+yw/HIStHhHGXS2d1y3buIdQ6e6FppldY2+nzRkSSioTeIz2upX+V+OZcYF27xoTmFqstmFJSYwFPFvo3x1lb22I87jKSJwQ/ykeC0h0SmlpsE51+X0e4SgYfmHrd6+s6CfEoEBuQ7zARD/DzhbWxqLnpP5yA9o1z63pd0guswnk+ZBfEX+Q4fJ7drduP3ASNaEfHmp0u1e19OiYOJw=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 

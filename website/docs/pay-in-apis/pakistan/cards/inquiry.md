@@ -35,9 +35,9 @@ If a payment was initiated with `capture=false`, the initial status stays `Autho
 
 | Header         | Value                                    |
 | -------------- | ---------------------------------------- |
-| `client-id`    | Your Client ID (e.g. `f8QK3aZ9M2LxR7P4YB5H`) |
+| `client-id`    | Your Client ID (e.g. `YOUR_CLIENT_ID`) |
 | `Content-Type` | `application/json`                       |
-| `merchantId`   | Your unique merchant ID (e.g. `700001`)  |
+| `merchantId`   | Your unique merchant ID (e.g. `YOUR_MERCHANT_ID`)  |
 | `mode`         | `cards`                                  |
 | `region`       | `PK`                                     |
 | `version`      | `V5`                                     |
@@ -87,15 +87,15 @@ Onetime payment, `capture: "false"`, after 3DS but before [Capture](capture.md) 
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "request": { "reference": "h388-1782917244521" },
-  "signature": "xxxx"
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -120,7 +120,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
     "reference": "h388-1782917244521",
     "transaction_id": "3282"
   },
-  "signature": "jdHUvH0pE2iE23CKH6UrJH5l4mgTDryB/1hmDI24TqXyECHfnmMm+ej5chY67Co5VYHltgXb6kRlbh23rIvGisnlutC9liAOkB4VReoEbjIsGZti1nmqv0x+5W+ZCcC3ylbikxIXrUZ17ktWtjRx58/Vl+8Q9iU7GmwxRipPnLbcXZHLFNeoCK8DSED+FhBgCH1bZQ+btk6FUXk5+9131Tl/zuzlrLVgf0fbI9J0tNOKd9GlRAgvoONJNLICaKWpfo9D4MY7uXUJ8FgZMfd3P6ylSzZXv5sCNUDPwtuMvbQk92brkOltb6wSJHXZypJWQo31guGo5kBPQ05c7ztGYg=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 
@@ -133,15 +133,15 @@ Same transaction, after [Capture](capture.md) has been called:
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "request": { "reference": "h388-1782917244521" },
-  "signature": "xxxx"
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -166,7 +166,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
     "reference": "h388-1782917244521",
     "transaction_id": "3282"
   },
-  "signature": "ZYetkUpbhwy8OwezZ2J1SxQzIvsLfzXBr9LIEyMy24CxCSfFxaCgLCyZiE4W8KyhRtzR79UOa7Vkm/45V9+LNNVEFLq8aFm+j1BCA/lMQZaK/V1+gZm+RaqWpisNKR3McToIwyhbM8azOYGYU0PClLAsneDpst8/L4YpZTwYeUX4kp0/9Ci4KV1BI9OpdT96AYGTv/1BpVHwtV+XOICbNMcTuCUoYQVziU/g/ZY5lyRTGv5mcagRYD+Hce06dkMwxODy9Cizm6SGayRlQSNGXyaaMZxMbuRHET9lxL2KIjNkc0uVTtT2IQkuMZ4JcFdijcMWGLSWnpX+2UD2VToMwQ=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 
@@ -179,15 +179,15 @@ curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "request": { "reference": "tok-c1-1782917393692" },
-  "signature": "xxxx"
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -221,7 +221,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
       "phone": { "number": "3336775364", "country_code": "+92" }
     }
   },
-  "signature": "WWfktzazmB/auJSOdb5TQOZF4KX/v8gy1oHa4Nc5FrxyltS6mRN3QvjZfhg83QyEKIIZq3C06u6QGMNgAEldu15PSaAv/95YlVVmxgJ0rCA5yovaqxHK3fRDHu6xXuT/PTGPgRDGJsAVRRQALHtHGMm1IOmec0II9mgn0/yywfXMZCj5ZGoCfGWrn2YMRljfWnGBnjuLDSRoxXmQ3uIa4/Z6IGyZy80O4dkOQkmYegbWUd87NDuGe1IAlxbHacGSRo/2todXusqDtSJ6QfGPkI/oLB5R65NcFOW8e0Q3GZVqWljZaHrfzQSd6AtCLxFN2y8TuOWVPoCj6LS1zDe2Dw=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 
@@ -236,15 +236,15 @@ After [Capture](capture.md) is called on this same reference, Inquiry returns `s
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "request": { "reference": "tok-c2-1782917563029" },
-  "signature": "xxxx"
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -277,7 +277,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
       "phone": { "number": "3336775364", "country_code": "+92" }
     }
   },
-  "signature": "HUvhiChD7pLhEvzcQLXdTBDXroYsUZexUPCG6F8PuvzyJKQ9QlR+xfSnq24XvG1aIQK+G75RAwdjC4IT04zQQG8os84m/pGRa8o9oqHFPOLuF6HiUWasfBz91oXg+rk+bOEH6l/AddJvWpHGWn/T3DpxBiDgXexgqUjHmd4T8NrQIy1SQv3JnxxZc0DdLPsnL6zYEkZ3yqsYy0mTK7JZ6K0ZJNp18hgq11KK1J2YXI1wb/HHP8m6uLJ+CVTexa0k9GKwbtMPlChCx9ZUMHrIHKeZ+OAadtA+aYUpfZNLKYMtywYJC0yN8BZVCiX7wd11xRYeZIY02tMy2CGd1XwN9Q=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 
@@ -292,15 +292,15 @@ Note: `customer.id` differs from the `cref_` returned by the non-zero-amount tok
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
---header 'client-id: f8QK3aZ9M2LxR7P4YB5H' \
---header 'merchantId: 700001' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "request": { "reference": "dc3c-1782917742282" },
-  "signature": "xxxx"
+  "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -334,7 +334,7 @@ curl --location 'https://sandbox.simpaisa.com/cards/inquiry' \
       "phone": { "number": "3336775364", "country_code": "+92" }
     }
   },
-  "signature": "j2ma8xZPPNlB7RS/tiBWztQs4qSs2bvtcxrNwL/0ltXcKnyptxYbsFzmBBMN3eh3gxlmVy4x0vzOiviTR2cUlK7+7HtSu2pbgw3Lg0GDcTyXcHx/mbmPFzMxqInkM3L2UeSOAeKwD4lgpb6kyn6GPjuypHh5HaZedS2E34yW9AWLxGRiSeDVwSjPjadppB9jX6z+R0Y/iMWGJ5iL5kdpE4n0D8N/XFLY4AEZs5fer7U1qUj4zzhR6ZgWcscG3lCbX3EaGV0MmyFOU4qSSVaTZpqwuKg5L58IVGG0CvgCaG6PAWW+IQoqF1Zqku8iS4mBhRex1t6/0lAs4VIbo2ypNw=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
 

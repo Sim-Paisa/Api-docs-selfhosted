@@ -23,9 +23,9 @@ Cancel a card transaction before it has been settled.
 
 | Header | Value |
 |--------|-------|
-| `client-id` | Your Client ID (e.g. `55f840e6afoc9853`) |
+| `client-id` | Your Client ID (e.g. `YOUR_CLIENT_ID`) |
 | `Content-Type` | `application/json` |
-| `merchantId` | Your unique merchant ID (e.g. `2000123`) |
+| `merchantId` | Your unique merchant ID (e.g. `YOUR_MERCHANT_ID`) |
 | `mode` | `cards` |
 | `region` | `PK` |
 | `version` | `V5` |
@@ -68,8 +68,8 @@ Cancel a card transaction before it has been settled.
 
 ```bash
 curl --location 'https://sandbox.simpaisa.com/cards-refund/reverse' \
---header 'client-id: 55f840e6afoc9853' \
---header 'merchantId: 20000123' \
+--header 'client-id: YOUR_CLIENT_ID' \
+--header 'merchantId: YOUR_MERCHANT_ID' \
 --header 'mode: cards' \
 --header 'region: PK' \
 --header 'version: V5' \
@@ -89,7 +89,7 @@ curl --location 'https://sandbox.simpaisa.com/cards-refund/reverse' \
             "additionalDate": "2024-09-13"
         }
     },
-    "signature": "hXTESmFSyDlOqU8xFktC3hN1UJ8QsigX9sJI8222TudhaN+x+nYJ/ZmaYJTp4F2ksOsHopeh7e5yER5o+dtptjTU4hAyOznoM6JEQI6GkbVnANzsoTbk4Hg7o7hdBbovbnhrczM5qH4Q74TqVV3FKFFMCkNWxQ7BpE+I5PAkhzauhqd6DKSFuEW9uVw5SaB5aM/xPnxcDOmm8uWwEHhvnT+pZrUGq/WemgmN6abIfA1/UytWJxAyYWzC7Ur7UrPM+tZqeViVBGgmJl4h0HefWCBpC71r9XtWLnYEpk0DZuWMLPMy+SqV47LxNtfb/iN8IsphEuXP/iiB/VqL1hLGxg=="
+    "signature": "YOUR_SIGNATURE"
 }'
 ```
 
@@ -114,6 +114,6 @@ curl --location 'https://sandbox.simpaisa.com/cards-refund/reverse' \
       "additionalDate": "2024-09-13"
     }
   },
-  "signature": "qKDEt3ICZtahnc7mC9Iacoshd3DoByhLk8YbnYnzUb4+M2SMCWkiKRisXAZ+VQovQkyf2aSm2BdYm6eG5FTvS7HxqiL4/Pk7d6Hh7qx+1J3EeLrtmdFp5mqq2qzK04GTP0BKshF2g2xllEfT1ObVqa5IhYzVe/cK5DB/9xwmcJJ400Tl5BnOpVH4wb+OboVQfVYglNrK4DwVV8s1pHGEiO3HJg9in4+fIjdmMRYpbnxE++JMViawSQ6fLJYUf8zyUj9/RwhrKiTrxwNKKanHZtXf+JEtRvDDf0AOXytMZnkhzIHpl7Xv84t8BlKOj27v7HYA79u77rYVC8nyjBpsOg=="
+  "signature": "YOUR_SIGNATURE"
 }
 ```
