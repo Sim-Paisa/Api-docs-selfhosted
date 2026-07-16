@@ -1,0 +1,120 @@
+:root {
+  color-scheme: light dark;
+  --border: rgba(128, 128, 128, 0.35);
+  --accent: #3578e5;
+  --bg: Canvas;
+  --fg: CanvasText;
+  --muted: color-mix(in srgb, CanvasText 70%, transparent);
+  --font: 13px system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font: var(--font);
+}
+
+#bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  min-height: 44px;
+}
+
+#bar button,
+#bar a {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: var(--font);
+  text-decoration: none;
+}
+
+#bar button.primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.muted {
+  opacity: 0.7;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.auto {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+#main {
+  display: flex;
+  height: calc(100% - 44px);
+  min-height: 0;
+}
+
+#sidebar {
+  width: 250px;
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+#sidebar.hidden {
+  display: none;
+}
+
+#sidebar button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 4px 8px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  border-radius: 5px;
+  cursor: pointer;
+  font: var(--font);
+}
+
+#sidebar button.cat {
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+#sidebar button.doc.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+#editor,
+#preview {
+  flex: 1;
+  border: none;
+  min-width: 0;
+}
+
+#editor {
+  border-right: 1px solid var(--border);
+}
+
+#sidebar .empty {
+  padding: 12px;
+  opacity: 0.7;
+}

@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "gen-tree": "node scripts/gen-docs-tree.mjs",
+    "prestart": "node scripts/gen-docs-tree.mjs",
+    "prebuild": "node scripts/gen-docs-tree.mjs",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -11,7 +14,9 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "cms:server": "node scripts/run-decap-server.mjs",
+    "roundtrip": "node scripts/roundtrip-mdx.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.1",

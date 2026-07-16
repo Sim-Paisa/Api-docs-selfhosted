@@ -32,6 +32,9 @@ const config = {
     locales: ['en'],
   },
 
+  // Scroll bridge so the Studio preview keeps its position across refreshes.
+  clientModules: ['./src/clientModules/previewScroll.js'],
+
   presets: [
     [
       'classic',
@@ -41,7 +44,22 @@ const config = {
           path: 'docs',
           routeBasePath: 'docs',
           sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/Sim-Paisa/Api-docs-selfhosted/tree/main/website/',
+          // "Edit this page" opens the side-by-side Studio (Decap editor + live
+          // built-site preview). Override with DECAP_STUDIO_URL for local authoring.
+          // docPath e.g. "pay-in-apis/pakistan/cards/capture.md" -> collection
+          // "pay-in-apis", slug "pakistan/cards/capture".
+          editUrl: ({ docPath }) => {
+            const noExt = docPath.replace(/\.mdx?$/, '');
+            const i = noExt.indexOf('/');
+            const collection = i === -1 ? noExt : noExt.slice(0, i);
+            const slug = i === -1 ? '' : noExt.slice(i + 1);
+            const studio =
+              process.env.DECAP_STUDIO_URL ||
+              (process.env.NODE_ENV === 'development'
+                ? 'http://localhost:3000/Api-docs-selfhosted/admin/studio.html'
+                : 'https://sim-paisa.github.io/Api-docs-selfhosted/admin/studio.html');
+            return `${studio}?collection=${collection}&slug=${encodeURIComponent(slug)}`;
+          },
         },
         blog: false,
         theme: {

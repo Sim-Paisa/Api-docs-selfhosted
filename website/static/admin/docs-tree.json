@@ -1,0 +1,854 @@
+[
+  {
+    "type": "category",
+    "label": "Getting Started",
+    "position": 10,
+    "collection": "getting-started",
+    "children": [
+      {
+        "type": "doc",
+        "label": "Overview",
+        "position": 80,
+        "collection": "getting-started",
+        "slug": "overview"
+      },
+      {
+        "type": "doc",
+        "label": "Environments",
+        "position": 90,
+        "collection": "getting-started",
+        "slug": "environments"
+      },
+      {
+        "type": "doc",
+        "label": "Regional Coverage",
+        "position": 100,
+        "collection": "getting-started",
+        "slug": "regional-coverage"
+      },
+      {
+        "type": "doc",
+        "label": "Integration Checklist",
+        "position": 110,
+        "collection": "getting-started",
+        "slug": "integration-checklist"
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "label": "Platform Reference",
+    "position": 20,
+    "collection": "platform-reference",
+    "children": [
+      {
+        "type": "category",
+        "label": "Authentication",
+        "position": 120,
+        "children": [
+          {
+            "type": "doc",
+            "label": "API Token",
+            "position": 130,
+            "collection": "platform-reference",
+            "slug": "authentication/api-token"
+          },
+          {
+            "type": "doc",
+            "label": "Mutual SSL",
+            "position": 140,
+            "collection": "platform-reference",
+            "slug": "authentication/rsa-mutual-ssl"
+          },
+          {
+            "type": "doc",
+            "label": "Card Encryption",
+            "position": 150,
+            "collection": "platform-reference",
+            "slug": "authentication/card-encryption"
+          }
+        ]
+      },
+      {
+        "type": "doc",
+        "label": "Webhooks",
+        "position": 160,
+        "collection": "platform-reference",
+        "slug": "webhooks"
+      },
+      {
+        "type": "doc",
+        "label": "Idempotency",
+        "position": 170,
+        "collection": "platform-reference",
+        "slug": "idempotency"
+      },
+      {
+        "type": "doc",
+        "label": "Error Handling",
+        "position": 180,
+        "collection": "platform-reference",
+        "slug": "error-handling"
+      },
+      {
+        "type": "doc",
+        "label": "Signature Generation",
+        "position": 190,
+        "collection": "platform-reference",
+        "slug": "signature-samples"
+      },
+      {
+        "type": "category",
+        "label": "Status Codes",
+        "position": 200,
+        "children": [
+          {
+            "type": "doc",
+            "label": "Pay-In Unified Status Codes",
+            "position": 210,
+            "collection": "platform-reference",
+            "slug": "status-codes/pay-in-unified"
+          },
+          {
+            "type": "doc",
+            "label": "Pay-In PK Wallet Status Codes",
+            "position": 220,
+            "collection": "platform-reference",
+            "slug": "status-codes/pay-in-pk-wallet"
+          },
+          {
+            "type": "doc",
+            "label": "Cards Status Codes",
+            "position": 230,
+            "collection": "platform-reference",
+            "slug": "status-codes/cards"
+          },
+          {
+            "type": "doc",
+            "label": "Disbursement Status Codes",
+            "position": 240,
+            "collection": "platform-reference",
+            "slug": "status-codes/pay-out"
+          },
+          {
+            "type": "doc",
+            "label": "Remittance Status Codes",
+            "position": 250,
+            "collection": "platform-reference",
+            "slug": "status-codes/remittance"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "label": "Pay-In APIs",
+    "position": 30,
+    "collection": "pay-in-apis",
+    "children": [
+      {
+        "type": "category",
+        "label": "Unified Pay-In (BD · NP · EG · IQ)",
+        "position": 40,
+        "children": [
+          {
+            "type": "doc",
+            "label": "Overview",
+            "position": 260,
+            "collection": "pay-in-apis",
+            "slug": "unified-pay-in/overview"
+          },
+          {
+            "type": "doc",
+            "label": "Initiate",
+            "position": 270,
+            "collection": "pay-in-apis",
+            "slug": "unified-pay-in/initiate"
+          },
+          {
+            "type": "category",
+            "label": "Use Cases",
+            "position": 280,
+            "children": [
+              {
+                "type": "doc",
+                "label": "bKash",
+                "position": 290,
+                "collection": "pay-in-apis",
+                "slug": "unified-pay-in/use-cases/bkash"
+              },
+              {
+                "type": "doc",
+                "label": "Nagad",
+                "position": 300,
+                "collection": "pay-in-apis",
+                "slug": "unified-pay-in/use-cases/nagad"
+              },
+              {
+                "type": "doc",
+                "label": "Khalti",
+                "position": 310,
+                "collection": "pay-in-apis",
+                "slug": "unified-pay-in/use-cases/khalti"
+              },
+              {
+                "type": "doc",
+                "label": "Paymob",
+                "position": 320,
+                "collection": "pay-in-apis",
+                "slug": "unified-pay-in/use-cases/paymob"
+              },
+              {
+                "type": "doc",
+                "label": "ZainCash",
+                "position": 330,
+                "collection": "pay-in-apis",
+                "slug": "unified-pay-in/use-cases/zaincash"
+              }
+            ]
+          },
+          {
+            "type": "doc",
+            "label": "Inquire",
+            "position": 340,
+            "collection": "pay-in-apis",
+            "slug": "unified-pay-in/inquire"
+          },
+          {
+            "type": "doc",
+            "label": "Webhooks",
+            "position": 350,
+            "collection": "pay-in-apis",
+            "slug": "unified-pay-in/webhooks"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Pakistan",
+        "position": 50,
+        "children": [
+          {
+            "type": "category",
+            "label": "Wallets",
+            "position": 370,
+            "children": [
+              {
+                "type": "doc",
+                "label": "Overview",
+                "position": 380,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/wallets/overview"
+              },
+              {
+                "type": "category",
+                "label": "Tokenization",
+                "position": 390,
+                "children": [
+                  {
+                    "type": "doc",
+                    "label": "Overview",
+                    "position": 400,
+                    "collection": "pay-in-apis",
+                    "slug": "pakistan/wallets/tokenization/overview"
+                  },
+                  {
+                    "type": "category",
+                    "label": "Tokenization Initiate",
+                    "position": 420,
+                    "children": [
+                      {
+                        "type": "doc",
+                        "label": "Tokenization Initiate",
+                        "position": 410,
+                        "collection": "pay-in-apis",
+                        "slug": "pakistan/wallets/tokenization/initiate/index"
+                      },
+                      {
+                        "type": "doc",
+                        "label": "Tokenization Initiate Easypaisa",
+                        "position": 430,
+                        "collection": "pay-in-apis",
+                        "slug": "pakistan/wallets/tokenization/initiate/use-case-easypaisa"
+                      },
+                      {
+                        "type": "doc",
+                        "label": "Tokenization Initiate JazzCash",
+                        "position": 440,
+                        "collection": "pay-in-apis",
+                        "slug": "pakistan/wallets/tokenization/initiate/use-case-jazzcash"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "category",
+                    "label": "Tokenization Verify",
+                    "position": 460,
+                    "children": [
+                      {
+                        "type": "doc",
+                        "label": "Tokenization Verify",
+                        "position": 450,
+                        "collection": "pay-in-apis",
+                        "slug": "pakistan/wallets/tokenization/verify/index"
+                      },
+                      {
+                        "type": "doc",
+                        "label": "Tokenization Verify Easypaisa",
+                        "position": 470,
+                        "collection": "pay-in-apis",
+                        "slug": "pakistan/wallets/tokenization/verify/use-case-easypaisa"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "category",
+                    "label": "Tokenization Finalize",
+                    "position": 490,
+                    "children": [
+                      {
+                        "type": "doc",
+                        "label": "Tokenization Finalize",
+                        "position": 480,
+                        "collection": "pay-in-apis",
+                        "slug": "pakistan/wallets/tokenization/finalize/index"
+                      },
+                      {
+                        "type": "doc",
+                        "label": "Tokenization Finalize JazzCash",
+                        "position": 500,
+                        "collection": "pay-in-apis",
+                        "slug": "pakistan/wallets/tokenization/finalize/use-case-jazzcash"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "doc",
+                    "label": "Direct Charge",
+                    "position": 510,
+                    "collection": "pay-in-apis",
+                    "slug": "pakistan/wallets/tokenization/direct-charge"
+                  },
+                  {
+                    "type": "doc",
+                    "label": "Delink",
+                    "position": 520,
+                    "collection": "pay-in-apis",
+                    "slug": "pakistan/wallets/tokenization/delink"
+                  }
+                ]
+              },
+              {
+                "type": "category",
+                "label": "One Time Payment",
+                "position": 540,
+                "children": [
+                  {
+                    "type": "doc",
+                    "label": "One Time Payment",
+                    "position": 530,
+                    "collection": "pay-in-apis",
+                    "slug": "pakistan/wallets/verify/index"
+                  },
+                  {
+                    "type": "doc",
+                    "label": "Verify Non-OTP",
+                    "position": 550,
+                    "collection": "pay-in-apis",
+                    "slug": "pakistan/wallets/verify/use-case-non-otp"
+                  }
+                ]
+              },
+              {
+                "type": "doc",
+                "label": "Inquire",
+                "position": 560,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/wallets/inquire"
+              },
+              {
+                "type": "category",
+                "label": "Refund",
+                "position": 580,
+                "children": [
+                  {
+                    "type": "doc",
+                    "label": "Refund",
+                    "position": 570,
+                    "collection": "pay-in-apis",
+                    "slug": "pakistan/wallets/refund/index"
+                  },
+                  {
+                    "type": "doc",
+                    "label": "Partial Refund",
+                    "position": 590,
+                    "collection": "pay-in-apis",
+                    "slug": "pakistan/wallets/refund/use-case-partial"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "E-Billing",
+            "position": 600,
+            "children": [
+              {
+                "type": "doc",
+                "label": "Overview",
+                "position": 610,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/e-billing/overview"
+              },
+              {
+                "type": "doc",
+                "label": "Initiate",
+                "position": 620,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/e-billing/initiate"
+              },
+              {
+                "type": "doc",
+                "label": "Inquire",
+                "position": 630,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/e-billing/inquire"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Hosted Page",
+            "position": 640,
+            "children": [
+              {
+                "type": "doc",
+                "label": "Overview",
+                "position": 650,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/hosted-page/overview"
+              },
+              {
+                "type": "doc",
+                "label": "Inquire",
+                "position": 660,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/hosted-page/inquire"
+              },
+              {
+                "type": "doc",
+                "label": "E-Invoice",
+                "position": 670,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/hosted-page/e-invoice"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Cards",
+            "position": 680,
+            "children": [
+              {
+                "type": "doc",
+                "label": "Overview",
+                "position": 690,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/cards/overview"
+              },
+              {
+                "type": "doc",
+                "label": "Payment",
+                "position": 700,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/cards/payment"
+              },
+              {
+                "type": "doc",
+                "label": "Tokens",
+                "position": 710,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/cards/tokens"
+              },
+              {
+                "type": "doc",
+                "label": "Capture",
+                "position": 720,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/cards/capture"
+              },
+              {
+                "type": "doc",
+                "label": "Void",
+                "position": 730,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/cards/void"
+              },
+              {
+                "type": "doc",
+                "label": "Inquiry",
+                "position": 740,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/cards/inquiry"
+              },
+              {
+                "type": "doc",
+                "label": "Refunds",
+                "position": 750,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/cards/refunds"
+              },
+              {
+                "type": "doc",
+                "label": "Postbacks",
+                "position": 760,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/cards/postbacks"
+              },
+              {
+                "type": "doc",
+                "label": "Errors",
+                "position": 770,
+                "collection": "pay-in-apis",
+                "slug": "pakistan/cards/errors"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "label": "Pay-Out APIs",
+    "position": 60,
+    "collection": "pay-out-apis",
+    "children": [
+      {
+        "type": "category",
+        "label": "Pakistan",
+        "position": 780,
+        "children": [
+          {
+            "type": "doc",
+            "label": "Overview",
+            "position": 790,
+            "collection": "pay-out-apis",
+            "slug": "pakistan/README"
+          },
+          {
+            "type": "doc",
+            "label": "Disbursement States",
+            "position": 800,
+            "collection": "pay-out-apis",
+            "slug": "pakistan/disbursement-states"
+          },
+          {
+            "type": "category",
+            "label": "Customer",
+            "position": 810,
+            "children": [
+              {
+                "type": "doc",
+                "label": "Overview",
+                "position": 820,
+                "collection": "pay-out-apis",
+                "slug": "pakistan/customer/README"
+              },
+              {
+                "type": "doc",
+                "label": "POST",
+                "position": 830,
+                "collection": "pay-out-apis",
+                "slug": "pakistan/customer/register-customer"
+              },
+              {
+                "type": "doc",
+                "label": "PUT",
+                "position": 840,
+                "collection": "pay-out-apis",
+                "slug": "pakistan/customer/update-customer"
+              }
+            ]
+          },
+          {
+            "type": "doc",
+            "label": "Get Customer",
+            "position": 850,
+            "collection": "pay-out-apis",
+            "slug": "pakistan/get-customer"
+          },
+          {
+            "type": "doc",
+            "label": "List Banks",
+            "position": 860,
+            "collection": "pay-out-apis",
+            "slug": "pakistan/list-banks"
+          },
+          {
+            "type": "category",
+            "label": "Disbursements",
+            "position": 870,
+            "children": [
+              {
+                "type": "doc",
+                "label": "Overview",
+                "position": 880,
+                "collection": "pay-out-apis",
+                "slug": "pakistan/disbursements/README"
+              },
+              {
+                "type": "doc",
+                "label": "Initiate Disbursement",
+                "position": 890,
+                "collection": "pay-out-apis",
+                "slug": "pakistan/disbursements/initiate-disbursement"
+              },
+              {
+                "type": "doc",
+                "label": "Re-initiate Disbursement",
+                "position": 900,
+                "collection": "pay-out-apis",
+                "slug": "pakistan/disbursements/re-initiate-disbursement"
+              },
+              {
+                "type": "doc",
+                "label": "Update Disbursement",
+                "position": 910,
+                "collection": "pay-out-apis",
+                "slug": "pakistan/disbursements/update-disbursement"
+              },
+              {
+                "type": "doc",
+                "label": "List Disbursements",
+                "position": 920,
+                "collection": "pay-out-apis",
+                "slug": "pakistan/disbursements/list-disbursements"
+              },
+              {
+                "type": "doc",
+                "label": "Get Disbursement",
+                "position": 930,
+                "collection": "pay-out-apis",
+                "slug": "pakistan/disbursements/get-disbursement"
+              },
+              {
+                "type": "doc",
+                "label": "Inquire Disbursement",
+                "position": 940,
+                "collection": "pay-out-apis",
+                "slug": "pakistan/disbursements/inquire-disbursement"
+              }
+            ]
+          },
+          {
+            "type": "doc",
+            "label": "Balance Inquiry",
+            "position": 950,
+            "collection": "pay-out-apis",
+            "slug": "pakistan/balance-inquiry"
+          },
+          {
+            "type": "doc",
+            "label": "Fetch Account Title",
+            "position": 960,
+            "collection": "pay-out-apis",
+            "slug": "pakistan/fetch-account-title"
+          },
+          {
+            "type": "doc",
+            "label": "List Transfer Reasons",
+            "position": 970,
+            "collection": "pay-out-apis",
+            "slug": "pakistan/list-transfer-reasons"
+          },
+          {
+            "type": "doc",
+            "label": "Banks & Wallets Reference",
+            "position": 980,
+            "collection": "pay-out-apis",
+            "slug": "pakistan/banks-reference-pk"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Rest of the World",
+        "position": 990,
+        "children": [
+          {
+            "type": "doc",
+            "label": "Overview",
+            "position": 1000,
+            "collection": "pay-out-apis",
+            "slug": "bangladesh/index"
+          },
+          {
+            "type": "doc",
+            "label": "Overview",
+            "position": 1010,
+            "collection": "pay-out-apis",
+            "slug": "bangladesh/overview"
+          },
+          {
+            "type": "doc",
+            "label": "Disbursement States",
+            "position": 1020,
+            "collection": "pay-out-apis",
+            "slug": "bangladesh/disbursement-states"
+          },
+          {
+            "type": "doc",
+            "label": "Initiate Disbursement",
+            "position": 1030,
+            "collection": "pay-out-apis",
+            "slug": "bangladesh/initiate-disbursement"
+          },
+          {
+            "type": "doc",
+            "label": "Inquire Disbursement",
+            "position": 1040,
+            "collection": "pay-out-apis",
+            "slug": "bangladesh/inquire-disbursement"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "label": "Remittance APIs",
+    "position": 70,
+    "collection": "remittance-apis",
+    "children": [
+      {
+        "type": "doc",
+        "label": "Overview",
+        "position": 1050,
+        "collection": "remittance-apis",
+        "slug": "overview"
+      },
+      {
+        "type": "doc",
+        "label": "Remittance States",
+        "position": 1060,
+        "collection": "remittance-apis",
+        "slug": "remittance-states"
+      },
+      {
+        "type": "doc",
+        "label": "Payment Reasons Reference",
+        "position": 1070,
+        "collection": "remittance-apis",
+        "slug": "payment-reasons-reference"
+      },
+      {
+        "type": "doc",
+        "label": "Get FX Rate",
+        "position": 1080,
+        "collection": "remittance-apis",
+        "slug": "get-fx-rate"
+      },
+      {
+        "type": "doc",
+        "label": "List Payment Purposes",
+        "position": 1090,
+        "collection": "remittance-apis",
+        "slug": "list-payment-purposes"
+      },
+      {
+        "type": "doc",
+        "label": "Remit Initiate Single",
+        "position": 1100,
+        "collection": "remittance-apis",
+        "slug": "remit-initiate-single"
+      },
+      {
+        "type": "doc",
+        "label": "Register Remit",
+        "position": 1110,
+        "collection": "remittance-apis",
+        "slug": "register-remit"
+      },
+      {
+        "type": "doc",
+        "label": "Remit Initiate Double",
+        "position": 1120,
+        "collection": "remittance-apis",
+        "slug": "remit-initiate-double"
+      },
+      {
+        "type": "doc",
+        "label": "Transaction Inquiry",
+        "position": 1130,
+        "collection": "remittance-apis",
+        "slug": "transaction-inquiry"
+      },
+      {
+        "type": "doc",
+        "label": "Merchant Balance Inquiry",
+        "position": 1140,
+        "collection": "remittance-apis",
+        "slug": "merchant-balance-inquiry"
+      },
+      {
+        "type": "category",
+        "label": "Pakistan",
+        "position": 1150,
+        "children": [
+          {
+            "type": "doc",
+            "label": "Overview",
+            "position": 1160,
+            "collection": "remittance-apis",
+            "slug": "pakistan/index"
+          },
+          {
+            "type": "doc",
+            "label": "List Banks",
+            "position": 1170,
+            "collection": "remittance-apis",
+            "slug": "pakistan/list-banks"
+          },
+          {
+            "type": "doc",
+            "label": "Verify Account Title",
+            "position": 1180,
+            "collection": "remittance-apis",
+            "slug": "pakistan/verify-account-title"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Bangladesh",
+        "position": 1190,
+        "children": [
+          {
+            "type": "doc",
+            "label": "Overview",
+            "position": 1200,
+            "collection": "remittance-apis",
+            "slug": "bangladesh/index"
+          },
+          {
+            "type": "doc",
+            "label": "List Banks",
+            "position": 1210,
+            "collection": "remittance-apis",
+            "slug": "bangladesh/list-banks"
+          }
+        ]
+      },
+      {
+        "type": "doc",
+        "label": "list-banks-by-code",
+        "position": 9000,
+        "collection": "remittance-apis",
+        "slug": "list-banks-by-code"
+      }
+    ]
+  }
+]

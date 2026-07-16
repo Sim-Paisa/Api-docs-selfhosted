@@ -28,3 +28,34 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* ResizableTable — column drag handles */
+.resizable-table-wrap {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.resizable-table th {
+  position: relative;
+}
+
+.rt-handle {
+  position: absolute;
+  top: 0;
+  right: -3px;
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+  user-select: none;
+  z-index: 1;
+}
+
+.rt-handle:hover,
+body.rt-resizing .rt-handle {
+  background: color-mix(in srgb, var(--ifm-color-primary) 45%, transparent);
+}
+
+body.rt-resizing {
+  cursor: col-resize;
+  user-select: none;
+}

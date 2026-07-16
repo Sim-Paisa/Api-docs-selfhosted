@@ -61,3 +61,5 @@ Start integrating Simpaisa APIs today — powering payins, payouts, and remittan
 | Integration steps | [Integration Checklist](integration-checklist.md)                   |
 | Auth & security   | [Authentication](../platform-reference/authentication/api-token.md) |
 | Callbacks         | [Webhooks](../platform-reference/webhooks.md)                       |
+
+<Button label="Start integrating" href="/docs/getting-started/integration-checklist" variant="primary" />

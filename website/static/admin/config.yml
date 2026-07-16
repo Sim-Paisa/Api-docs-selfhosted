@@ -16,9 +16,15 @@ backend:
 # "Publish" merges the PR into main, which triggers the deploy workflow.
 publish_mode: editorial_workflow
 
-# Local testing with `npx decap-server` (see ADMIN-EDITING.md).
-# Uncomment for local preview only — must stay commented out for real commits/deploys.
+# Local authoring loop (instant HMR with Docusaurus). See ADMIN-EDITING.md § Local.
+# Uncomment ONLY for local use — must stay commented out for production / GitHub OAuth.
 # local_backend: true
+#
+# Then from repo root (paths in this file are relative to the repo root):
+#   npx decap-server
+# And from website/:
+#   npm start
+# Open Studio: http://localhost:3000/Api-docs-selfhosted/admin/studio.html
 
 site_url: https://sim-paisa.github.io/Api-docs-selfhosted
 display_url: https://sim-paisa.github.io/Api-docs-selfhosted
@@ -30,8 +36,10 @@ public_folder: /API-docs-New/img/uploads
 # Each collection mirrors a top-level category in website/docs/. Front-matter
 # fields match the schema already used across the docs (sidebar_position /
 # sidebar_label) plus the optional SEO description. _category_.json files are
-# managed in git, not through the CMS. Preview is disabled because the docs use
-# Docusaurus-specific MDX (admonitions, Tabs) that Decap cannot render.
+# managed in git, not through the CMS. Decap's built-in preview stays off — use
+# the Studio at /admin/studio.html for a faithful iframe of the built site
+# (Option B in Decap-Buildout-To-Beat-Keystatic.md). Toolbar inserts for Button,
+# Tabs, Admonition, and ResizableTable live in cms-custom.js.
 #
 # No `meta.path` field on purpose: exposing an editable file-path widget lets a
 # click (e.g. on "Duplicate" with the path left blank) silently rename/overwrite

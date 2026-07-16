@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Simpaisa Docs Studio</title>
+    <link rel="stylesheet" href="./studio.css" />
+  </head>
+  <body>
+    <div id="bar">
+      <button type="button" id="toggle-nav" title="Toggle navigation">⟨ Hide nav</button>
+      <strong>Studio</strong>
+      <span id="active-id" class="muted"></span>
+      <span class="spacer"></span>
+      <label class="auto">
+        <input type="checkbox" id="auto-refresh" checked />
+        auto-refresh
+      </label>
+      <button type="button" id="refresh" class="primary">Refresh preview</button>
+      <a id="open-admin" href="./" target="_blank" rel="noopener">Open admin ↗</a>
+    </div>
+    <div id="main">
+      <aside id="sidebar"></aside>
+      <iframe id="editor" title="editor"></iframe>
+      <iframe id="preview" title="preview"></iframe>
+    </div>
+    <script src="./studio.js"></script>
+  </body>
+</html>
