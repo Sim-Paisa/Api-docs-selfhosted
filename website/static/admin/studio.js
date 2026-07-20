@@ -25,8 +25,36 @@
 
   function editorUrl(collection, slug) {
     // Decap nested entries use the relative path as the entry id.
-    const entry = slug ? `${collection}/entries/${slug}` : `${collection}`;
+    const entry = slug ? `${collection}/entries/${slug}` : collection;
     return `./index.html#/collections/${entry}`;
+  }
+
+  function editorHash(collection, slug) {
+    const entry = slug ? `${collection}/entries/${slug}` : collection;
+    return `#/collections/${entry}`;
+  }
+
+  /**
+   * Drive the Decap iframe to a different entry. Browsers ignore iframe.src
+   * changes when only the hash differs, so navigate the contentWindow directly
+   * (with a cache-bust query) to force Decap's router to the right page.
+   */
+  function navigateEditor(collection, slug) {
+    const hash = editorHash(collection, slug);
+    const bust = `nav=${encodeURIComponent(collection + '/' + slug)}&_=${Date.now()}`;
+    try {
+      const w = els.editor.contentWindow;
+      if (w && els.editor.getAttribute('src')) {
+        const base = w.location.pathname.endsWith('index.html')
+          ? w.location.pathname
+          : new URL('./index.html', window.location.href).pathname;
+        w.location.replace(`${base}?${bust}${hash}`);
+        return;
+      }
+    } catch {
+      /* cross-origin during OAuth, or iframe not ready */
+    }
+    els.editor.src = `./index.html?${bust}${hash}`;
   }
 
   function previewUrl(collection, slug) {
@@ -70,7 +98,7 @@
   function setTarget(collection, slug, { reloadEditor } = { reloadEditor: true }) {
     target = { collection, slug };
     els.activeId.textContent = activeId();
-    if (reloadEditor) els.editor.src = editorUrl(collection, slug);
+    if (reloadEditor) navigateEditor(collection, slug);
     bumpPreview();
     highlightTree();
   }
