@@ -58,7 +58,7 @@ Accept one-time and tokenized payments from Pakistan's major mobile wallets thro
 | Environment | Base URL                       |
 | ----------- | ------------------------------ |
 | Sandbox     | `https://sandbox.simpaisa.com` |
-| Production  | `https://wallets.simpaisa.com` |
+| Production  | `https://payin.simpaisa.com` |
 
 Refunds use a separate host — see [Refund](refund/index.md).
 

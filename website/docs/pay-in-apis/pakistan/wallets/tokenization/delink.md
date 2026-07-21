@@ -21,7 +21,7 @@ Remove a saved `sourceId` (SP token) so no further direct charges can be made ag
 | **Method** | `POST` |
 | **Path** | `/v2/wallets/transaction/delink` |
 | **Sandbox** | `https://sandbox.simpaisa.com/v2/wallets/transaction/delink` |
-| **Production** | `https://wallets.simpaisa.com/v2/wallets/transaction/delink` |
+| **Production** | `https://payin.simpaisa.com/v2/wallets/transaction/delink` |
 
 ---
 

@@ -27,7 +27,7 @@ See [Unified Pay-In overview](../pay-in-apis/unified-pay-in/overview.md).
 
 | Product                    | Sandbox                              | Production                       |
 | -------------------------- | ------------------------------------ | -------------------------------- |
-| Wallets / IBFT / E-Billing | `https://sandbox.simpaisa.com`       | `https://wallets.simpaisa.com`   |
+| Wallets / IBFT / E-Billing | `https://sandbox.simpaisa.com`       | `https://payin.simpaisa.com`   |
 | IBFT (1-Bill)              | `https://sandbox.simpaisa.com`       | `https://ibft.simpaisa.com`      |
 | Hosted Page Inquire        | `https://stg-widgetapi.simpaisa.com` | `https://widgetapi.simpaisa.com` |
 | Cards                      | `https://sandbox.simpaisa.com`       | Per merchant onboarding          |

@@ -21,7 +21,7 @@ Fetch the status of a wallet transaction when postback notifications are not rec
 | **Method** | `POST` |
 | **Path** | `/v2/inquire/wallet/transaction/inquiry` |
 | **Sandbox** | `https://sandbox.simpaisa.com/v2/inquire/wallet/transaction/inquiry` |
-| **Production** | `https://wallets.simpaisa.com/v2/inquire/wallet/transaction/inquiry` |
+| **Production** | `https://payin.simpaisa.com/v2/inquire/wallet/transaction/inquiry` |
 
 ---
 

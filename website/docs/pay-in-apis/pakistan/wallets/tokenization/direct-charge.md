@@ -21,7 +21,7 @@ Charge a customer on a defined schedule using a saved `sourceId` from a complete
 | **Method** | `POST` |
 | **Path** | `/v2/wallets/transaction/direct-payment` |
 | **Sandbox** | `https://sandbox.simpaisa.com/v2/wallets/transaction/direct-payment` |
-| **Production** | `https://wallets.simpaisa.com/v2/wallets/transaction/direct-payment` |
+| **Production** | `https://payin.simpaisa.com/v2/wallets/transaction/direct-payment` |
 
 ---
 

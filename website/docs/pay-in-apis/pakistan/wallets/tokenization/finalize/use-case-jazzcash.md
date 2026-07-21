@@ -19,7 +19,7 @@ Once the payment cycle is complete on the hosted page, the customer is redirecte
 | **Method** | `POST` |
 | **Path** | `/v2/wallets/transaction/finalize` |
 | **Sandbox** | `https://sandbox.simpaisa.com/v2/wallets/transaction/finalize` |
-| **Production** | `https://wallets.simpaisa.com/v2/wallets/transaction/finalize` |
+| **Production** | `https://payin.simpaisa.com/v2/wallets/transaction/finalize` |
 
 ---
 

@@ -19,7 +19,7 @@ Initiate a tokenization payment using the customer's `msisdn` and `amount`.
 | **Method**     | `POST`                                                         |
 | **Path**       | `/v2/wallets/transaction/initiate`                             |
 | **Sandbox**    | `https://sandbox.simpaisa.com/v2/wallets/transaction/initiate` |
-| **Production** | `https://wallets.simpaisa.com/v2/wallets/transaction/initiate` |
+| **Production** | `https://payin.simpaisa.com/v2/wallets/transaction/initiate` |
 
 ***
 

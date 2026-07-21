@@ -19,7 +19,7 @@ Once the payment is initiated, the mobile wallet triggers an OTP on the customer
 | **Method**     | `POST`                                                         |
 | **Path**       | `/v2/wallets/transaction/verify`                               |
 | **Sandbox**    | `https://sandbox.simpaisa.com/v2/wallets/transaction/verify`   |
-| **Production** | `https://wallets.simpaisa.com/v2/wallets/transaction/verify`   |
+| **Production** | `https://payin.simpaisa.com/v2/wallets/transaction/verify`   |
 
 ***
 
