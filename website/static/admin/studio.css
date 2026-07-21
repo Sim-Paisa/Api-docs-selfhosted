@@ -104,14 +104,17 @@ body {
 }
 
 #editor,
+.studio-editor-frame {
+  flex: 1;
+  border: none;
+  min-width: 0;
+  border-right: 1px solid var(--border);
+}
+
 #preview {
   flex: 1;
   border: none;
   min-width: 0;
-}
-
-#editor {
-  border-right: 1px solid var(--border);
 }
 
 #sidebar .empty {

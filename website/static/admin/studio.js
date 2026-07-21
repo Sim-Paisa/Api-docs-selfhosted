@@ -23,50 +23,22 @@
 
   const previewBase = defaultPreviewBase();
 
-  function editorUrl(collection, slug) {
-    // Decap nested entries use the relative path as the entry id.
-    const entry = slug ? `${collection}/entries/${slug}` : collection;
-    return `./index.html#/collections/${entry}`;
-  }
-
   function editorHash(collection, slug) {
-    const entry = slug ? `${collection}/entries/${slug}` : collection;
-    return `#/collections/${entry}`;
+    return `#/collections/${collection}/entries/${slug}`;
   }
 
-  /**
-   * Drive the Decap iframe to a different entry. Browsers ignore iframe.src
-   * changes when only the hash differs, so navigate the contentWindow directly
-   * (with a cache-bust query) to force Decap's router to the right page.
-   */
-  function navigateEditor(collection, slug) {
-    const hash = editorHash(collection, slug);
-    const bust = `nav=${encodeURIComponent(collection + '/' + slug)}&_=${Date.now()}`;
-    try {
-      const w = els.editor.contentWindow;
-      if (w && els.editor.getAttribute('src')) {
-        const base = w.location.pathname.endsWith('index.html')
-          ? w.location.pathname
-          : new URL('./index.html', window.location.href).pathname;
-        w.location.replace(`${base}?${bust}${hash}`);
-        return;
-      }
-    } catch {
-      /* cross-origin during OAuth, or iframe not ready */
-    }
-    els.editor.src = `./index.html?${bust}${hash}`;
+  function editorPath(collection, slug) {
+    return `/collections/${collection}/entries/${slug}`;
   }
 
   function previewUrl(collection, slug) {
-    // Docusaurus serves folder/index.md as /docs/.../folder (no trailing /index).
     let path = slug ? `${collection}/${slug}` : collection;
     path = path.replace(/\/index$/, '');
     return `${previewBase}/docs/${path}`;
   }
 
   function parseEditorHash(hash) {
-    // #/collections/{collection}/entries/{slug...}
-    const m = (hash || '').match(/#\/collections\/([^/]+)\/entries\/(.+)$/);
+    const m = (hash || '').match(/#?\/?collections\/([^/]+)\/entries\/(.+)$/);
     if (!m) return null;
     try {
       return { collection: m[1], slug: decodeURIComponent(m[2]) };
@@ -76,6 +48,8 @@
   }
 
   let target = { collection: initCollection, slug: initSlug };
+  let pendingNav = null;
+  let editorMounted = false;
   let nonce = 0;
   let autoNudge = true;
   let sidebarOpen = true;
@@ -95,7 +69,57 @@
     return `${target.collection}/${target.slug}`;
   }
 
-  function setTarget(collection, slug, { reloadEditor } = { reloadEditor: true }) {
+  function postNavigate(collection, slug) {
+    try {
+      els.editor.contentWindow.postMessage(
+        { type: 'decap-studio:navigate', collection, slug },
+        '*'
+      );
+      const path = editorPath(collection, slug);
+      if (els.editor.contentWindow.location.hash.replace(/^#/, '') !== path) {
+        els.editor.contentWindow.location.hash = path;
+      }
+    } catch {
+      /* iframe not ready */
+    }
+  }
+
+  function mountEditor(collection, slug) {
+    const url = new URL('index.html', window.location.href);
+    url.searchParams.set('_', String(Date.now()));
+    url.hash = editorHash(collection, slug);
+
+    const parent = els.editor.parentNode;
+    const fresh = document.createElement('iframe');
+    fresh.id = 'editor';
+    fresh.title = 'editor';
+    fresh.className = 'studio-editor-frame';
+    fresh.src = url.href;
+    fresh.addEventListener('load', function onLoad() {
+      editorMounted = true;
+      postNavigate(collection, slug);
+      setTimeout(function () {
+        postNavigate(collection, slug);
+      }, 500);
+      setTimeout(function () {
+        postNavigate(collection, slug);
+      }, 1500);
+    });
+    parent.replaceChild(fresh, els.editor);
+    els.editor = fresh;
+  }
+
+  function navigateEditor(collection, slug) {
+    pendingNav = `${collection}/${slug}`;
+    if (editorMounted) {
+      postNavigate(collection, slug);
+      return;
+    }
+    mountEditor(collection, slug);
+  }
+
+  function setTarget(collection, slug, opts) {
+    const reloadEditor = !opts || opts.reloadEditor !== false;
     target = { collection, slug };
     els.activeId.textContent = activeId();
     if (reloadEditor) navigateEditor(collection, slug);
@@ -108,14 +132,14 @@
   }
 
   function highlightTree() {
-    els.sidebar.querySelectorAll('button.doc').forEach((btn) => {
+    els.sidebar.querySelectorAll('button.doc').forEach(function (btn) {
       btn.classList.toggle('active', btn.dataset.id === activeId());
     });
   }
 
   function renderTree(nodes, depth) {
     const frag = document.createDocumentFragment();
-    (nodes || []).forEach((node) => {
+    (nodes || []).forEach(function (node) {
       if (node.type === 'doc') {
         const btn = document.createElement('button');
         btn.type = 'button';
@@ -123,7 +147,9 @@
         btn.textContent = node.label;
         btn.dataset.id = `${node.collection}/${node.slug}`;
         btn.style.paddingLeft = `${8 + depth * 14}px`;
-        btn.addEventListener('click', () => setTarget(node.collection, node.slug));
+        btn.addEventListener('click', function () {
+          setTarget(node.collection, node.slug);
+        });
         frag.appendChild(btn);
       } else {
         const wrap = document.createElement('div');
@@ -136,7 +162,7 @@
         kids.hidden = !open;
         kids.appendChild(renderTree(node.children || [], depth + 1));
         btn.textContent = `${open ? '▾' : '▸'} ${node.label}`;
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', function () {
           open = !open;
           kids.hidden = !open;
           btn.textContent = `${open ? '▾' : '▸'} ${node.label}`;
@@ -149,10 +175,18 @@
     return frag;
   }
 
-  // Scroll bridge with the preview iframe (previewScroll client module).
-  window.addEventListener('message', (e) => {
+  window.addEventListener('message', function (e) {
     const d = e.data;
     if (!d || typeof d !== 'object') return;
+
+    if (d.type === 'decap-studio:ready') {
+      const parsed = parseEditorHash(d.hash);
+      if (parsed && pendingNav === `${parsed.collection}/${parsed.slug}`) {
+        pendingNav = null;
+      }
+      return;
+    }
+
     if (d.type === 'preview:scroll') {
       scrollByPage[activeId()] = Number(d.y) || 0;
     } else if (d.type === 'preview:ready') {
@@ -165,8 +199,9 @@
     }
   });
 
-  // Follow Decap's hash when the user navigates inside the editor iframe.
-  setInterval(() => {
+  // Editor-led navigation: sync preview when user picks a page inside Decap.
+  setInterval(function () {
+    if (pendingNav) return;
     try {
       const hash = els.editor.contentWindow && els.editor.contentWindow.location.hash;
       const parsed = parseEditorHash(hash);
@@ -177,39 +212,41 @@
         setTarget(parsed.collection, parsed.slug, { reloadEditor: false });
       }
     } catch {
-      /* cross-origin during OAuth — ignore */
+      /* cross-origin during OAuth */
     }
   }, 1500);
 
-  setInterval(() => {
+  setInterval(function () {
     if (!autoNudge) return;
     nonce += 1;
     bumpPreview();
   }, 30000);
 
-  els.toggleNav.addEventListener('click', () => {
+  els.toggleNav.addEventListener('click', function () {
     sidebarOpen = !sidebarOpen;
     els.sidebar.classList.toggle('hidden', !sidebarOpen);
     els.toggleNav.textContent = sidebarOpen ? '⟨ Hide nav' : '☰ Nav';
   });
 
-  els.autoRefresh.addEventListener('change', (e) => {
+  els.autoRefresh.addEventListener('change', function (e) {
     autoNudge = e.target.checked;
   });
 
-  els.refresh.addEventListener('click', () => {
+  els.refresh.addEventListener('click', function () {
     nonce += 1;
     bumpPreview();
   });
 
   fetch('./docs-tree.json')
-    .then((r) => (r.ok ? r.json() : Promise.reject(new Error('no tree'))))
-    .then((tree) => {
+    .then(function (r) {
+      return r.ok ? r.json() : Promise.reject(new Error('no tree'));
+    })
+    .then(function (tree) {
       els.sidebar.innerHTML = '';
       els.sidebar.appendChild(renderTree(tree, 0));
       highlightTree();
     })
-    .catch(() => {
+    .catch(function () {
       els.sidebar.innerHTML =
         '<p class="empty">Nav tree missing — run <code>npm run gen-tree</code>.</p>';
     });
