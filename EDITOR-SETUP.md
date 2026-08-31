@@ -25,6 +25,25 @@ reach production silently**.
 
 ---
 
+---
+
+## Live URLs
+
+| What | Where |
+|---|---|
+| Editor (Keystatic + Studio) | https://simpaisa-docs-editor.mohammad-omar.workers.dev/studio |
+| Keystatic admin directly | https://simpaisa-docs-editor.mohammad-omar.workers.dev/keystatic |
+| Docs site | https://simpaisa-docs.pages.dev |
+
+Both are deployed and verified. Editors sign in with their own GitHub account
+through the **Simpaisa Docs Editor** app — there is no shared password, and each
+editor's commits are attributed to them.
+
+Anyone who needs access has to be a collaborator on
+`Sim-Paisa/Api-docs-selfhosted` **and** be covered by the app installation.
+Removing someone from the repository removes their editor access; there is no
+second place to revoke.
+
 ## What still needs doing (needs an account, not code)
 
 These are deliberately not automated — each one changes a live system.
@@ -32,13 +51,13 @@ These are deliberately not automated — each one changes a live system.
 1. **Branch protection on `main`.** Require a pull request, one approval, and
    tick **`build`** under required status checks. The rule does nothing without
    that named check: a PR whose build failed will otherwise merge cleanly.
-2. **Cloudflare Pages project**, connected to this repo:
-   - root directory `website`
-   - build command `npm ci && npm run build`
-   - output directory `build`
-   - environment `DOCS_BASE_URL=/`
-   Pages builds every branch to `<branch-alias>.<project>.pages.dev`, which is
-   what the Studio previews. Set `NEXT_PUBLIC_PAGES_PROJECT` to the project name.
+2. **Branch previews.** The `simpaisa-docs` Pages project exists and serves
+   production, but it was created as a *direct upload* project, so Cloudflare is
+   not watching the repository and will not build draft branches. Direct-upload
+   projects cannot be converted — recreate it through the dashboard with
+   *Connect to Git* (root `website`, build `npm ci && npm run build`, output
+   `build`, `DOCS_BASE_URL=/`). The name and URL can stay the same. Until then
+   the preview links in PR comments will 404.
 3. **Revoke the Vercel token** and delete `.github/workflows/deploy-docs.yml` in
    the Keystatic trial repo — **after** Pages is confirmed working, or the trial
    deploy breaks. That token is a full-account credential readable by every
@@ -105,3 +124,21 @@ needs sanitising or dropping.
 Existing `:::note` admonitions are untouched and render correctly. They will
 read as plain text in the editor until someone converts them to `<Admonition>`,
 which is a content decision, not a blocker.
+
+---
+
+## Two traps this deployment actually hit
+
+Both produced a plausible-looking success rather than an error, so they are
+worth knowing about before someone rebuilds by hand.
+
+**Never build this from Git Bash on Windows.** MSYS rewrites a value of `/` into
+the Git installation path, so `DOCS_BASE_URL=/` silently produced a site whose
+every URL began `/C:/Users/.../Git/`. Docusaurus printed `[SUCCESS]` and exited
+0. Build from PowerShell, or export `MSYS_NO_PATHCONV=1`.
+
+**Never pipe a secret into `wrangler secret put` from PowerShell 5.1.** It
+prepends a UTF-8 BOM to the first write, so the stored value gains a leading
+`﻿`. The deploy succeeds and sign-in then fails against a client ID that
+looks correct in every dashboard. Use `wrangler secret bulk <file.json>` with an
+ASCII, LF, BOM-free file — or set the values in the Cloudflare dashboard.
