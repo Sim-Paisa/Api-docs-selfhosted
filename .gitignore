@@ -7,3 +7,17 @@ Thumbs.db
 
 # Wrangler local state (Cloudflare Worker deploy tooling)
 oauth-worker/.wrangler/
+
+# Keystatic editor app (Next.js)
+/node_modules
+/.next
+next-env.d.ts
+*.tsbuildinfo
+
+# Secrets — .env.example is tracked, real values never are
+.env
+.env*.local
+
+# Preview service runtime state
+/preview-service/node_modules
+/preview-service/.cache

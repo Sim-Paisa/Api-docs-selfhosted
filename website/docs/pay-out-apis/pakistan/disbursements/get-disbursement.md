@@ -3,9 +3,6 @@ sidebar_position: 930
 sidebar_label: "Get Disbursement"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Get Disbursement
 
 Fetch the details of a disbursement transaction. You can look it up either by the transaction `reference` provided in the [Initiate Disbursement](./initiate-disbursement.md) call, or by the `uuid` Simpaisa assigns to every disbursement.

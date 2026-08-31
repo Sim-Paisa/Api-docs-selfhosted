@@ -1,0 +1,16 @@
+{
+  "name": "simpaisa-docs-preview-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Runs a Docusaurus dev server per draft branch so editors get instant, faithful preview of unpublished changes.",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "http-proxy": "^1.18.1"
+  },
+  "engines": {
+    "node": ">=20.0"
+  }
+}

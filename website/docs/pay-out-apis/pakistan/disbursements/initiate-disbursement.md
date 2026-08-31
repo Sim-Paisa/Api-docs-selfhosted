@@ -3,9 +3,6 @@ sidebar_position: 890
 sidebar_label: "Initiate Disbursement"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Initiate Disbursement
 
 Initiate a disbursement request to a registered beneficiary through the Simpaisa platform. The fund transfer is executed with the appropriate authorization and authentication.

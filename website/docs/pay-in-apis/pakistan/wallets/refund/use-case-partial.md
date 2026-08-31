@@ -3,9 +3,6 @@ sidebar_position: 590
 sidebar_label: "Partial Refund"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Partial Refund
 
 Currently supported by **Easypaisa**, **JazzCash**, and **HBL Konnect**.

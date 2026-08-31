@@ -3,9 +3,6 @@ sidebar_position: 900
 sidebar_label: "Re-initiate Disbursement"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Re-initiate Disbursement
 
 Re-initiate a disbursement request against an individual through the Simpaisa platform. A disbursement can only be re-initiated when its state is `on_hold`. The fund transfer is executed with the appropriate authorization and authentication.

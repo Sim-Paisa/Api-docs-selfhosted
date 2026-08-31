@@ -7,13 +7,6 @@
     "children": [
       {
         "type": "doc",
-        "label": "Overview",
-        "position": 80,
-        "collection": "getting-started",
-        "slug": "overview"
-      },
-      {
-        "type": "doc",
         "label": "Environments",
         "position": 90,
         "collection": "getting-started",
@@ -32,6 +25,13 @@
         "position": 110,
         "collection": "getting-started",
         "slug": "integration-checklist"
+      },
+      {
+        "type": "doc",
+        "label": "overview",
+        "position": 999,
+        "collection": "getting-started",
+        "slug": "overview"
       }
     ]
   },

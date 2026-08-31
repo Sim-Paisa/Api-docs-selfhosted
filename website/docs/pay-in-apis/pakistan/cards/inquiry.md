@@ -3,9 +3,6 @@ sidebar_position: 740
 sidebar_label: "Inquiry"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Inquiry
 
 Fetch the latest status of a card payment by `reference`.

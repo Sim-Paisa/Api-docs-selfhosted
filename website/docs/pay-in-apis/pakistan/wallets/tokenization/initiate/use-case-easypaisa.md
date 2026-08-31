@@ -3,9 +3,6 @@ sidebar_position: 430
 sidebar_label: "Tokenization Initiate Easypaisa"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Tokenization Initiate Easypaisa
 
 Initiate a tokenization payment using the customer's `msisdn` and `amount`.

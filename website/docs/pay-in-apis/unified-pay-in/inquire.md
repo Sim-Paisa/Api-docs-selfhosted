@@ -3,9 +3,6 @@ sidebar_position: 340
 sidebar_label: "Inquire"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Inquire
 
 Retrieve the final status of a pay-in transaction after the customer returns from the wallet operator's payment page.

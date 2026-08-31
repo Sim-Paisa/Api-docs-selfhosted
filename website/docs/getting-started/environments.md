@@ -3,9 +3,6 @@ sidebar_position: 90
 sidebar_label: "Environments"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Environments
 
 Sandbox and production base URLs by product and region.

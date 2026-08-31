@@ -3,9 +3,6 @@ sidebar_position: 1110
 sidebar_label: "Register Remit"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Register Remit
 
 `register-remit` is the first call in the **double API** remittance flow, where two APIs are used to send a remittance. This call registers the remitter and beneficiary; you then complete the transfer with [Remit Initiate (Double)](remit-initiate-double.md).

@@ -3,9 +3,6 @@ sidebar_position: 1040
 sidebar_label: "Inquire Disbursement"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Inquire Disbursement
 
 Query a previously initiated Bangladesh or Egypt payout by merchant reference to retrieve the latest transaction state.

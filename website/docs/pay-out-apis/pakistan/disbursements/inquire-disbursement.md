@@ -3,9 +3,6 @@ sidebar_position: 940
 sidebar_label: "Inquire Disbursement"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Inquire Disbursement
 
 Monitor the status and details of a disbursement transaction after it has been initiated. Using a unique reference ID, you can track whether the disbursement has been completed, is in progress, or has been rejected. This supports reconciliation and provides transparency into transaction processing.

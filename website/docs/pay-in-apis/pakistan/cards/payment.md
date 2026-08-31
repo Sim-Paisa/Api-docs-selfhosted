@@ -3,9 +3,6 @@ sidebar_position: 700
 sidebar_label: "Payment"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Payment
 
 Initiate one-time card payments, card tokenization, and direct charges against saved tokens.

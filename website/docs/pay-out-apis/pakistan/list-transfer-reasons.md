@@ -3,9 +3,6 @@ sidebar_position: 970
 sidebar_label: "List Transfer Reasons"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # List Transfer Reasons
 
 Fetch the list of transfer reason codes to pass when making an [Initiate Disbursement](./disbursements/initiate-disbursement.md) call.

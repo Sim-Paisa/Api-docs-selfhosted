@@ -3,9 +3,6 @@ sidebar_position: 1090
 sidebar_label: "List Payment Purposes"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # List Payment Purposes
 
 Retrieve the list of predefined payment purposes (reasons) that must be provided when initiating a remittance. Each purpose has a unique code categorizing the nature of the transaction — such as salary disbursement, vendor payments, or refunds. The correct purpose code must be included in the remittance initiation request.

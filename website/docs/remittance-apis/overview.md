@@ -3,9 +3,6 @@ sidebar_position: 1050
 sidebar_label: "Overview"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Overview
 
 The Simpaisa Remittance API lets you integrate cross-border remittances into your platform. Merchants can send funds to beneficiaries across Pakistan, Bangladesh and Egypt through major banks and mobile wallets.

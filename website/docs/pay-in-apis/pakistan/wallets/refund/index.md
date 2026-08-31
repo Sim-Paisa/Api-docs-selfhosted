@@ -3,9 +3,6 @@ sidebar_position: 570
 sidebar_label: "Refund"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Refund
 
 Refund wallet transactions via API, email, or the Simpaisa Portal. API refunds support **full** and **partial** amounts on supported operators.

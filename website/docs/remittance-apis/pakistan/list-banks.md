@@ -3,9 +3,6 @@ sidebar_position: 1170
 sidebar_label: "List Banks"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # List Banks (Pakistan)
 
 Retrieve the list of banks and wallets available for Pakistan remittance, and use the returned `bankId` in downstream remittance requests.

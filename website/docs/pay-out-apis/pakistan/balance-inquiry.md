@@ -3,9 +3,6 @@ sidebar_position: 950
 sidebar_label: "Balance Inquiry"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Balance Inquiry
 
 Fetch real-time balance information. Checking your balance before making a disbursement helps avoid on-hold transactions and lets you pre-fund the account in time.

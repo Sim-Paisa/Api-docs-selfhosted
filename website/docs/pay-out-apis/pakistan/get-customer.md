@@ -3,9 +3,6 @@ sidebar_position: 850
 sidebar_label: "Get Customer"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Get Customer
 
 Fetch the details of a registered customer by their customer reference.

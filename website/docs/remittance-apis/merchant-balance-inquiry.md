@@ -3,9 +3,6 @@ sidebar_position: 1140
 sidebar_label: "Merchant Balance Inquiry"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Merchant Balance Inquiry
 
 Check your available balance, total balance, and any amount on hold before initiating a remittance. The response includes the total balance, the balance available for remittances, the security deposit hold, and the maximum amount allowed per transaction (if a limit is set).

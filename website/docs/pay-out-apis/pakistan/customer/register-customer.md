@@ -3,9 +3,6 @@ sidebar_position: 830
 sidebar_label: "POST"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # POST
 
 Register customer/beneficiary details on Simpaisa. Once a customer is registered, their details are not required when initiating a disbursement — only the customer reference number is used.

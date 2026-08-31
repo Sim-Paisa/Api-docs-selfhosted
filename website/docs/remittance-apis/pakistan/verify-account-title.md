@@ -3,9 +3,6 @@ sidebar_position: 1180
 sidebar_label: "Verify Account Title"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Verify Account Title (Pakistan)
 
 Verify a beneficiary account title before remittance initiation. This helps prevent failed transactions caused by invalid or mismatched beneficiary details.

@@ -1,113 +1,193 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
-/**
- * Wraps a markdown table and adds drag handles on column borders.
- *
- *   <ResizableTable widths={[30, 40, 30]}>
- *
- *   | A | B | C |
- *   |---|---|---|
- *   | 1 | 2 | 3 |
- *
- *   </ResizableTable>
- *
- * widths is optional (%). Authors can also insert via the Decap "Resizable table" toolbar.
- */
+// Wraps a normal GFM markdown table and makes its columns drag-resizable.
+//
+// Used from MDX as:
+//   <ResizableTable widths={[30, 40, 30]}>
+//
+//   | Field | Type | Description |
+//   | --- | --- | --- |
+//   | ... | ... | ... |
+//
+//   </ResizableTable>
+//
+// Registered globally in src/theme/MDXComponents.js so pages need no import, and
+// declared as a Keystatic wrapper component so editors can insert it from a form.
+//
+// The markdown table inside is rendered by Docusaurus exactly as it always was —
+// this only adds a <colgroup> and drag handles on top, so a page still reads
+// correctly if JavaScript never runs.
+
+const MIN_COL_PX = 60;
+
+// Widths arrive in two shapes: the Decap toolbar emits a JSX array
+// (widths={[30, 40, 30]}) while Keystatic's text field emits a string
+// ("30,40,30"). Accept both so content authored in either editor renders.
+function parseWidths(w) {
+  const list = Array.isArray(w)
+    ? w
+    : typeof w === 'string'
+      ? w.split(',')
+      : [];
+  return list.map((n) => Number(String(n).trim())).filter((n) => Number.isFinite(n) && n > 0);
+}
+
 export default function ResizableTable({ widths, children }) {
-  const ref = useRef(null);
+  const wrapRef = useRef(null);
+  const dragRef = useRef(null);
 
-  useEffect(() => {
-    const root = ref.current;
-    if (!root) return;
-    const table = root.querySelector('table');
+  // Apply the authored widths and inject a drag handle into each header cell.
+  const setup = useCallback(() => {
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+    const table = wrap.querySelector('table');
     if (!table) return;
 
-    table.classList.add('resizable-table');
+    const headCells = table.querySelectorAll('thead th');
+    if (!headCells.length) return;
+
+    // Fixed layout is what makes explicit column widths actually stick.
     table.style.tableLayout = 'fixed';
     table.style.width = '100%';
 
-    const headerRow = table.querySelector('thead tr') || table.querySelector('tr');
-    if (!headerRow) return;
-    const cells = Array.from(headerRow.children);
-    if (cells.length === 0) return;
-
-    // Ensure a colgroup so percentage widths stick while dragging.
-    let colgroup = table.querySelector('colgroup');
+    // A colgroup is the least invasive way to own column widths without
+    // touching the cells Docusaurus rendered.
+    let colgroup = table.querySelector('colgroup[data-resizable]');
     if (!colgroup) {
       colgroup = document.createElement('colgroup');
-      cells.forEach(() => colgroup.appendChild(document.createElement('col')));
+      colgroup.setAttribute('data-resizable', '');
+      headCells.forEach(() => colgroup.appendChild(document.createElement('col')));
       table.insertBefore(colgroup, table.firstChild);
     }
-    const cols = Array.from(colgroup.querySelectorAll('col'));
-    const initial =
-      Array.isArray(widths) && widths.length === cols.length
-        ? widths.map(Number)
-        : cols.map(() => 100 / cols.length);
+
+    const cols = colgroup.querySelectorAll('col');
+    const authored = parseWidths(widths);
     cols.forEach((col, i) => {
-      col.style.width = `${initial[i]}%`;
+      const pct = authored[i];
+      col.style.width =
+        Number.isFinite(pct) && pct > 0 ? `${pct}%` : `${100 / cols.length}%`;
     });
 
-    const cleanups = [];
-    cells.forEach((th, i) => {
-      if (i === cells.length - 1) return;
+    headCells.forEach((th, i) => {
+      // Never put a handle after the last column — there is nothing to trade with.
+      if (i >= headCells.length - 1) return;
+      if (th.querySelector('[data-col-handle]')) return;
+
       th.style.position = 'relative';
       const handle = document.createElement('span');
-      handle.className = 'rt-handle';
-      handle.title = 'Drag to resize column';
-      th.appendChild(handle);
-
-      let startX = 0;
-      let startLeft = 0;
-      let startRight = 0;
-
-      const onMove = (e) => {
-        const dx = e.clientX - startX;
-        const parentWidth = table.getBoundingClientRect().width || 1;
-        const deltaPct = (dx / parentWidth) * 100;
-        let left = startLeft + deltaPct;
-        let right = startRight - deltaPct;
-        const min = 8;
-        if (left < min) {
-          right -= min - left;
-          left = min;
-        }
-        if (right < min) {
-          left -= min - right;
-          right = min;
-        }
-        cols[i].style.width = `${left}%`;
-        cols[i + 1].style.width = `${right}%`;
-      };
-
-      const onUp = () => {
-        document.removeEventListener('mousemove', onMove);
-        document.removeEventListener('mouseup', onUp);
-        document.body.classList.remove('rt-resizing');
-      };
-
-      const onDown = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        startX = e.clientX;
-        startLeft = parseFloat(cols[i].style.width) || initial[i];
-        startRight = parseFloat(cols[i + 1].style.width) || initial[i + 1];
-        document.body.classList.add('rt-resizing');
-        document.addEventListener('mousemove', onMove);
-        document.addEventListener('mouseup', onUp);
-      };
-
-      handle.addEventListener('mousedown', onDown);
-      cleanups.push(() => {
-        handle.removeEventListener('mousedown', onDown);
-        handle.remove();
+      handle.setAttribute('data-col-handle', String(i));
+      handle.setAttribute('role', 'separator');
+      handle.setAttribute('aria-orientation', 'vertical');
+      handle.setAttribute('aria-label', `Resize column ${i + 1}`);
+      handle.tabIndex = 0;
+      Object.assign(handle.style, {
+        position: 'absolute',
+        top: '0',
+        right: '-3px',
+        width: '6px',
+        height: '100%',
+        cursor: 'col-resize',
+        userSelect: 'none',
+        touchAction: 'none',
+        zIndex: '1',
       });
+      th.appendChild(handle);
     });
+  }, [widths]);
 
-    return () => cleanups.forEach((fn) => fn());
-  }, [widths, children]);
+  useEffect(() => {
+    setup();
+  }, [setup]);
+
+  // Pointer drag: take width from the column on the right so the table total
+  // stays at 100% and nothing reflows outside the container.
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+
+    const onPointerDown = (e) => {
+      const handle = e.target.closest?.('[data-col-handle]');
+      if (!handle) return;
+      const table = wrap.querySelector('table');
+      const colgroup = table?.querySelector('colgroup[data-resizable]');
+      if (!colgroup) return;
+
+      const i = Number(handle.getAttribute('data-col-handle'));
+      const cols = colgroup.querySelectorAll('col');
+      if (!cols[i] || !cols[i + 1]) return;
+
+      const rect = table.getBoundingClientRect();
+      dragRef.current = {
+        i,
+        startX: e.clientX,
+        tableWidth: rect.width,
+        leftPct: (cols[i].getBoundingClientRect?.().width ?? 0) / rect.width * 100,
+        startLeft: parseFloat(cols[i].style.width) || 0,
+        startRight: parseFloat(cols[i + 1].style.width) || 0,
+        cols,
+      };
+      handle.setPointerCapture?.(e.pointerId);
+      document.body.style.cursor = 'col-resize';
+      e.preventDefault();
+    };
+
+    const onPointerMove = (e) => {
+      const d = dragRef.current;
+      if (!d) return;
+      const deltaPct = ((e.clientX - d.startX) / d.tableWidth) * 100;
+      const minPct = (MIN_COL_PX / d.tableWidth) * 100;
+      let left = d.startLeft + deltaPct;
+      let right = d.startRight - deltaPct;
+      if (left < minPct || right < minPct) return;
+      d.cols[d.i].style.width = `${left}%`;
+      d.cols[d.i + 1].style.width = `${right}%`;
+    };
+
+    const endDrag = () => {
+      if (!dragRef.current) return;
+      dragRef.current = null;
+      document.body.style.cursor = '';
+    };
+
+    // Keyboard parity: arrow keys nudge the boundary 2% at a time.
+    const onKeyDown = (e) => {
+      const handle = e.target.closest?.('[data-col-handle]');
+      if (!handle) return;
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      const table = wrap.querySelector('table');
+      const cols = table?.querySelectorAll('colgroup[data-resizable] col');
+      const i = Number(handle.getAttribute('data-col-handle'));
+      if (!cols?.[i] || !cols[i + 1]) return;
+
+      const step = e.key === 'ArrowLeft' ? -2 : 2;
+      const left = (parseFloat(cols[i].style.width) || 0) + step;
+      const right = (parseFloat(cols[i + 1].style.width) || 0) - step;
+      if (left < 5 || right < 5) return;
+      cols[i].style.width = `${left}%`;
+      cols[i + 1].style.width = `${right}%`;
+      e.preventDefault();
+    };
+
+    wrap.addEventListener('pointerdown', onPointerDown);
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
+    wrap.addEventListener('keydown', onKeyDown);
+    return () => {
+      wrap.removeEventListener('pointerdown', onPointerDown);
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', endDrag);
+      window.removeEventListener('pointercancel', endDrag);
+      wrap.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
 
   return (
-    <div className="resizable-table-wrap" ref={ref}>
+    <div
+      ref={wrapRef}
+      className="resizable-table"
+      style={{ overflowX: 'auto', margin: '1rem 0' }}
+    >
       {children}
     </div>
   );

@@ -3,9 +3,6 @@ sidebar_position: 560
 sidebar_label: "Inquire"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Inquire Payment
 
 Fetch the status of a wallet transaction when postback notifications are not received or a postback URL has not been configured.
