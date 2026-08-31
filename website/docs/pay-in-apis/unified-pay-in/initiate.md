@@ -3,9 +3,6 @@ sidebar_position: 270
 sidebar_label: "Initiate"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Initiate Payment
 
 Create a pay-in session and receive a `payment_url` to redirect the customer to the wallet operator's payment page.

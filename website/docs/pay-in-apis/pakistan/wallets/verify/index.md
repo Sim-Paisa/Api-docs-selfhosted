@@ -8,7 +8,7 @@ sidebar_label: "One Time Payment"
 In async flow, the Verify response is **always** `Transaction-Pending` (`0037`). Final success or failure arrives via postback. If `Transaction-Pending` is not returned, no postback will be sent.
 
 All four wallets support async Verify. Parameter sets match the synchronous OTP Verify calls for each wallet.\
-<br />
+
 
 ### Request Body (non-OTP)
 

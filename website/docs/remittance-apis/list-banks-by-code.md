@@ -3,9 +3,6 @@ sidebar_position: 9000
 unlisted: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # List Banks By Code
 
 The bank code (and optionally a routing number) serves as an identifier to retrieve a specific `bankId`. If a routing number is provided, the API returns the corresponding `bankId` directly, which can then be used to process the remittance. If the routing number is omitted, the API returns all routing numbers associated with the bank — letting merchants either retrieve the full list or directly access a specific one.

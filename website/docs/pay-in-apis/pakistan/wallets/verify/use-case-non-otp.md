@@ -3,9 +3,6 @@ sidebar_position: 550
 sidebar_label: "Verify Non-OTP"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Verify Non-OTP
 
 ## One-time Payment Without OTP

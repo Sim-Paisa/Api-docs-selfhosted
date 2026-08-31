@@ -3,9 +3,6 @@ sidebar_position: 960
 sidebar_label: "Fetch Account Title"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Fetch Account Title
 
 Fetch the account title information of a customer. This is useful for checking whether a provided account is valid before initiating a disbursement.

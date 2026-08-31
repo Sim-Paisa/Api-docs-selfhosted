@@ -3,9 +3,6 @@ sidebar_position: 510
 sidebar_label: "Direct Charge"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Tokenization — Direct Charge
 
 Charge a customer on a defined schedule using a saved `sourceId` from a completed tokenization flow. No OTP is required for direct charges.

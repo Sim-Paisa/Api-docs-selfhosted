@@ -1,0 +1,27 @@
+{
+  "name": "simpaisa-docs-keystatic",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Isolated Keystatic authoring testbed for the Simpaisa API docs. Edits the same website/docs markdown that the Docusaurus copy renders. NOT the production site.",
+  "scripts": {
+    "gen-tree": "node scripts/gen-docs-tree.mjs",
+    "predev": "node scripts/gen-docs-tree.mjs",
+    "dev": "next dev -p 3001",
+    "prebuild": "node scripts/gen-docs-tree.mjs",
+    "build": "next build",
+    "start": "next start -p 3001"
+  },
+  "dependencies": {
+    "@keystatic/core": "^0.5.47",
+    "@keystatic/next": "^5.0.4",
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.3",
+    "tsx": "^4.23.1",
+    "typescript": "^5.5.3"
+  }
+}

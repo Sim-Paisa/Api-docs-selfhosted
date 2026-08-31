@@ -4,9 +4,6 @@ sidebar_label: "List Banks"
 unlisted: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # List Banks (Bangladesh)
 
 Retrieve the list of banks available for Bangladesh remittance. Use the returned `bankCode` with [List Banks by Code](../list-banks-by-code.md) to resolve a usable `bankId`.

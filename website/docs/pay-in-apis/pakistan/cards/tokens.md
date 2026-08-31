@@ -3,9 +3,6 @@ sidebar_position: 710
 sidebar_label: "Tokens"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Tokens
 
 List or delete a customer's saved card tokens.

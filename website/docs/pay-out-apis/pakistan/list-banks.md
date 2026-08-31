@@ -3,9 +3,6 @@ sidebar_position: 860
 sidebar_label: "List Banks"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # List Banks
 
 Fetch the list of available banks and mobile wallets on which a disbursement can be initiated.

@@ -3,9 +3,6 @@ sidebar_position: 500
 sidebar_label: "Tokenization Finalize JazzCash"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Tokenization Finalize — JazzCash
 
 Once the payment cycle is complete on the hosted page, the customer is redirected to the return URL provided in the GET call. On the return URL, call the Finalize API to show the final payment status to the customer.

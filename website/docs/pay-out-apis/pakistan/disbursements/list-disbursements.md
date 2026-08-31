@@ -3,9 +3,6 @@ sidebar_position: 920
 sidebar_label: "List Disbursements"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # List Disbursements
 
 Fetch disbursement transactions within a chosen date range.

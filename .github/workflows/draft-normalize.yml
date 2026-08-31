@@ -1,0 +1,61 @@
+name: Heal draft branches
+
+# Keystatic writes every field declared in its schema, but Docusaurus treats the
+# sidebar `link` block as optional — so saving one of the 7 link-less categories
+# emits `{"type":"doc","id":""}` and breaks the build.
+#
+# `fields.conditional` cannot express this: it serialises as
+# `{ discriminant, value }` and rejects any other key, which would rewrite the 19
+# working categories into a shape the sidebar cannot read. So the schema stays
+# correct-by-default and this job repairs the output on the draft branch, before
+# the editor ever opens a pull request.
+
+on:
+  push:
+    branches: ['draft/**']
+    paths:
+      - 'website/docs/**/_category_.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: heal-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    # Don't answer our own commit and loop forever.
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Repair category files
+        id: fix
+        run: |
+          node scripts/normalize-categories.mjs
+          if git diff --quiet -- 'website/docs/**/_category_.json'; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit the repair
+        if: steps.fix.outputs.changed == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'website/docs/**/_category_.json'
+          git commit -m 'Fix sidebar category link written by the editor
+
+          The editor writes an empty `link` block for categories that have no
+          landing page, which Docusaurus cannot resolve. Removed automatically so
+          the build stays green.'
+          git push origin HEAD:${{ github.ref_name }}

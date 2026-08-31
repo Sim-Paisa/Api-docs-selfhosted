@@ -3,9 +3,6 @@ sidebar_position: 1120
 sidebar_label: "Remit Initiate Double"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Remit Initiate Double
 
 `remit-initiate` is the second call in the **double API** remittance flow. After registering the remitter and beneficiary with [Register Remit](register-remit.md), this call remits the amount against the reference returned by that step.

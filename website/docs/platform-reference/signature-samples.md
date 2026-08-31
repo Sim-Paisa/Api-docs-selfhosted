@@ -61,7 +61,7 @@ To generate a signature or sign an API request using an RSA private key with the
 
 • Attach the Signature to the API Request: Include the generated signature and the API request. This could be done by adding it as a parameter in the request body, depending on the API's authentication mechanism.
 
-• Verify the Signature: The API will use the corresponding public key to verify the signature on the server side. It decrypts the signature using the public key and compares the resulting hash with the hash of the received data. If they match, the signature is considered valid, confirming the authenticity and integrity of the API request.<br />
+• Verify the Signature: The API will use the corresponding public key to verify the signature on the server side. It decrypts the signature using the public key and compares the resulting hash with the hash of the received data. If they match, the signature is considered valid, confirming the authenticity and integrity of the API request.
 
 ## Signature-Samples
 

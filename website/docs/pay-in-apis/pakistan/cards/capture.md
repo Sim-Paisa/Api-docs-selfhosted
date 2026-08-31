@@ -3,9 +3,6 @@ sidebar_position: 720
 sidebar_label: "Capture"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Capture
 
 Capture an authorized card payment to finalize the charge and settle funds.

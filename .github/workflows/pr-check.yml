@@ -1,0 +1,133 @@
+name: PR check
+
+# The gate that stands between an editor's typo and a silently frozen site.
+#
+# Docusaurus is configured with `onBrokenLinks: throw`, and GitHub Pages / Pages
+# hosting keeps serving the last good build when a deploy fails. Without this
+# check, a bad link merges green, the build throws, and the site quietly stops
+# updating for everyone with nothing surfaced to the person who published.
+#
+# Mark "build" as a REQUIRED status check in branch protection on main, or this
+# file is decorative.
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: pr-check-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      # Catches the `_category_.json` shapes Keystatic can emit that Docusaurus
+      # cannot read, with a message that says how to fix it.
+      - name: Check sidebar category files
+        run: node scripts/normalize-categories.mjs --check
+
+      - name: Install
+        working-directory: website
+        run: npm ci
+
+      # The real gate: a broken internal link fails here instead of in production.
+      - name: Build
+        working-directory: website
+        run: npm run build
+
+  preview-link:
+    name: preview link
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Work out which pages changed
+        id: pages
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+          PREVIEW_BASE: ${{ vars.PREVIEW_SERVICE_URL }}
+        run: |
+          set -euo pipefail
+          changed=$(git diff --name-only "$BASE" "$HEAD" -- 'website/docs/**/*.md' || true)
+          if [ -z "$changed" ]; then
+            echo "body=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Reviewers should read the rendered page, not a markdown diff.
+          {
+            echo 'body<<PREVIEW_EOF'
+            if [ -n "${PREVIEW_BASE:-}" ]; then
+              echo "### Preview this change"
+              echo
+              echo "These pages are live on the preview server for \`$BRANCH\`:"
+              echo
+              while IFS= read -r f; do
+                [ -z "$f" ] && continue
+                path="${f#website/docs/}"
+                path="${path%.md}"
+                path="${path%/index}"
+                echo "- [$path]($PREVIEW_BASE/$BRANCH/docs/$path)"
+              done <<< "$changed"
+              echo
+              echo "_Updates within a second or two of each save — no rebuild needed._"
+            else
+              echo "### Pages changed"
+              echo
+              while IFS= read -r f; do
+                [ -z "$f" ] && continue
+                echo "- \`${f#website/docs/}\`"
+              done <<< "$changed"
+              echo
+              echo "> Set the \`PREVIEW_SERVICE_URL\` repository variable to turn these into live preview links."
+            fi
+            echo 'PREVIEW_EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Comment on the pull request
+        if: steps.pages.outputs.body != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = process.env.BODY;
+            const marker = '<!-- docs-preview-links -->';
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+
+            const existing = (
+              await github.rest.issues.listComments({ owner, repo, issue_number })
+            ).data.find((c) => c.body?.includes(marker));
+
+            // Update in place so a busy pull request keeps one comment, not twelve.
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner, repo, comment_id: existing.id, body: `${marker}\n${body}`,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number, body: `${marker}\n${body}`,
+              });
+            }
+        env:
+          BODY: ${{ steps.pages.outputs.body }}

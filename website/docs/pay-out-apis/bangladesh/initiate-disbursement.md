@@ -3,9 +3,6 @@ sidebar_position: 1030
 sidebar_label: "Initiate Disbursement"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Initiate Disbursement
 
 Create a payout request for a Bangladesh and Egypt beneficiary account or wallet.

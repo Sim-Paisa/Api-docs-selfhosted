@@ -3,9 +3,6 @@ sidebar_position: 840
 sidebar_label: "PUT"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # PUT
 
 Update the details of a registered customer on Simpaisa. The core fields — `reference`, `customerAccount`, `accountType`, and `destinationBank` — cannot be changed; this call only updates other beneficiary details.

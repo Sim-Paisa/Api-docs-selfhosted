@@ -3,9 +3,6 @@ sidebar_position: 160
 sidebar_label: "Webhooks"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Webhooks & Postbacks
 
 Receive final transaction status asynchronously. Webhooks (postbacks) notify you when a pay-in reaches its final state — use the webhook payload for **final decisioning** rather than relying solely on the immediate API response.

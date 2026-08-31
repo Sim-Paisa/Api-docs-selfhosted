@@ -3,9 +3,6 @@ sidebar_position: 520
 sidebar_label: "Delink"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Tokenization — Delink
 
 Remove a saved `sourceId` (SP token) so no further direct charges can be made against the customer's wallet account. The customer must complete the tokenization flow again to re-enable recurring charges.

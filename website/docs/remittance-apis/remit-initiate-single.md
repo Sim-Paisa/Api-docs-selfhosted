@@ -3,9 +3,6 @@ sidebar_position: 1100
 sidebar_label: "Remit Initiate Single"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Remit Initiate Single
 
 Initiate a remittance in a single call by submitting the sender's, beneficiary's, and transaction details together. This handles the core operation of transferring funds from the sender to the beneficiary, including currency codes, bank information, and the transaction amount.

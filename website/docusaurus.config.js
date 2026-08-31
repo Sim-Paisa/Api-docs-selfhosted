@@ -11,9 +11,11 @@ const config = {
     v4: true,
   },
 
-  // GitHub Pages deployment target.
-  url: 'https://sim-paisa.github.io',
-  baseUrl: '/Api-docs-selfhosted/',
+  // Deployment target. Defaults to GitHub Pages (production today); Cloudflare
+  // Pages builds every branch at the domain root, so it sets DOCS_BASE_URL=/ and
+  // DOCS_URL to the branch alias. Env-driven so one config serves both.
+  url: process.env.DOCS_URL || 'https://sim-paisa.github.io',
+  baseUrl: process.env.DOCS_BASE_URL || '/Api-docs-selfhosted/',
   organizationName: 'Sim-Paisa',
   projectName: 'Api-docs-selfhosted',
   deploymentBranch: 'gh-pages',

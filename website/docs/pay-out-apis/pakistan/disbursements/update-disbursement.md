@@ -3,9 +3,6 @@ sidebar_position: 910
 sidebar_label: "Update Disbursement"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Update Disbursement
 
 Update a disbursement request against an individual through the Simpaisa platform. A disbursement can only be updated while it is in the `publishing` or `in_review` state. The fund transfer is executed with the appropriate authorization and authentication.
