@@ -21,3 +21,7 @@ next-env.d.ts
 # Preview service runtime state
 /preview-service/node_modules
 /preview-service/.cache
+
+# Cloudflare / OpenNext build output
+/.open-next
+/.wrangler
