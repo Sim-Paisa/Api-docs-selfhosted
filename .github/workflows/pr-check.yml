@@ -67,6 +67,7 @@ jobs:
           HEAD: ${{ github.event.pull_request.head.sha }}
           BRANCH: ${{ github.event.pull_request.head.ref }}
           PREVIEW_BASE: ${{ vars.PREVIEW_SERVICE_URL }}
+          PAGES_PROJECT: ${{ vars.PAGES_PROJECT }}
         run: |
           set -euo pipefail
           changed=$(git diff --name-only "$BASE" "$HEAD" -- 'website/docs/**/*.md' || true)
@@ -76,9 +77,28 @@ jobs:
           fi
 
           # Reviewers should read the rendered page, not a markdown diff.
+          # Cloudflare Pages serves each branch at a deterministic alias: the branch
+          # lowercased, every non-alphanumeric run collapsed to a hyphen, truncated
+          # to 28 characters. Reproduce that exactly or the links point at nothing.
+          alias=$(printf '%s' "$BRANCH" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]\{1,\}/-/g' | cut -c1-28 | sed 's/^-*//; s/-*$//')
+
           {
             echo 'body<<PREVIEW_EOF'
-            if [ -n "${PREVIEW_BASE:-}" ]; then
+            if [ -n "${PAGES_PROJECT:-}" ]; then
+              echo "### Preview this change"
+              echo
+              echo "Built from \`$BRANCH\` on Cloudflare Pages:"
+              echo
+              while IFS= read -r f; do
+                [ -z "$f" ] && continue
+                path="${f#website/docs/}"
+                path="${path%.md}"
+                path="${path%/index}"
+                echo "- [$path](https://$alias.$PAGES_PROJECT.pages.dev/docs/$path)"
+              done <<< "$changed"
+              echo
+              echo "_Live once the Pages build for this branch finishes._"
+            elif [ -n "${PREVIEW_BASE:-}" ]; then
               echo "### Preview this change"
               echo
               echo "These pages are live on the preview server for \`$BRANCH\`:"
@@ -100,7 +120,7 @@ jobs:
                 echo "- \`${f#website/docs/}\`"
               done <<< "$changed"
               echo
-              echo "> Set the \`PREVIEW_SERVICE_URL\` repository variable to turn these into live preview links."
+              echo "> Set the \`PAGES_PROJECT\` repository variable to turn these into live preview links."
             fi
             echo 'PREVIEW_EOF'
           } >> "$GITHUB_OUTPUT"
