@@ -31,11 +31,17 @@ than a script.
 
 ## 1. Docs site → Cloudflare Pages
 
-Connect the repository in the Cloudflare dashboard (Workers & Pages → Create →
-Pages → Connect to Git) with:
+**Link:** https://dash.cloudflare.com/?to=/:account/pages/new/provider/github
+
+Choose the **Pages** path deliberately. Cloudflare now steers new projects toward
+Workers static assets, and that is the wrong tool here: Workers gives preview URLs
+keyed on a version hash, while Pages gives a *deterministic* branch alias. The
+Studio's preview links and the PR comment are both built by transforming a branch
+name into a hostname, so they only work on Pages.
 
 | Setting | Value |
 |---|---|
+| Repository | `Sim-Paisa/Api-docs-selfhosted` |
 | Root directory | `website` |
 | Build command | `npm ci && npm run build` |
 | Output directory | `build` |
@@ -62,25 +68,57 @@ Free tier: 500 builds/month, unlimited bandwidth and seats.
 
 ## 2. Editor → Cloudflare Workers
 
-```bash
-npx wrangler login          # interactive, one time
+**Link:** https://dash.cloudflare.com/?to=/:account/workers-and-pages/create
 
-npx wrangler secret put KEYSTATIC_SECRET
-npx wrangler secret put KEYSTATIC_GITHUB_CLIENT_ID
-npx wrangler secret put KEYSTATIC_GITHUB_CLIENT_SECRET
+Pick **Import a repository**. This uses Workers Builds, which builds and deploys
+on Cloudflare's side whenever `main` moves.
 
-npm run cf:deploy           # builds through OpenNext, then deploys
-```
+Prefer this over `wrangler deploy` from a laptop. `wrangler login` needs an
+interactive browser handoff, and what it leaves behind is a full deploy
+credential sitting on one person's machine — so deploys silently depend on who
+last logged in. Git-connected builds have neither problem.
 
-`NEXT_PUBLIC_*` values are inlined into the client bundle at build time, so they
-are **not** secrets and must be present in the build environment rather than set
-with `wrangler secret`:
+| Setting | Value |
+|---|---|
+| Repository | `Sim-Paisa/Api-docs-selfhosted` |
+| Root directory | `/` (repo root — the editor lives at the top level) |
+| Build command | `npx opennextjs-cloudflare build` |
+| Deploy command | `npx opennextjs-cloudflare deploy` |
+
+`wrangler.jsonc` at the repo root supplies the name, bindings and compatibility
+flags, so nothing else needs configuring.
+
+### Two kinds of variable, and the difference matters
+
+They live in **different dashboard screens**, and putting one in the other's
+place fails in a way that is annoying to diagnose.
+
+**Build variables** — Worker → Settings → Build → Variables. `NEXT_PUBLIC_*`
+values are inlined into the client bundle by the compiler, so they must exist
+*while the build runs*. Setting them as runtime secrets leaves them `undefined`
+in the browser, and the admin then loads but cannot see the repository:
 
 ```
 NEXT_PUBLIC_KEYSTATIC_STORAGE=github
-NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG=<app slug>
 NEXT_PUBLIC_KEYSTATIC_REPO=Sim-Paisa/Api-docs-selfhosted
-NEXT_PUBLIC_PAGES_PROJECT=<pages project name>
+NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG=<app slug>
+NEXT_PUBLIC_PAGES_PROJECT=<pages project name from step 1>
+```
+
+**Runtime secrets** — Worker → Settings → Variables and Secrets → *Encrypt*.
+These are read by server code on each request and must never reach the client
+bundle:
+
+```
+KEYSTATIC_SECRET                 (generate: see below)
+KEYSTATIC_GITHUB_CLIENT_ID
+KEYSTATIC_GITHUB_CLIENT_SECRET
+```
+
+Generate the signing secret locally and paste the output:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
 ### GitHub App
@@ -93,9 +131,20 @@ The existing app points at the trial repository. Either install it on
 https://<worker-subdomain>.workers.dev/api/keystatic/github/oauth/callback
 ```
 
-Sign-in fails with a redirect mismatch until that matches exactly.
+Sign-in fails with a redirect mismatch until that matches exactly. The Worker
+subdomain is only known after the first deploy, so this is necessarily the last
+step — deploy, read the URL Cloudflare prints, then set it.
 
----
+### If you would rather deploy from the terminal after all
+
+`wrangler` is installed and working here; only its browser login is blocked. A
+scoped API token avoids that:
+
+**Link:** https://dash.cloudflare.com/profile/api-tokens → *Edit Cloudflare
+Workers* template. Then `CLOUDFLARE_API_TOKEN=<token> npm run cf:deploy`.
+
+This is the fallback, not the default — it reintroduces the laptop credential
+that Git-connected builds exist to remove.
 
 ## 3. Only after Cloudflare is confirmed working
 
