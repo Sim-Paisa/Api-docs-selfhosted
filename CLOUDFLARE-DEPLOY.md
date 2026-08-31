@@ -29,6 +29,58 @@ than a script.
 
 ---
 
+---
+
+## Where this actually stands
+
+| Piece | State |
+|---|---|
+| Docs site | **live** — https://simpaisa-docs.pages.dev |
+| Pages project | `simpaisa-docs`, **direct upload** (no Git connection) |
+| `PAGES_PROJECT` repo variable | set, so PR comments emit preview links |
+| Editor Worker | **not deployed** — blocked on the GitHub App (see below) |
+| Account | `b0691534d99d6bf7ca4e3b1a3400ad98`, workers.dev subdomain `mohammad-omar` |
+
+### Two corrections to what this document used to say
+
+**The GitHub App is a prerequisite, not a final step.** Next.js evaluates the
+Keystatic route module while collecting route config, and `makeRouteHandler`
+throws there if the GitHub credentials are absent. So the editor cannot even
+*build* without them:
+
+```
+Missing required config in Keystatic API setup when using the 'github' storage mode:
+  - clientId, clientSecret, secret
+```
+
+There is no ordering problem, though: the Worker URL is fully predictable from
+the account subdomain plus the name in `wrangler.jsonc`, so the app can be
+created before the Worker exists.
+
+**A direct-upload Pages project cannot be converted to Git-connected.** The site
+is live now, but Cloudflare will not build branches for it, because nothing is
+watching the repository. Branch previews need one of the two routes below.
+
+---
+
+## Branch previews: pick one
+
+Preview builds per branch are the reason for using Pages at all, so this is not
+optional.
+
+**A — Git-connected project (recommended).** Delete `simpaisa-docs` and recreate
+it through the dashboard with *Connect to Git*. Cloudflare then builds every
+branch by itself. The name and therefore the URL can stay the same.
+
+**B — keep direct upload and deploy from CI.** Requires a Cloudflare API token
+as a repository secret. That is the same weakness this project already objected
+to in the Vercel setup: anyone with write access can push a workflow that prints
+a secret, and every editor has write access. Narrow the token to Pages:Edit if
+you take this route — it shrinks the blast radius but does not remove it.
+
+A is better on both counts: no credential in the repository, and no build
+minutes spent on GitHub Actions.
+
 ## 1. Docs site → Cloudflare Pages
 
 **Link:** https://dash.cloudflare.com/?to=/:account/pages/new/provider/github
@@ -121,19 +173,25 @@ Generate the signing secret locally and paste the output:
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
-### GitHub App
+### GitHub App — do this first
 
-The existing app points at the trial repository. Either install it on
-`Sim-Paisa/Api-docs-selfhosted` as well, or create a fresh one. Either way its
-**Callback URL** must become:
+`Sim-Paisa` is a personal account, not an organisation, so the app is created
+under personal settings. This link prefills every field, including the callback:
 
-```
-https://<worker-subdomain>.workers.dev/api/keystatic/github/oauth/callback
-```
+https://github.com/settings/apps/new?name=Simpaisa+Docs+Editor&description=Keystatic+editor+for+the+Simpaisa+API+documentation.&url=https%3A%2F%2Fsimpaisa-docs-editor.mohammad-omar.workers.dev&callback_urls%5B%5D=https%3A%2F%2Fsimpaisa-docs-editor.mohammad-omar.workers.dev%2Fapi%2Fkeystatic%2Fgithub%2Foauth%2Fcallback&request_oauth_on_install=true&public=false&webhook_active=false&contents=write&pull_requests=write
 
-Sign-in fails with a redirect mismatch until that matches exactly. The Worker
-subdomain is only known after the first deploy, so this is necessarily the last
-step — deploy, read the URL Cloudflare prints, then set it.
+It requests only **Contents: write** and **Pull requests: write** — enough to
+commit to a draft branch and open a pull request, and nothing else. Deliberately
+not *Workflows: write*, so a compromised editor session cannot rewrite CI.
+
+After creating it: generate a client secret, then install the app on
+`Sim-Paisa/Api-docs-selfhosted`. That yields the three values the build needs.
+
+The callback must match the deployed Worker exactly or sign-in fails with a
+redirect mismatch. It is
+`https://simpaisa-docs-editor.mohammad-omar.workers.dev/api/keystatic/github/oauth/callback`
+because `wrangler.jsonc` names the Worker `simpaisa-docs-editor` and the account
+subdomain is `mohammad-omar`. Rename either and this must change too.
 
 ### If you would rather deploy from the terminal after all
 
