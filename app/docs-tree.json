@@ -7,10 +7,10 @@
     "children": [
       {
         "type": "doc",
-        "label": "Overview",
-        "position": 80,
+        "label": "Environments",
+        "position": 90,
         "collection": "getting-started",
-        "slug": "overview"
+        "slug": "environments"
       },
       {
         "type": "doc",
@@ -28,10 +28,10 @@
       },
       {
         "type": "doc",
-        "label": "environments",
+        "label": "overview",
         "position": 999,
         "collection": "getting-started",
-        "slug": "environments"
+        "slug": "overview"
       }
     ]
   },
